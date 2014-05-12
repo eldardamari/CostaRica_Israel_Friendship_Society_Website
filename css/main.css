@@ -25,3 +25,26 @@ height:100px;
     height:100%;
 }
 
+.logo {
+    height:60%;
+}
+
+nav {
+    background-color:Maroon;
+    height:40%;
+}
+
+nav ul {
+    font-family:Arial,Verdana;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav ul li {
+    display: block;
+    position: relative;
+    float: left;
+    margin-left:10px;
+    margin-right:10px;
+}
