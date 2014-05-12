@@ -1,0 +1,17 @@
+body                {background-color:ivory;}
+
+#container_upper    {width:100%; height:100%; text-align:center;position:fixed;}
+#container_footer   {width:100%; height:100%; text-align:center; padding:10px 50px 20px 50px;}
+
+#content            {height:100%; width:100%;float:center; padding:10px 50px 20px 50px;}
+
+nav                 {background-color:#2C5463;}
+
+*.footer
+{
+    background-color:royalblue;
+    text-align:left;
+    font:bold 15px verdana;
+    border: 4px solid gray;
+    padding: 10px 50px 20px 20px;
+}*/
