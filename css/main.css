@@ -31,9 +31,16 @@ top:0px;
     height:60%;
 }
 
+#left_box_logo {
+    float:left;
+    padding-top:4px;
+    padding-bottom: 4px;
+    padding-left:4px;
+    margin-bottom:-2%;
+}
+
 #right_box_text {
     margin-right:1%;
-    margin-left:50%;
     margin-bottom:2%
 }
 
