@@ -5,3 +5,7 @@
 *.sig
 pkg/
 src/
+
+#IntelliJ Configuration
+.idea/
+*.iml
