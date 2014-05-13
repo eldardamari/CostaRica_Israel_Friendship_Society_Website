@@ -3,7 +3,7 @@ margin:0px;
 padding:0px;
 background-color:ivory;}
 
-#container_upper    {
+#main_header    {
 background: rgba(65,110,225,0.94);
 width:100%; 
 height:100px;
@@ -27,15 +27,21 @@ top:0px;
     border:1px solid black;
     background-color:GhostWhite;
 }
-
-.topbar {
+#container_upper {
     height:60%;
 }
 
+#right_box_text {
+    margin-right:1%;
+    margin-left:50%;
+    margin-bottom:2%
+}
+
 #company_he {
-    padding-top:1%;
+    padding-top:2%;
     padding-right:1%;
 }
+
 #company_en {
     padding-right:1%;
 }
@@ -45,7 +51,7 @@ nav {
 }
 
 nav ul {
-    font-family:"Arial Black", Gadget, sans-serif;
+    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
     color: gray;
     font-size: 15px;
     margin: 0;
