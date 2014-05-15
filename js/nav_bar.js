@@ -30,8 +30,8 @@ document.write("\
                                 <a href=\"subscribe.html\" lang=\"es\"> Suscribir</a>\
                             </li>\
                             <li>\
-                                <a href=\"contest.html\" lang=\"en\"> Know Costa Rica Contest</a>\
-                                <a href=\"contest.html\" lang=\"es\"> Costa Rica Concurso</a>\
+                                <a href=\"contest.php\" lang=\"en\"> Know Costa Rica Contest</a>\
+                                <a href=\"contest.php\" lang=\"es\"> Costa Rica Concurso</a>\
                             </li>\
                             <li>\
                                 <a href=\"contact.html\" lang=\"en\"> Contact Us</a>\
