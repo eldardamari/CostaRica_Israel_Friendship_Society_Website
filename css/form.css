@@ -1,0 +1,44 @@
+.general_form {
+    width: 350px;
+    margin-left: 24%;
+    border-width:thick;
+}
+
+.general_form fieldset {
+margin: 2%;
+border-radius: 22px;
+border-width: 2px;
+
+}
+
+.general_form fieldset label{
+    float: left;
+    width: 150px;
+    font-weight: bold;
+}
+
+.general_form fieldset select{
+    width: 110px;
+    font-weight: bold;
+}
+
+.general_form fieldset .form_field {
+    border-radius: 6px;
+    width: 120px;
+}
+
+.general_form fieldset .form_field:invalid {
+  background-color: #FAFAFA;
+}
+
+.general_form fieldset .form_field:valid {
+background-color: #ECFFEC;
+}
+
+.general_form fieldset .form_field:required{
+  border-color: #DDDDDD;
+}
+
+.general_form #formbuttons {
+    margin-left:25%;
+}
