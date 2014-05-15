@@ -1,5 +1,3 @@
-document.body.className='en';
-
 document.write("\
                 <div id=\"main_header\">\
                     <div id=\"container_upper\">\
@@ -14,36 +12,29 @@ document.write("\
                     <nav>\
                         <ul>\
                             <li>\
-                                <a href=\"index.html\" lang=\"en\"'> Home</a>\
-                                <a href=\"index.html\" lang=es> Inicio</a>\
+                                <a href=\"index.html\" > Home</a>\
                             </li>\
                             <li>\
-                                <a href=\"about.html\" lang=\"en\"> About us</a>\
-                                <a href=\"about.html\" lang=\"es\"> Sobre Nosotros</a>\
+                                <a href=\"about.html\" > About us</a>\
                             </li>\
                             <li>\
-                                <a href=\"events.html\" lang=\"en\"> Events</a>\
-                                <a href=\"events.html\" lang=\"es\"> Eventos</a>\
+                                <a href=\"events.html\" > Events</a>\
                             </li>\
                             <li>\
-                                <a href=\"subscribe.html\" lang=\"en\"> Subscribe</a>\
-                                <a href=\"subscribe.html\" lang=\"es\"> Suscribir</a>\
+                                <a href=\"subscribe.html\" > Subscribe</a>\
                             </li>\
                             <li>\
-                                <a href=\"contest.html\" lang=\"en\"> Know Costa Rica Contest</a>\
-                                <a href=\"contest.html\" lang=\"es\"> Costa Rica Concurso</a>\
+                                <a href=\"contest.php\" > Know Costa Rica Contest</a>\
                             </li>\
                             <li>\
-                                <a href=\"contact.html\" lang=\"en\"> Contact Us</a>\
-                                <a href=\"contact.html\" lang=\"es\"> Contáctenos</a>\
+                                <a href=\"contact.html\" > Contact Us</a>\
                             </li>\
                             <li id=\"language\">\
                                 <a href=\"#\" onclick=\"document.body.className='en'\"> English </a> /\
                                 <a href=\"#\" onclick=\"document.body.className='es'\">Español</a>\
                             </li>\
                             <li id=\"hello_user\">\
-                                <span lang=\"en\">Hello {{user}}</span>\
-                                <span lang=\"es\">Hola {{user}}</span>\
+                                Hello {{user}}\
                             </li>\
                         </ul>\
                     </nav>\
