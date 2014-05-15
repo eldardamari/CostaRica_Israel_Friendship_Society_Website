@@ -15,7 +15,7 @@ document.write('                                                                
                     <li><a href="about.html"> About us</a></li>                                         \
                     <li><a href="events.html"> Events</a></li>                                          \
                     <li><a href="subscribe.html"> Subscribe</a></li>                                    \
-                    <li><a href="contest.html"> Know Costa Rica Contest</a></li>                        \
+                    <li><a href="form.php"> Know Costa Rica Contest</a></li>                        \
                     <li><a href="contact.html"> Contact Us</a></li>                                     \
                     <li id="lang"><a href="#"> English </a> / <a href="#">Español</a></li>              \
                     <li id="hello_user">Hello {{user}}</li>                                             \

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
 </head>
 
 <body>
-<div>
+    <script src="/costaRicaIsrael/js/nav_bar.js"></script>
+
+<div id="container_center">
+<div class="container">
     <form class="general_form" method="get" action="form.php">
         <fieldset><legend>Personal data:</legend>
 
             <label for="fname">First name</label>
             <input class="form_field" type="text" name="fname" required><br>
-            
+
             <label for="lname">Last name</label>
             <input class="form_field" type="text" name="lname" required><br>
 
@@ -24,10 +28,10 @@
             <label for="gender">Gender</label>
             Male        <input type="radio" name="gender" value="male" required>
             Female      <input type="radio" name="gender" value="female" required><br>
-            
+
             <label for="Bdate">Date of birth</label>
             <input class="form_field" type="date" name="Bdate" required><br>
-            
+
             <label for="address">Address</label>
             <input class="form_field" type="text" name="address" required><br>
 
@@ -40,7 +44,7 @@
                     <option value="university">University</option>
                     <option value="college">College</option>
             </select><br>
-            
+
             <label for="institute">Institute name</label>
             <input class="form_field" type="text" name="fclty_name" required><br>
 
@@ -54,7 +58,7 @@
                 <option value="Education">
                 <option value="Art">
             </datalist><br>
-            
+
             <label for="degree">Degree</label>
             <input class="form_field" list="degree" name="degree[]" required>
             <datalist id="degree">
@@ -63,7 +67,7 @@
                 <option value="Master"></option>
                 <option value="PhD"></option>
             </datalist><br>
-            
+
             <label for="year">Year number</label>
             <input class="form_field" type="number" name="years" min="1" max="7" required><br>
         </fieldset>
@@ -74,6 +78,7 @@
         </div>
     </form>
 </div> 
+</div>
 </body>
 </html>
 
