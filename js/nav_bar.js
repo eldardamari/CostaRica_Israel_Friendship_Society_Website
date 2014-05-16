@@ -1,4 +1,14 @@
-document.body.className='en';
+if(!localStorage.getItem("lang")) {
+    document.body.className = 'en';
+    localStorage.setItem("lang", 'en');
+} else {
+    document.body.className = localStorage.getItem("lang");
+}
+
+function setLanguage(l) {
+    document.body.className = l;
+    localStorage.setItem("lang", l);
+}
 
 document.write("\
                 <div id=\"main_header\">\
@@ -7,7 +17,7 @@ document.write("\
                             <img id=\"logo\" src=\"img/logo.png\" alt=\"CR_IL_logo\" width=\"90\" height=\"45\">\
                         </div>\
                         <div id=\"right_box_text\">\
-                            <div id=\"company_he\" dir=\"rtl\"> אגודת ידידות קוסטה-ריקה ישראל </div>\
+                            <div id=\"company_he\" dir=\"rtl\" lang='en'> אגודת ידידות קוסטה-ריקה ישראל </div>\
                             <div id=\"company_en\" dir=\"rtl\"> Costa-Rica Israel Friendship Association </div>\
                         </div>\
                     </div>\
@@ -38,8 +48,8 @@ document.write("\
                                 <a href=\"contact.html\" lang=\"es\"> Contáctenos</a>\
                             </li>\
                             <li id=\"language\">\
-                                <a href=\"#\" onclick=\"document.body.className='en'\"> English </a> /\
-                                <a href=\"#\" onclick=\"document.body.className='es'\">Español</a>\
+                                <a href=\"#\" onclick=\"setLanguage('en')\"> English </a> /\
+                                <a href=\"#\" onclick=\"setLanguage('es')\">Español</a>\
                             </li>\
                             <li id=\"hello_user\">\
                                 <span lang=\"en\">Hello {{user}}</span>\
