@@ -80,6 +80,8 @@
         </div>
     </div>
 
+    <script src="/costaRicaIsrael/js/footer.js"></script>
+
 </body>
 </html>
 
