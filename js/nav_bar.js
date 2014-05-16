@@ -17,7 +17,7 @@ document.write("\
                             <img id=\"logo\" src=\"img/logo.png\" alt=\"CR_IL_logo\" width=\"90\" height=\"45\">\
                         </div>\
                         <div id=\"right_box_text\">\
-                            <div id=\"company_he\" dir=\"rtl\" lang='en'> אגודת ידידות קוסטה-ריקה ישראל </div>\
+                            <div id=\"company_he\" dir=\"rtl\"> אגודת ידידות קוסטה-ריקה ישראל </div>\
                             <div id=\"company_en\" dir=\"rtl\"> Costa-Rica Israel Friendship Association </div>\
                         </div>\
                     </div>\
