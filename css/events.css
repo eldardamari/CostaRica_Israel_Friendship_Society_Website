@@ -1,0 +1,25 @@
+.events_tablesName {
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: -webkit-center;
+    font-size: larger;
+    font-weight: 900
+}
+.eventsTables tr:hover {
+    background-color:rgba(226, 255, 199, 0.79);
+}
+.eventsTables{
+    width: 100%;
+    text-align: left;
+    background: whitesmoke;
+    border-radius:10px;
+}
+#general_events .dateCol{
+}
+#general_events .enameCol{
+}
+#general_events .infoCol{
+    padding-right: 10%;
+}
+#general_events .linkCol{
+}
