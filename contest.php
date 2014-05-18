@@ -53,19 +53,19 @@
                 </fieldset>
                 <fieldset><legend>Student data:</legend>
 
-                    <label for="Institution">Institution</label>
-                    <select class="form_field" name="Institution[]" required>
+                    <label for="institution">Institution</label>
+                    <select class="form_field" id="institution" required>
                             <option disabled selected value="">Please select..</option>
                             <option value="university">University</option>
                             <option value="college">College</option>
                     </select><br>
 
-                    <label for="institute">Institute id</label>
-                    <input class="form_field" type="text" name="fclty_name" required><br>
+                    <label for="institute_id">Institute id</label>
+                    <input class="form_field" type="text" id="institute_id" required><br>
 
                     <label for="faculty">Faculty</label>
-                    <input class="form_field" list="fclty" name="faculty" required>
-                    <datalist id="fclty">
+                    <input class="form_field" list="faculty_list" id="faculty" required>
+                    <datalist id="faculty_list">
                         <option value="Natural Sciences">
                         <option value="Engineering Science">
                         <option value="Humanities and Social Sciences">
@@ -75,16 +75,16 @@
                     </datalist><br>
 
                     <label for="degree">Degree</label>
-                    <input class="form_field" list="degree" name="degree[]" required>
-                    <datalist id="degree">
+                    <input class="form_field" list="degree_list" id="degree" required>
+                    <datalist id="degree_list">
                         <option disabled selected value="please select">Please select..</option>
                         <option value="Bachelor"></option>
                         <option value="Master"></option>
                         <option value="PhD"></option>
                     </datalist><br>
 
-                    <label for="year">Year number</label>
-                    <input class="form_field" type="number" name="years" min="1" max="7" required><br>
+                    <label for="year_number">Year number</label>
+                    <input class="form_field" type="number" id="year_number" min="1" max="7" required><br>
                 </fieldset>
                 <br>
                 <div id="formbuttons">
