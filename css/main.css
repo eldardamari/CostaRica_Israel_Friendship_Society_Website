@@ -46,13 +46,15 @@ body.es :lang(en) {
 #main_footer {
     width:100%;
     background: rgba(65,110,225,0.94);
+    color: whitesmoke;
+    text-align: center;
 }
 
 .container {
     margin-top:2%;
     padding: 2%;
     background-color:White;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 #container_upper {

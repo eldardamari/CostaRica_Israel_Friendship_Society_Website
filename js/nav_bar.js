@@ -36,8 +36,8 @@ document.write("\
                                 <a href=\"events.html\" lang=\"es\"> Eventos</a>\
                             </li>\
                             <li>\
-                                <a href=\"subscribe.html\" lang=\"en\"> Subscribe</a>\
-                                <a href=\"subscribe.html\" lang=\"es\"> Suscribir</a>\
+                                <a href=\"subscribe.php\" lang=\"en\"> Subscribe</a>\
+                                <a href=\"subscribe.php\" lang=\"es\"> Suscribir</a>\
                             </li>\
                             <li>\
                                 <a href=\"contest.php\" lang=\"en\"> Know Costa Rica Contest</a>\

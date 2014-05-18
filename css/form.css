@@ -1,44 +1,80 @@
 .general_form {
-    /*width: 350px;
-    margin-left: 24%;
-    border-width:thick;*/
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .general_form fieldset {
-margin: 2%;
-border-radius: 22px;
-border-width: 2px;
-
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 5px;
+    border-width: 1px;
 }
 
-.general_form fieldset label{
+.general_form label {
     float: left;
     width: 150px;
     font-weight: bold;
 }
 
-.general_form fieldset select{
-    width: 110px;
-    font-weight: bold;
+.general_form .gender {
+    font-weight: normal;
+    float: none;
 }
 
-.general_form fieldset .form_field {
-    border-radius: 6px;
-    width: 40%;
+.general_form select {
+    /*width: 110px;*/
+    /*font-weight: bold;*/
 }
 
-.general_form fieldset .form_field:invalid {
-  background-color: #FAFAFA;
+.general_form .form_field {
+    border-width: 1px;
+    border-radius: 3px;
+    outline: 0;
 }
 
-.general_form fieldset .form_field:valid {
-background-color: #ECFFEC;
+.general_form .form_field:required {
+    border-color: #DDDDDD;
 }
 
-.general_form fieldset .form_field:required{
-  border-color: #DDDDDD;
+.general_form .form_field:invalid {
+    background-color: #FAFAFA;
+}
+
+.general_form .form_field:valid {
+    background-color: #ECFFEC;
 }
 
 .general_form #formbuttons {
     margin-left:35%;
+}
+
+.general_form .btn_default {
+    border-radius: 3px;
+    border-width: 1px;
+    width: 90px;
+    height: 30px;
+    vertical-align: middle; /* align the text vertically centered */
+    outline: 0;
+}
+
+.btn_icon {
+    border: none;           /* assuming we don't want any borders */
+    height: 16px;           /* make this the size of your image */
+    vertical-align: middle; /* align the text vertically centered */
+}
+
+.icon_accept {
+    content: url(/costaRicaIsrael/img/icons/accept.png);
+}
+
+.icon_refresh {
+    content:  url(/costaRicaIsrael/img/icons/refresh.png);
+}
+
+.icon_add {
+    content:  url(/costaRicaIsrael/img/icons/add.png);
+}
+
+.icon_order {
+    content:  url(/costaRicaIsrael/img/icons/order.png);
 }

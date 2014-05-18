@@ -3,6 +3,19 @@
 <head>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
+    <script>
+
+        function validateDate()
+        {
+            var birthDate = document.getElementById('bDate').value;
+
+            if (Date.parse(birthDate) > Date.now()) {
+                document.getElementById('bDate').style.background = "#FAA59E";
+            }
+            else
+                document.getElementById('bDate').style.background = "#ECFFEC";
+        }
+    </script>
 </head>
 
 <body>
@@ -14,38 +27,40 @@
                 <fieldset><legend>Personal data:</legend>
 
                     <label for="fname">First name</label>
-                    <input class="form_field" type="text" name="fname" required><br>
+                    <input class="form_field" type="text" id="fname" autofocus="" required><br>
 
                     <label for="lname">Last name</label>
-                    <input class="form_field" type="text" name="lname" required><br>
+                    <input class="form_field" type="text" id="lname" required><br>
 
                     <label for="email">Email</label>
-                    <input class="form_field" type="email" name="email" required><br>
+                    <input class="form_field" type="email" id="email" required><br>
 
                     <label for="mobile">Mobile number</label>
-                    <input class="form_field" type="tel" required pattern="[05]{2}[0-9]{8}" title="Enter a vaild Israeli mobile number"><br><br>
+                    <input class="form_field" type="tel" id="mobile" required pattern="[05]{2}[0-9]{8}" title="Enter a vaild Israeli mobile number"><br><br>
 
-                    <label for="gender">Gender</label>
-                    Male        <input type="radio" name="gender" value="male" required>
-                    Female      <input type="radio" name="gender" value="female" required><br>
+                    <label>Gender</label>
+                    <label class="gender" for="male">Male</label>
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label class="gender" for="female">Female</label>
+                    <input type="radio" id="female" name="gender" value="female" required><br>
 
-                    <label for="Bdate">Date of birth</label>
-                    <input class="form_field" type="date" name="Bdate" required><br>
+                    <label for="bDate">Date of birth</label>
+                    <input class="form_field" type="date" id="bDate" min="1920-01-02" onchange="validateDate()" required><br>
 
                     <label for="address">Address</label>
-                    <input class="form_field" type="text" name="address" required><br>
+                    <input class="form_field" type="text" id="address" required><br>
 
                 </fieldset>
                 <fieldset><legend>Student data:</legend>
 
                     <label for="Institution">Institution</label>
                     <select class="form_field" name="Institution[]" required>
-                            <option disabled selected value="please select.." >Please select..</option>
+                            <option disabled selected value="">Please select..</option>
                             <option value="university">University</option>
                             <option value="college">College</option>
                     </select><br>
 
-                    <label for="institute">Institute name</label>
+                    <label for="institute">Institute id</label>
                     <input class="form_field" type="text" name="fclty_name" required><br>
 
                     <label for="faculty">Faculty</label>
@@ -73,8 +88,8 @@
                 </fieldset>
                 <br>
                 <div id="formbuttons">
-                <input class="form_field" type="submit" value="Submit Form">
-                <input class="form_field" type="reset" value="Reset Form"><br>
+                    <button class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Submit</button>
+                    <button class="btn_default" type="reset"><span class="btn_icon icon_refresh"></span> Reset</button>
                 </div>
             </form>
         </div>
