@@ -60,7 +60,7 @@
                             <option value="college">College</option>
                     </select><br>
 
-                    <label for="institute_id">Institute id</label>
+                    <label for="institute_id">Institute name</label>
                     <input class="form_field" type="text" id="institute_id" required><br>
 
                     <label for="faculty">Faculty</label>
@@ -88,7 +88,7 @@
                 </fieldset>
                 <br>
                 <div id="formbuttons">
-                    <button class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Submit</button>
+                    <button class="btn_default" type="submit"><span class="btn_icon icon_add"></span> Submit</button>
                     <button class="btn_default" type="reset"><span class="btn_icon icon_refresh"></span> Reset</button>
                 </div>
             </form>
