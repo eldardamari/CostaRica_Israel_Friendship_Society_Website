@@ -5,8 +5,9 @@
     font-size: larger;
     font-weight: 900
 }
-.eventsTables tr:hover {
+.eventsTables tr:not(:first-child):hover {
     background-color:rgba(226, 255, 199, 0.79);
+    cursor: pointer;
 }
 .eventsTables{
     width: 100%;
