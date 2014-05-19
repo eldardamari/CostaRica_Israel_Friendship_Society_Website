@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
@@ -86,9 +86,8 @@
                     <label for="year_number">Year number</label>
                     <input class="form_field" type="number" id="year_number" min="1" max="7" required><br>
                 </fieldset>
-                <br>
                 <div id="formbuttons">
-                    <button class="btn_default" type="submit"><span class="btn_icon icon_add"></span> Submit</button>
+                    <button class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Submit</button>
                     <button class="btn_default" type="reset"><span class="btn_icon icon_refresh"></span> Reset</button>
                 </div>
             </form>
