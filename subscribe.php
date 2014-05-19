@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
@@ -30,9 +30,10 @@
                     <input class="" type="checkbox" id="newsletter"><br>
 
                 </fieldset>
-                <button class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Submit</button>
-                <button class="btn_default" type="reset"><span class="btn_icon icon_refresh"></span> Reset</button>
-                <br>
+                <div id="formbuttons">
+                    <button class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Submit</button>
+                    <button class="btn_default" type="reset"><span class="btn_icon icon_refresh"></span> Reset</button>
+                </div>
             </form>
         </div>
     </div>
