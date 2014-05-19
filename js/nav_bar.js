@@ -51,10 +51,6 @@ document.write("\
                                 <a href=\"#\" onclick=\"setLanguage('en')\"> English </a> /\
                                 <a href=\"#\" onclick=\"setLanguage('es')\">Español</a>\
                             </li>\
-                            <li id=\"hello_user\">\
-                                <span lang=\"en\">Hello {{user}}</span>\
-                                <span lang=\"es\">Hola {{user}}</span>\
-                            </li>\
                         </ul>\
                     </nav>\
                 </div>\
