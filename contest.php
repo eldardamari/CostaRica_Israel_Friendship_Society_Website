@@ -36,7 +36,7 @@
                     <input class="form_field" type="email" id="email" required><br>
 
                     <label for="mobile">Mobile number</label>
-                    <input class="form_field" type="tel" id="mobile" required pattern="[05]{2}[0-9]{8}" title="Enter a vaild Israeli mobile number"><br><br>
+                    <input class="form_field" type="tel" id="mobile" required pattern="[05]{2}[0|2-9][0-9]{7}" title="Enter a vaild Israeli mobile number"><br><br>
 
                     <label>Gender</label>
                     <label class="gender" for="male">Male</label>
