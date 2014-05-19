@@ -5,10 +5,10 @@ function line(date,ename,desc,link) {
     this.link = link;
 }
 
-line1 = new line("date1","event1","desc1","www.google.com");
-line2 = new line("date2","event2","desc2","www.facebook.com");
-line3 = new line("date3","event3","desc3","www.apple.com");
-line4 = new line("date4","event4","desc4","www.sony.com");
+line1 = new line("1/1/2014","event1 event1 event1 event1 event1 event1 event1 event1 event1 event1 event1 ","Example 1","www.google.com");
+line2 = new line("1/1/2014","event2 event2 event2 event2 event2 event2 event2 event2 event2 event2 event2","Example 2 Example 2 Example 2 Example 2 Example 2 Example 2 Example 2 Example 2","www.facebook.com");
+line3 = new line("1/1/2014","event3","Example 3","www.apple.com");
+line4 = new line("1/1/2014","event4","Example 4","www.sony.com");
 
 var data = new Array();
 data.push(line1); data.push(line2);
@@ -25,6 +25,7 @@ function insertDataToTable(table_name) {
                 document.location = "http://" + this.cells[3].innerHTML;
             };
             var line = data[i];
+            row.alt = "click for more info";
             row.insertCell(0).innerHTML = line.date;
             row.insertCell(1).innerHTML = line.ename;
             row.insertCell(2).innerHTML = line.desc;
@@ -35,11 +36,11 @@ function insertDataToTable(table_name) {
 
 function eventsHeader() {
     document.write("\
-                <tr class=\"table_header\" lang=\"en\">\
+                <tr class=\"table_header\" id='table_header' lang=\"en\">\
                     <th class=\"dateCol\"> Date </th>\
                     <th class=\"enameCol\"> Event Name</th>\
                     <th class=\"infoCol\"> Description </th>\
-                    <th class=\"linkCol\"> link </th>\
+                    <th class=\"linkCol\"> Link </th>\
                 </tr>\
                 <tr class=\"table_header\" lang=\"es\">\
                     <th class=\"dateCol\"> Fecha </th>\

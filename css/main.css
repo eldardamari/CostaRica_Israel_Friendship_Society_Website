@@ -53,6 +53,7 @@ body.es :lang(en) {
 .container {
     margin-top:2%;
     padding: 2%;
+    /*width: 100%;*/
     background-color:White;
     border-radius: 10px;
 }
