@@ -4,12 +4,11 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/events.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/modal.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/costaRicaIsrael/js/modal.js"></script>
 
     <meta charset="utf-8" />
     <title>Costa Rica Israel</title>
-
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="/costaRicaIsrael/js/modal.js"></script>
 </head>
 
 <body>
@@ -20,11 +19,7 @@
             <p class="events_tablesName">{{ Event - name from DB}}</p><hr>
             <p class="text">{{ Details from DB }}</p>
 
-            <div class="imageTable">
-                <a href="#openModal" onclick="setIndex(1)"><img class="thumb" src='/costaRicaIsrael/img/event/1.jpg'></a>
-                <a href="#openModal" onclick="setIndex(2)"><img class="thumb" src='/costaRicaIsrael/img/event/2.jpg'></a>
-                <a href="#openModal" onclick="setIndex(3)"><img class="thumb" src='/costaRicaIsrael/img/event/3.jpg'></a>
-            </div>
+            <div class="imageTable">...</div>
         </div>
     </div>
 
@@ -36,11 +31,11 @@
             <div>
                 <table>
                     <tr>
-                        <td onclick="toggleLeft();"> <a href="#openModal"><p class="text"><strong> << </strong></p></a> </td>
+                        <td onclick="toggleLeft();"> <a href="#openModal"><span class="arrow_left"></span></a> </td>
 
                         <td id="image"></td>
 
-                        <td onclick="toggleRight();"> <a href="#openModal"><p class="text"><strong> >> </strong></p></a> </td>
+                        <td onclick="toggleRight();"> <a href="#openModal"><span class="arrow_right"></span></a> </td>
                     </tr>
                 </table>
 
