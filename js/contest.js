@@ -1,4 +1,17 @@
-function line(pic,wname,major,uni) {
+function validateDate()
+{
+    alert("!2");
+    var birthDate = document.getElementById('bDate').value;
+
+    if (Date.parse(birthDate) > Date.now()) {
+        document.getElementById('bDate').style.background = "#FAA59E";
+    }
+    else
+        document.getElementById('bDate').style.background = "#ECFFEC";
+}
+
+function line(place,pic,wname,major,uni) {
+    this.place = place;
     this.picPath = pic;
     this.wname  = wname;
     this.major  = major;
@@ -20,7 +33,7 @@ function insertDataToTable(table_name) {
             var row         = gTable.insertRow(rowlength);
             };
             var line = data[i];
-            row.insertCell(0).innerHTML = "1st";
+            row.insertCell(0).innerHTML = line.place;
             row.insertCell(1).innerHTML = "<img id='myPic' src='" + line.picPath + "' height:'100' width='100'/>";
             row.insertCell(2).innerHTML = line.wname;
             row.insertCell(3).innerHTML = line.major;
@@ -46,14 +59,6 @@ function eventsHeader() {
     ");
 }
 
-function validateDate()
-{
-    alert("!@!@");
-    var birthDate = document.getElementById('bDate').value;
-
-    if (Date.parse(birthDate) > Date.now()) {
-        document.getElementById('bDate').style.background = "#FAA59E";
-    }
-    else
-        document.getElementById('bDate').style.background = "#ECFFEC";
+function win() {
+    alert("batz");
 }

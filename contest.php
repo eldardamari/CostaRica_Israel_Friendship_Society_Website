@@ -4,23 +4,11 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/contest.css">
-    <script>
+    <script src="/costaRicaIsrael/js/contest.js"></script>
 
-        function validateDate()
-        {
-            var birthDate = document.getElementById('bDate').value;
-
-            if (Date.parse(birthDate) > Date.now()) {
-                document.getElementById('bDate').style.background = "#FAA59E";
-            }
-            else
-                document.getElementById('bDate').style.background = "#ECFFEC";
-        }
-    </script>
 </head>
 
 <body>
-    <script src="/costaRicaIsrael/js/contest.js"></script>
     <script src="/costaRicaIsrael/js/nav_bar.js"></script>
 
     <div id="container_center">
@@ -97,6 +85,7 @@
             <br><hr><br>
 
             <h2> Know The Winners </h2>
+            <script> win(); </script>
 
         </div>
     </div>
