@@ -1,13 +1,24 @@
+function validateDate()
+{
+    var birthDate = document.getElementById('bDate').value;
+
+    if (Date.parse(birthDate) > Date.now()) {
+        document.getElementById('bDate').style.background = "#FAA59E";
+    }
+    else
+        document.getElementById('bDate').style.background = "#ECFFEC";
+}
+
 function line(pic,wname,major) {
     this.picPath = pic;
     this.wname = wname;
     this.major = major;
 }
 
-line1 = new line("./img/1.jpg"   ,"Might Baby" ,"CEO"  ,"02-4738374<br> baby@bab.com");
-line2 = new line("./img/2.jpg"   ,"Old Oldios" ,"CTO"  ,"03-4343424<br> old@old.com");
-line3 = new line("./img/3.jpg"   ,"Biz Man"    ,"ISO"  ,"05-3232323<br> ma@ma.com");
-line4 = new line("./img/4.jpg"   ,"Dude Smile" ,"IT"   ,"07-3123124<br> smile@smile.com");
+    line1 = new line("./img/1.jpg"   ,"Might Baby" ,"CEO"  ,"02-4738374<br> baby@bab.com");
+    line2 = new line("./img/2.jpg"   ,"Old Oldios" ,"CTO"  ,"03-4343424<br> old@old.com");
+    line3 = new line("./img/3.jpg"   ,"Biz Man"    ,"ISO"  ,"05-3232323<br> ma@ma.com");
+    line4 = new line("./img/4.jpg"   ,"Dude Smile" ,"IT"   ,"07-3123124<br> smile@smile.com");
 
 var data = new Array();
 data.push(line1); data.push(line2);
@@ -48,4 +59,8 @@ function eventsHeader() {
                     <th class=\"linkCol\"></th>\
                 </tr>\
     ");
+}
+
+function win() {
+    alert("batz");
 }
