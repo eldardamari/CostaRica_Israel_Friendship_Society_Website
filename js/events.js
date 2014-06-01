@@ -16,6 +16,7 @@ data.push(line3); data.push(line4);
 
 
 function insertDataToTable(table_name) {
+    alert("12");
     var gTable  = document.getElementById(table_name);
     {
         for(var i = 0 ; i < data.length ; i++) {

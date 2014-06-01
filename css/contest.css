@@ -6,33 +6,35 @@
     font-weight: 900
 }
 
-.membersTable tr:not(:first-child):hover {
+.winnersTable tr:not(:first-child):hover {
     background-color:rgba(226, 255, 199, 0.79);
     cursor: pointer;
 }
-.membersTable{
+
+.winnersTable{
     width: 100%;
     text-align: left;
     background: whitesmoke;
     border-radius:10px;
 }
-.membersTable td:nth-child(2){
+
+.winnersTable td:nth-child(2){
     color:SteelBlue;
     padding-left:4%;
 }
 
-#members_table .picCol{
+#members_table .place{
     width:10%;
 }
 
-#members_table .mnameCol{
+#members_table .wname{
     width: 35%;
 }
 
-#members_table .jobDescCol{
+#members_table .major{
     padding-right: 30%;
 }
 
-#members_table .linkCol{
+#members_table .uni{
     width: 25%;
 }

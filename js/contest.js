@@ -1,34 +1,30 @@
-function line(pic,wname,major) {
+function line(pic,wname,major,uni) {
     this.picPath = pic;
-    this.wname = wname;
-    this.major = major;
+    this.wname  = wname;
+    this.major  = major;
+    this.uni    = uni;
 }
 
-line1 = new line("./img/1.jpg"   ,"Might Baby" ,"CEO"  ,"02-4738374<br> baby@bab.com");
-line2 = new line("./img/2.jpg"   ,"Old Oldios" ,"CTO"  ,"03-4343424<br> old@old.com");
-line3 = new line("./img/3.jpg"   ,"Biz Man"    ,"ISO"  ,"05-3232323<br> ma@ma.com");
-line4 = new line("./img/4.jpg"   ,"Dude Smile" ,"IT"   ,"07-3123124<br> smile@smile.com");
+line1 = new line("1st", "./img/1.jpg"   ,"Jhon Snow"  ,"Computer Science","BGU");
+line2 = new line("2nd", "./img/2.jpg"   ,"Ayra Stark" ,"Engineering","TAU");
 
 var data = new Array();
 data.push(line1); data.push(line2);
-data.push(line3); data.push(line4);
-
 
 function insertDataToTable(table_name) {
     var gTable  = document.getElementById(table_name);
+    alert(table_name);
     {
         for(var i = 0 ; i < data.length ; i++) {
-            var rowlength = gTable.rows.length;
-            var row     = gTable.insertRow(rowlength);
-            row.onmousedown = function mDown() {
-                document.location = "http://" + this.cells[3].innerHTML;
+            var rowlength   = gTable.rows.length;
+            var row         = gTable.insertRow(rowlength);
             };
             var line = data[i];
-            row.alt = "click for more info";
-            row.insertCell(0).innerHTML = "<img id='myPic' src='" + line.picPath + "' height:'100' width='100'/>";
-            row.insertCell(1).innerHTML = line.mname;
-            row.insertCell(2).innerHTML = line.desc;
-            row.insertCell(3).innerHTML = line.link;
+            row.insertCell(0).innerHTML = "1st";
+            row.insertCell(1).innerHTML = "<img id='myPic' src='" + line.picPath + "' height:'100' width='100'/>";
+            row.insertCell(2).innerHTML = line.wname;
+            row.insertCell(3).innerHTML = line.major;
+            row.insertCell(4).innerHTML = line.uni;
         }
     }
 }
@@ -36,16 +32,28 @@ function insertDataToTable(table_name) {
 function eventsHeader() {
     document.write("\
                 <tr class=\"table_header\" id='table_header' lang=\"en\">\
-                    <th class=\"picCol\"></th>\
-                    <th class=\"mnameCol\"></th>\
-                    <th class=\"jobDesc\"></th>\
-                    <th class=\"linkCol\"></th>\
+                    <th class=\"place\"></th>\
+                    <th class=\"wname\"></th>\
+                    <th class=\"major\"></th>\
+                    <th class=\"uni\"></th>\
                 </tr>\
                 <tr class=\"table_header\" lang=\"es\">\
-                    <th class=\"picCol\"></th>\
-                    <th class=\"mnameCol\"></th>\
-                    <th class=\"jobDescCol\"></th>\
-                    <th class=\"linkCol\"></th>\
+                    <th class=\"place\"></th>\
+                    <th class=\"wname\"></th>\
+                    <th class=\"major\"></th>\
+                    <th class=\"uni\"></th>\
                 </tr>\
     ");
+}
+
+function validateDate()
+{
+    alert("!@!@");
+    var birthDate = document.getElementById('bDate').value;
+
+    if (Date.parse(birthDate) > Date.now()) {
+        document.getElementById('bDate').style.background = "#FAA59E";
+    }
+    else
+        document.getElementById('bDate').style.background = "#ECFFEC";
 }
