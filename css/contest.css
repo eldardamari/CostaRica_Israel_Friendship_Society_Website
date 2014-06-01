@@ -14,17 +14,16 @@
 .winnersTable{
     width: 100%;
     text-align: left;
-    background: whitesmoke;
+    /*background: whitesmoke;*/
     border-radius:10px;
 }
 
 .winnersTable td:nth-child(2){
     color:SteelBlue;
-    padding-left:4%;
 }
 
 #members_table .place{
-    width:10%;
+    width:5%;
 }
 
 #members_table .wname{

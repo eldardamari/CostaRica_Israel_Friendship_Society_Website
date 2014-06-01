@@ -4,7 +4,10 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/contest.css">
+    <link rel="stylesheet" href="/costaRicaIsrael/css/modal.css">
     <script src="/costaRicaIsrael/js/contest.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/costaRicaIsrael/js/modal.js"></script>
 
 </head>
 
@@ -85,7 +88,35 @@
             <br><hr><br>
 
             <h2> Know The Winners </h2>
-            <script> win(); </script>
+
+            <h3>  2013 contest winners - #8 </h3>
+            <table class="winnersTable" id="winners_6">
+                    <script> eventsHeader(); </script>
+            </table>
+
+            <script>insertDataToTable("winners_6"); </script>
+
+            <br>
+            <div class="imageTable"></div>
+    
+
+<div id="openModal" class="modalDialog">
+        <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <div>
+                <table>
+                    <tr>
+                        <td onclick="toggleLeft();"> <a href="#openModal"><span class="arrow_left"></span></a> </td>
+
+                        <td id="image"></td>
+
+                        <td onclick="toggleRight();"> <a href="#openModal"><span class="arrow_right"></span></a> </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
 
         </div>
     </div>

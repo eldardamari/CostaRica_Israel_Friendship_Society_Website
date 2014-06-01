@@ -1,6 +1,5 @@
 function validateDate()
 {
-    alert("!2");
     var birthDate = document.getElementById('bDate').value;
 
     if (Date.parse(birthDate) > Date.now()) {
@@ -26,20 +25,17 @@ data.push(line1); data.push(line2);
 
 function insertDataToTable(table_name) {
     var gTable  = document.getElementById(table_name);
-    alert(table_name);
-    {
         for(var i = 0 ; i < data.length ; i++) {
             var rowlength   = gTable.rows.length;
             var row         = gTable.insertRow(rowlength);
-            };
+
             var line = data[i];
             row.insertCell(0).innerHTML = line.place;
-            row.insertCell(1).innerHTML = "<img id='myPic' src='" + line.picPath + "' height:'100' width='100'/>";
+            row.insertCell(1).innerHTML = "<img id='myPic' src='" + line.picPath + "' height:'50' width='50'/>";
             row.insertCell(2).innerHTML = line.wname;
             row.insertCell(3).innerHTML = line.major;
             row.insertCell(4).innerHTML = line.uni;
         }
-    }
 }
 
 function eventsHeader() {
@@ -57,8 +53,4 @@ function eventsHeader() {
                     <th class=\"uni\"></th>\
                 </tr>\
     ");
-}
-
-function win() {
-    alert("batz");
 }
