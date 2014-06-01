@@ -28,8 +28,12 @@ document.write("\
                                 <a href=\"index.html\" lang=es> Inicio</a>\
                             </li>\
                             <li>\
-                                <a href=\"about.html\" lang=\"en\"> About us</a>\
-                                <a href=\"about.html\" lang=\"es\"> Sobre Nosotros</a>\
+                                <a href=\"aboutus.html\" lang=\"en\"> About us</a>\
+                                <a href=\"aboutus.html\" lang=\"es\"> Sobre Nosotros</a>\
+                            </li>\
+                            <li>\
+                                <a href=\"aboutme.html\" lang=\"en\">{About me}</a>\
+                                <a href=\"aboutme.html\" lang=\"es\">{acerca de mí}</a>\
                             </li>\
                             <li>\
                                 <a href=\"events.html\" lang=\"en\"> Events</a>\

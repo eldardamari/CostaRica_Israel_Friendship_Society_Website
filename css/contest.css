@@ -1,0 +1,38 @@
+.events_tablesName {
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: -webkit-center;
+    font-size: larger;
+    font-weight: 900
+}
+
+.membersTable tr:not(:first-child):hover {
+    background-color:rgba(226, 255, 199, 0.79);
+    cursor: pointer;
+}
+.membersTable{
+    width: 100%;
+    text-align: left;
+    background: whitesmoke;
+    border-radius:10px;
+}
+.membersTable td:nth-child(2){
+    color:SteelBlue;
+    padding-left:4%;
+}
+
+#members_table .picCol{
+    width:10%;
+}
+
+#members_table .mnameCol{
+    width: 35%;
+}
+
+#members_table .jobDescCol{
+    padding-right: 30%;
+}
+
+#members_table .linkCol{
+    width: 25%;
+}

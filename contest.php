@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
+    <link rel="stylesheet" href="/costaRicaIsrael/css/contest.css">
     <script>
 
         function validateDate()
@@ -19,10 +20,12 @@
 </head>
 
 <body>
+    <script src="/costaRicaIsrael/js/contest.js"></script>
     <script src="/costaRicaIsrael/js/nav_bar.js"></script>
 
     <div id="container_center">
         <div class="container">
+            <h2> Registration</h2>
             <form class="general_form" method="get" action="form.php">
                 <fieldset><legend>Personal data:</legend>
 
@@ -91,9 +94,12 @@
                     <button class="btn_default" type="reset"><span class="btn_icon icon_refresh"></span> Reset</button>
                 </div>
             </form>
+            <br><hr><br>
+
+            <h2> Know The Winners </h2>
+
         </div>
     </div>
-    
     <script src="/costaRicaIsrael/js/footer.js"></script>
 
 </body>
