@@ -47,7 +47,40 @@ body.es :lang(en) {
     width:100%;
     background: rgba(65,110,225,0.94);
     color: whitesmoke;
-    text-align: center;
+    position: relative;
+}
+#main_footer hr {
+    display: inline-block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    width: 98%;
+    margin-bottom: 0px;
+    margin-top: 41px;
+    border-top-width: 0.5;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#main_footer_copyNres {
+    font-size:small;
+    height:50px;
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+}
+#Copyright {
+    text-align:left;
+    float:left;
+    padding-left:4px;
+}
+#resolution {
+    text-align:right;
+    float:right;
+    padding-right:4px;
 }
 
 .container {
@@ -120,6 +153,7 @@ nav ul {
     padding-left: 5px;
     list-style: none;
 }
+
 nav ul li {
     display: block;
     position: relative;
