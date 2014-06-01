@@ -32,10 +32,6 @@ document.write("\
                                 <a href=\"aboutus.html\" lang=\"es\"> Sobre Nosotros</a>\
                             </li>\
                             <li>\
-                                <a href=\"aboutme.html\" lang=\"en\">{About me}</a>\
-                                <a href=\"aboutme.html\" lang=\"es\">{acerca de mí}</a>\
-                            </li>\
-                            <li>\
                                 <a href=\"events.html\" lang=\"en\"> Events</a>\
                                 <a href=\"events.html\" lang=\"es\"> Eventos</a>\
                             </li>\
