@@ -5,10 +5,10 @@ function line(date,ename,desc,link) {
     this.link = link;
 }
 
-line1 = new line("1/1/2014","event1 event1 event1 event1 event1 event1 event1 event1 event1 event1 event1 ","Example 1","www.google.com");
-line2 = new line("1/1/2014","event2 event2 event2 event2 event2 event2 event2 event2 event2 event2 event2","Example 2 Example 2 Example 2 Example 2 Example 2 Example 2 Example 2 Example 2","www.facebook.com");
-line3 = new line("1/1/2014","event3","Example 3","www.apple.com");
-line4 = new line("1/1/2014","event4","Example 4","www.sony.com");
+line1 = new line("1/1/2014","event1 "   ,"Example 1","www.google.com");
+line2 = new line("1/1/2014","event2 "   ,"Example 2","www.facebook.com");
+line3 = new line("1/1/2014","event3"    ,"Example 3","www.apple.com");
+line4 = new line("1/1/2014","event4"    ,"Example 4","www.sony.com");
 
 var data = new Array();
 data.push(line1); data.push(line2);
@@ -22,7 +22,8 @@ function insertDataToTable(table_name) {
             var rowlength = gTable.rows.length;
             var row     = gTable.insertRow(rowlength);
             row.onmousedown = function mDown() {
-                document.location = "http://" + this.cells[3].innerHTML;
+                /*document.location = "http://" + this.cells[3].innerHTML;*/
+                document.location = "/costaRicaIsrael/event.html";
             };
             var line = data[i];
             row.alt = "click for more info";
