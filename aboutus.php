@@ -3,8 +3,8 @@
 <head>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/aboutus.css">
-    <meta charset="utf-8" />
     <?php require './con_util.php' ?>
+    <meta charset="utf-8" />
     <title>Costa Rica Israel</title>
 </head>
 
@@ -30,6 +30,7 @@
                 $query = "SELECT * FROM members";
                 $query_data = set_con_get_query_data($con,$query);
                 
+
                 while($row = mysqli_fetch_row($query_data)) {
                     $new_row = array(  
                                     "name"        => $row[0],
