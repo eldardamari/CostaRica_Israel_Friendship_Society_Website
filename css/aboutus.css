@@ -10,12 +10,14 @@
     background-color:rgba(226, 255, 199, 0.79);
     cursor: pointer;
 }
+
 .membersTable{
     width: 100%;
     text-align: left;
     background: whitesmoke;
     border-radius:10px;
 }
+
 .membersTable td:nth-child(2){
     color:SteelBlue;
     padding-left:4%;
@@ -35,4 +37,9 @@
 
 #members_table .linkCol{
     width: 25%;
+}
+
+#myPic { 
+    height: 100px;
+    width:  100px;
 }
