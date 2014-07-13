@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/aboutme.css">
     <?php require './con_util.php' ?>
+
     <meta charset="utf-8" />
     <title>Costa Rica Israel</title>
 </head>
@@ -65,7 +66,6 @@
                 } else {
                     printf("Argument is missing..: \n");
                     exit();
-
                 }
 ?>
 

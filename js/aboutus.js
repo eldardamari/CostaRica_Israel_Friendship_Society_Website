@@ -17,8 +17,6 @@ function eventsHeader() {
 
 
 function open_abomePage(id) {
-
     document.location = "/costaRicaIsrael/aboutme.php?id="+id;
-
-
 }
+

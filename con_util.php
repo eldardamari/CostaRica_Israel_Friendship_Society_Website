@@ -25,7 +25,7 @@
             }
         }
         
-        function get_query_date(&$con,$query) {
+        function get_query_data(&$con,$query) {
                 if (func_num_args() == 2) {
                     if ($query_data = mysqli_query($con, $query))
                         return $query_data;

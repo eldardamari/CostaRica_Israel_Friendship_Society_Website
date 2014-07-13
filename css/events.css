@@ -10,6 +10,17 @@
     background-color:rgba(226, 255, 199, 0.79);
     cursor: pointer;
 }
+
+.eventsTables tr:not(:first-child) {
+    height: 30px;
+}
+
+.eventsTables td:last-child {
+    color: blue;
+    text-decoration:underline;
+
+}
+
 .eventsTables{
     width: 100%;
     text-align: left;

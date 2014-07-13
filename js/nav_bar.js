@@ -32,8 +32,8 @@ document.write("\
                                 <a href=\"aboutus.php\" lang=\"es\"> Sobre Nosotros</a>\
                             </li>\
                             <li>\
-                                <a href=\"events.html\" lang=\"en\"> Events</a>\
-                                <a href=\"events.html\" lang=\"es\"> Eventos</a>\
+                                <a href=\"events.php\" lang=\"en\"> Events</a>\
+                                <a href=\"events.php\" lang=\"es\"> Eventos</a>\
                             </li>\
                             <li>\
                                 <a href=\"subscribe.php\" lang=\"en\"> Subscribe</a>\

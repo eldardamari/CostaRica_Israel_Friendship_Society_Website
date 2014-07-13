@@ -5,7 +5,7 @@ var imagePath = "/costaRicaIsrael/img/event/";
 function setIndex(index)
 {
     i = index;
-    $("#image").html("<img class='bigImage' src='/costaRicaIsrael/img/event/"+i+".jpg' />");
+    $('#image').html('<img class="bigImage" src="' + imagePath  +i+'.jpg" />');
 }
 
 function toggleLeft()
@@ -13,7 +13,7 @@ function toggleLeft()
     if(i > 1)
     {
         i--;
-        $("#image").html("<img class='bigImage' src='/costaRicaIsrael/img/event/"+i+".jpg' />");
+    $('#image').html('<img class="bigImage" src="' + imagePath  +i+'.jpg" />');
     }
 }
 
@@ -22,12 +22,14 @@ function toggleRight()
     if(i < amountOfImages)
     {
         i++;
-        $("#image").html("<img class='bigImage' src='/costaRicaIsrael/img/event/"+i+".jpg' />");
+    $('#image').html('<img class="bigImage" src="' + imagePath  +i+'.jpg" />');
     }
 }
 
-$(document).ready(function() {
-
+function loadData(eventId , numOfImages) {
+    amountOfImages = numOfImages;
+    imagePath += eventId + "/";
+    alert("Event Id = " + eventId + " | numOfImages = " + numOfImages);
     var container = $('<div />');
 
     for(var j = 1; j <= amountOfImages; j++) {
@@ -40,4 +42,4 @@ $(document).ready(function() {
     }
 
     $('.imageTable').html(container);
-});
+}
