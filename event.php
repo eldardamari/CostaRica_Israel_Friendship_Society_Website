@@ -20,17 +20,20 @@
 
 <?php 
                 $id = isset($_GET["id"]) ? (int)$_GET["id"] : 0;
+                $type = isset($_GET["type"]) ? $_GET["type"] : 0;
 
-                if($id) {
+                if($id && $type) {
 
                 $con;
                 $numOfImages;
                 set_con($con);
 
-                if($query = $con->prepare(
-                    "SELECT id , name , date , text , number_of_pics
-                    FROM events_en  
-                    WHERE id=?")) {
+                $columns = "id , name , date , text , number_of_pics";
+
+                $prepare_query = 'SELECT ' . $columns .
+                    ' FROM ' . ($type == 'events' ? "events" : "meetings") . '_en WHERE id=?';
+
+                if($query = $con->prepare($prepare_query)) {
 
                 $query->bind_param("i",$id);
                 $query->execute();
@@ -38,7 +41,7 @@
                 $query->fetch();
 
                 if(!$id_col) {
-                    echo "Event is not found in db... please contact admin!";
+                    echo $type . ' is not found in db... please contact admin!';
                     exit();
                 }
 
@@ -46,7 +49,9 @@
             <p class="text">' . $text . '</p>';
 
                     } else {
-                        printf("problem wit statemt..: \n");
+                        echo '<br> <br>';
+                        printf("\nproblem with statemt..: \n");
+                        echo 'This is query : ' .$query;
                         exit();
                     }
                 } else {
@@ -55,7 +60,7 @@
                 }
 
             echo '<br>
-            <div class="imageTable">...</div>
+            <div class="imageTable"></div>
 
         </div>
     </div>
@@ -84,7 +89,7 @@
         </div>
     </div>';
 
-echo '<script> loadData(' . $id . ',' . $numOfImages . '); </script>';
+echo '<script> loadData("' . $type .'",'. $id .','. $numOfImages . '); </script>';
 
 ?>
 

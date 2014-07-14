@@ -1,6 +1,6 @@
 var i = 1;
 var amountOfImages = 3;     // TODO change the size to the amount from DB
-var imagePath = "/costaRicaIsrael/img/event/";
+var imagePath = "/costaRicaIsrael/img/events/";
 
 function setIndex(index)
 {
@@ -26,10 +26,22 @@ function toggleRight()
     }
 }
 
-function loadData(eventId , numOfImages) {
+function loadData(type,eventId , numOfImages) {
     amountOfImages = numOfImages;
-    imagePath += eventId + "/";
-    alert("Event Id = " + eventId + " | numOfImages = " + numOfImages);
+    if (type == "events") {
+        imagePath += "events/" + eventId + "/";
+    } else if (type == "meetings") {
+        imagePath += "meetings/" + eventId + "/";
+    } else {
+        $('.container').html("Error #10 - Event type is invalid.");
+        return;
+    }
+
+    if (numOfImages == 0)
+        return;
+
+
+//    alert("Event Id = " + eventId + " | numOfImages = " + numOfImages);
     var container = $('<div />');
 
     for(var j = 1; j <= amountOfImages; j++) {
