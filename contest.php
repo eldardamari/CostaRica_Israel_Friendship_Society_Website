@@ -1,10 +1,14 @@
 <!doctype html>
 <html>
 <head>
+    <meta charset="utf-8" />
+    <title>Costa Rica Israel</title>
+
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/contest.css">
+    <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/modal.css">
+
     <script src="/costaRicaIsrael/js/contest.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="/costaRicaIsrael/js/modal.js"></script>
@@ -12,7 +16,7 @@
 </head>
 
 <body>
-    <script src="/costaRicaIsrael/js/nav_bar.js"></script>
+    <?php require 'templates/navbar.php'?>
 
     <div id="container_center">
         <div class="container">
@@ -98,29 +102,29 @@
 
             <br>
             <div class="imageTable"></div>
-    
 
-<div id="openModal" class="modalDialog">
-        <div>
-            <a href="#close" title="Close" class="close">X</a>
+        <div id="openModal" class="modalDialog">
             <div>
-                <table>
-                    <tr>
-                        <td onclick="toggleLeft();"> <a href="#openModal"><span class="arrow_left"></span></a> </td>
+                <a href="#close" title="Close" class="close">X</a>
+                <div>
+                    <table>
+                        <tr>
+                            <td onclick="toggleLeft();"> <a href="#openModal"><span class="arrow_left"></span></a> </td>
 
-                        <td id="image"></td>
+                            <td id="image"></td>
 
-                        <td onclick="toggleRight();"> <a href="#openModal"><span class="arrow_right"></span></a> </td>
-                    </tr>
-                </table>
+                            <td onclick="toggleRight();"> <a href="#openModal"><span class="arrow_right"></span></a> </td>
+                        </tr>
+                    </table>
 
+                </div>
             </div>
         </div>
-    </div>
 
         </div>
     </div>
-    <script src="/costaRicaIsrael/js/footer.js"></script>
+
+    <?php require 'templates/footer.php' ?>
 
 </body>
 </html>
