@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/events.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <?php require './con_util.php' ?>
     <meta charset="utf-8" />
     <title>Costa Rica Israel</title>
