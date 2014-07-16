@@ -1,16 +1,17 @@
 <!doctype html>
 <html>
 <head>
-    <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/aboutus.css">
-    <?php require './con_util.php' ?>
     <meta charset="utf-8" />
     <title>Costa Rica Israel</title>
+    <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
+    <link rel="stylesheet" href="/costaRicaIsrael/css/aboutus.css">
+
+    <?php require './con_util.php' ?>
 </head>
 
 <body>
     <script src="/costaRicaIsrael/js/aboutus.js"></script>
-    <script src="/costaRicaIsrael/js/nav_bar.js"></script>
+    <?php require 'templates/navbar.php'?>
 
     <div id="container_center">
         <div class="container">
@@ -23,39 +24,38 @@
                 <hr>
                 <p><h2>Members (will be update from db)</h2></p>
                 <table class="membersTable" id="members_table" >
-                <script> eventsHeader(); </script>
 
-            <?php
-                $con;
-                $query = "SELECT * FROM members";
-                $query_data = set_con_get_query_data($con,$query);
-                
+                    <script> eventsHeader(); </script>
+                    <?php
+                        $con;
+                        $query = "SELECT * FROM members";
+                        $query_data = set_con_get_query_data($con,$query);
 
-                while($row = mysqli_fetch_row($query_data)) {
-                    $new_row = array(  
-                                    "name"        => $row[0],
-                                    "id"          => $row[1],
-                                    "position"    => $row[2],
-                                    "email"       => $row[3],
-                                    "tel_number"  => $row[4],
-                                    "picPath"     => $row[5]);
-                    echo '<tr onmousedown="open_abomePage('.$new_row["id"]. ');">
-                        <td> <img id="myPic" src=./img/' .  $new_row["picPath"] . 
-                        ' /> </td> 
-                        <td> ' . $new_row["name"] . ' </td> 
-                        <td> ' . $new_row["position"] . ' </td> 
-                        <td> ' . $new_row["email"] . ' </td>
-                        </tr>';
-                }
-            ?>
+                        while($row = mysqli_fetch_row($query_data)) {
+                            $new_row = array(
+                                            "name"        => $row[0],
+                                            "id"          => $row[1],
+                                            "position"    => $row[2],
+                                            "email"       => $row[3],
+                                            "tel_number"  => $row[4],
+                                            "picPath"     => $row[5]);
+                            echo '<tr onmousedown="open_abomePage('.$new_row["id"]. ');">
+                                <td> <img id="myPic" src=./images/members/' .  $new_row["picPath"] .
+                                ' /> </td>
+                                <td> ' . $new_row["name"] . ' </td>
+                                <td> ' . $new_row["position"] . ' </td>
+                                <td> ' . $new_row["email"] . ' </td>
+                                </tr>';
+                        }
+                    ?>
+
                 </table>
             </div>
-
 
         </div>
     </div>
 
-    <script src="/costaRicaIsrael/js/footer.js"></script>
+    <?php require 'templates/footer.php' ?>
 
 </body>
 </html>
