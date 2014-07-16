@@ -16,5 +16,9 @@ function eventsHeader() {
 }
 
 function open_eventPage(id) {
-    document.location = "/costaRicaIsrael/event.php?id="+id;
+    document.location = "/costaRicaIsrael/event.php?type=events&id="+id;
+}
+
+function open_meetingPage(id) {
+    document.location = "/costaRicaIsrael/event.php?type=meetings&id="+id;
 }

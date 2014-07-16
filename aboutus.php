@@ -3,7 +3,9 @@
 <head>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/aboutus.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <?php require './con_util.php' ?>
+
     <meta charset="utf-8" />
     <title>Costa Rica Israel</title>
 </head>
@@ -21,7 +23,7 @@
                 </p>
 
                 <hr>
-                <p><h2>Members (will be update from db)</h2></p>
+                <p><h2>Members</h2></p>
                 <table class="membersTable" id="members_table" >
                 <script> eventsHeader(); </script>
 

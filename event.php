@@ -49,18 +49,16 @@
             <p class="text">' . $text . '</p>';
 
                     } else {
-                        echo '<br> <br>';
-                        printf("\nproblem with statemt..: \n");
-                        echo 'This is query : ' .$query;
+                        echo "Error #20 - Problem with statement.";
                         exit();
                     }
                 } else {
-                    printf("Argument is missing..: \n");
+                    echo "Error #21 - Missing argument.";
                     exit();
                 }
 
             echo '<br>
-            <div class="imageTable"></div>
+            <div id="imageTable"></div>
 
         </div>
     </div>
@@ -89,7 +87,7 @@
         </div>
     </div>';
 
-echo '<script> loadData("' . $type .'",'. $id .','. $numOfImages . '); </script>';
+echo '<script> loadData("#imageTable" , "' . $type .'",'. $id .','. $numOfImages . '); </script>';
 
 ?>
 

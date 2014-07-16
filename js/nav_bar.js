@@ -1,3 +1,4 @@
+
 if(!localStorage.getItem("lang")) {
     document.body.className = 'en';
     localStorage.setItem("lang", 'en');
@@ -55,3 +56,10 @@ document.write("\
                     </nav>\
                 </div>\
 ");
+
+$(window).scroll(function(){
+
+    var scrollVar = $(window).scrollTop();
+    $('#main_header').css({'opacity':( 100-scrollVar )/100});
+
+});

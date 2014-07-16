@@ -1,5 +1,3 @@
-var i = 1;
-var amountOfImages = 0;
 var path = "/costaRicaIsrael/img/";
 var imagePath;
 
@@ -8,6 +6,21 @@ var index_array = new Array;
 var amountOfImages_array = new Array;
 var num_of_objects = 0;
 
+var modal = document.getElementsByClassName("openModal");
+
+$(document).keydown(function(e) {
+    var num_of_object = parseInt($('#image').parent().attr('class'));
+    if (isNaN(num_of_object)) {
+        return;
+    }
+
+  if(e.keyCode == 37) { // left
+      toggleLeft();
+  }
+  else if(e.keyCode == 39) { // right
+      toggleRight();
+  }});
+
 function setIndex(index,num_of_object)
 {
     index_array[num_of_object] = index;
@@ -15,6 +28,23 @@ function setIndex(index,num_of_object)
             +index_array[num_of_object]+'.jpg" />');
     $('#image').parent().removeClass();
     $('#image').parent().addClass(num_of_object.toString());
+}
+
+function keyDown(e) 
+{
+ if (e.keyCode == 37) { 
+       alert( "left pressed" );
+       return false;
+    }else  if (e.keyCode == 39) { 
+       alert( "right key pressed" );
+         return false;
+    }else  if (e.keyCode == 38) { 
+       alert( "Up key pressed" );
+         return false;
+    }else  if (e.keyCode == 40) { 
+       alert( "Down key pressed" );
+         return false;
+    }
 }
 
 function toggleLeft()
@@ -63,15 +93,7 @@ function loadData(table, type, eventId, numOfImages) {
     if (numOfImages == 0)
         return;
 
-    /*alert("tbale = " + table +
-            "\n type = " + type + 
-            "\n eventId = " + eventId +
-            "\n imagePath = " + imagePath +
-            "\n numOfImages = " + numOfImages);*/
-
-//    alert("Event Id = " + eventId + " | numOfImages = " + numOfImages);
     var container = $('<div />');
-
     for(var j = 1; j <= amountOfImages_array[num_of_objects]; j++) {
         $('<a />', {
             id:"david",
@@ -80,7 +102,6 @@ function loadData(table, type, eventId, numOfImages) {
             html: "<img class='thumb' src='"+ path_array[num_of_objects] + j +".jpg'>"
         }).appendTo(container);
     }
-    //$('.imageTable').html(container);
     num_of_objects++;
     $(table).html(container);
 }

@@ -8,32 +8,54 @@
 
 .winnersTable tr:not(:first-child):hover {
     background-color:rgba(226, 255, 199, 0.79);
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
 .winnersTable{
     width: 100%;
     text-align: left;
-    /*background: whitesmoke;*/
+    background: whitesmoke;
     border-radius:10px;
 }
 
-.winnersTable td:nth-child(2){
+.winnersTable td:nth-child(3){
     color:SteelBlue;
+    padding-left:4%;
 }
 
-#members_table .place{
+.winnersTable .place{
     width:5%;
 }
 
-#members_table .wname{
+.winnersTable .wname{
     width: 35%;
 }
 
-#members_table .major{
+.winnersTable .major{
     padding-right: 30%;
 }
 
-#members_table .uni{
+.winnersTable .uni{
     width: 25%;
+}
+
+.winnersTable .pic{
+    width:10%;
+}
+
+#myPic { 
+    height: 100px;
+    width:  100px;
+}
+
+.imageTable {
+    align: center;
+}
+
+.topics {
+    text-align: center;
+    font-size: 400%;
+    font-weight: 900;
+    color: rgba(65,110,225,0.9);
+
 }
