@@ -1,6 +1,6 @@
 var i = 1;
-var amountOfImages = 3;     // TODO change the size to the amount from DB
-var imagePath = "/costaRicaIsrael/img/events/";
+var amountOfImages;
+var imagePath = "/costaRicaIsrael/images/";
 
 function setIndex(index)
 {
@@ -26,7 +26,7 @@ function toggleRight()
     }
 }
 
-function loadData(type,eventId , numOfImages) {
+function loadData(type, eventId ,numOfImages) {
     amountOfImages = numOfImages;
     if (type == "events") {
         imagePath += "events/" + eventId + "/";
@@ -39,7 +39,6 @@ function loadData(type,eventId , numOfImages) {
 
     if (numOfImages == 0)
         return;
-
 
 //    alert("Event Id = " + eventId + " | numOfImages = " + numOfImages);
     var container = $('<div />');
@@ -55,3 +54,4 @@ function loadData(type,eventId , numOfImages) {
 
     $('.imageTable').html(container);
 }
+
