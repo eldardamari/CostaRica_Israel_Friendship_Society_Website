@@ -8,6 +8,11 @@
     <script src="/costaRicaIsrael/js/contest.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="/costaRicaIsrael/js/modal.js"></script>
+    
+    <?php require './con_util.php' ?>
+
+    <meta charset="utf-8" />
+    <title>Contest </title>
 
 </head>
 
@@ -16,7 +21,7 @@
 
     <div id="container_center">
         <div class="container">
-            <h2> Registration</h2>
+             <div class="topics"> Registration </div>
             <form class="general_form" method="get" action="form.php">
                 <fieldset><legend>Personal data:</legend>
 
@@ -87,21 +92,92 @@
             </form>
             <br><hr><br>
 
-            <h2> Know The Winners </h2>
+             <div class="topics"> Know The Winners </div>
+<?php 
+                $con;
+                $i;
+                $row_count = 0;
+                set_con($con);
 
-            <h3>  2013 contest winners - #8 </h3>
-            <table class="winnersTable" id="winners_6">
-                    <script> eventsHeader(); </script>
-            </table>
+                $query = "SELECT contest_num FROM winners_en
+                    ORDER BY contest_num DESC 
+                    LIMIT 1";
+                $query_data = get_query_data($con,$query);
 
-            <script>insertDataToTable("winners_6"); </script>
+                $num_of_contests = (int)mysqli_fetch_row($query_data)[0];
+                
+                // dont need the abouve!
+                $query = "SELECT * FROM winners_en 
+                    ORDER BY contest_num DESC , place ASC";
+                
+                $query_data = get_query_data($con,$query);
 
-            <br>
-            <div class="imageTable"></div>
-    
+                while($row = mysqli_fetch_row($query_data)) {
+                    $new_row = array(  
+                                    "contest_num"       => $row[0],
+                                    "id"                => $row[1],
+                                    "name"              => $row[2],
+                                    "subject"           => $row[3],
+                                    "institute"         => $row[4],
+                                    "number_of_pics"    => $row[5],
+                                    "place"             => $row[6],
+                                    "pic_path"          => $row[7]);
+                    
 
-<div id="openModal" class="modalDialog">
-        <div>
+                    if ($row_count == 0) {
+                    echo '<br><h2 align="center">' . (2005 + $new_row["contest_num"]) .' 
+                        Contest Winneres - #' . $new_row["contest_num"].'</h3> 
+
+                        <table class="winnersTable" id="winners_'.$new_row["contest_num"].'">
+                                <script> eventsHeader(); </script>';
+                    }
+                    
+                    echo '<tr>
+                        <td> ' . ($new_row["place"] == 1 ? '1st' : '2nd') . '</td>
+                        <td> <img id="myPic" src=./img/winners/' . 
+                        $new_row["contest_num"] . '/' . $new_row["pic_path"] . ' /> </td> 
+                            <td> ' . $new_row["name"] . ' </td> 
+                            <td> ' . $new_row["subject"] . ' </td> 
+                            <td> ' . $new_row["institute"] . ' </td>
+                        </tr>';
+
+
+                    if ($row_count == 1) {
+                        echo '
+                            <tr> 
+                                <td colspan="5" class="imageTable_'.$new_row["contest_num"].' imageTable"></td>
+                            </tr>
+                            </table>
+                            <script> loadData(".imageTable_'.$new_row["contest_num"].'",
+                                              "winners",
+                                              '.$new_row["contest_num"].',
+                                              '.$new_row["number_of_pics"].');
+                            </script> ';
+                        $row_count = 0;
+                    } else if ($row_count == 0) {
+                        $row_count = 1;
+                    }
+                }
+                    if ($row_count == 1) {
+                        echo '
+                            <tr> 
+                                <td colspan="5" class="imageTable_'.$new_row["contest_num"].' imageTable"></td>
+                            </tr>
+                            </table>
+                            <script> loadData(".imageTable_'.$new_row["contest_num"].'",
+                                              "winners",
+                                              '.$new_row["contest_num"].',
+                                              '.$new_row["number_of_pics"].');
+                            </script> ';
+                        $row_count = 0;
+                    }
+
+?>
+
+
+
+    <div id="openModal" class="modalDialog">
+            <div>
             <a href="#close" title="Close" class="close">X</a>
             <div>
                 <table>
