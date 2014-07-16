@@ -42,15 +42,49 @@ function eventsHeader() {
     document.write("\
                 <tr class=\"table_header\" id='table_header' lang=\"en\">\
                     <th class=\"place\"></th>\
+                    <th class=\"pic\"></th>\
                     <th class=\"wname\"></th>\
                     <th class=\"major\"></th>\
                     <th class=\"uni\"></th>\
                 </tr>\
                 <tr class=\"table_header\" lang=\"es\">\
                     <th class=\"place\"></th>\
+                    <th class=\"pic\"></th>\
                     <th class=\"wname\"></th>\
                     <th class=\"major\"></th>\
                     <th class=\"uni\"></th>\
                 </tr>\
     ");
 }
+
+/*$('h1').css({'opacity':( 100-$(window).scrollTop() )/100});*/
+
+/*$(window).scroll(function(){
+
+    alert("scrolling");
+    var scrollVar = $(window).scrollTop();
+
+    $('h1').css({'opacity':( 100-scrollVar )/100});
+
+});*/
+
+/*$(window).scroll(function() {
+
+    if ($(this).scrollTop()>0)
+     {
+        $('.topics').fadeOut();
+     }
+    else
+     {
+      $('.topics').fadeIn();
+     }
+ });*/
+
+/*$(window).bind('scroll', function() {
+     if ($(window).scrollTop() > 100) {
+         $('#main_header').hide();
+     }
+     else {
+         $('#main_header').show();
+     }
+});*/

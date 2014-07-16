@@ -5,6 +5,8 @@
     <title>Costa Rica Israel</title>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
 
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
 </head>
 <body>
     <?php require 'templates/navbar.php'?>

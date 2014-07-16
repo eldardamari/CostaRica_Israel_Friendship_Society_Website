@@ -9,3 +9,5 @@ src/
 #IntelliJ Configuration
 .idea/
 *.iml
+
+.DS_Store

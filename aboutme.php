@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/aboutme.css">
 
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <?php require './con_util.php' ?>
 </head>
 
@@ -37,7 +38,7 @@
                             exit();
                         }
 
-                        echo   '<span class="myPic"><img id="profilePic" src="./images/members/' . $pic_path .'"
+                        echo   '<span class="myPic"><img id="profilePic" src="./img/members/' . $pic_path .'"
                                     alt="Stuff Pfofile Picture" width="150" height="200">
                                 </span>
                                 <span class="myHeaderInfo">
@@ -52,7 +53,7 @@
                                 <span>';
 
                         } else {
-                            printf("problem wit statemt..: \n");
+                            printf("problem with statemt..: \n");
                             exit();
                         }
 

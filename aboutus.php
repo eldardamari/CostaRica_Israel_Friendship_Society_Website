@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/aboutus.css">
 
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <?php require './con_util.php' ?>
 </head>
 
 <body>
-    <script src="/costaRicaIsrael/js/aboutus.js"></script>
     <?php require 'templates/navbar.php'?>
+    <script src="/costaRicaIsrael/js/aboutus.js"></script>
 
     <div id="container_center">
         <div class="container">
@@ -22,7 +23,7 @@
                 </p>
 
                 <hr>
-                <p><h2>Members (will be update from db)</h2></p>
+                <p><h2>Members</h2></p>
                 <table class="membersTable" id="members_table" >
 
                     <script> eventsHeader(); </script>
@@ -40,7 +41,7 @@
                                             "tel_number"  => $row[4],
                                             "picPath"     => $row[5]);
                             echo '<tr onmousedown="open_abomePage('.$new_row["id"]. ');">
-                                <td> <img id="myPic" src=./images/members/' .  $new_row["picPath"] .
+                                <td> <img id="myPic" src=./img/members/' .  $new_row["picPath"] .
                                 ' /> </td>
                                 <td> ' . $new_row["name"] . ' </td>
                                 <td> ' . $new_row["position"] . ' </td>

@@ -58,13 +58,13 @@
                 }
             ?>
             <br>
-            <div class="imageTable"></div>
+            <div id="imageTable" class="imageTable"></div>
 
         </div>
     </div>
 
     <?php
-        echo '<script> loadData("' . $type .'",'. $id .','. $numOfImages . '); </script>';
+        echo '<script> loadData("#imageTable","' . $type .'",'. $id .','. $numOfImages . '); </script>';
     ?>
 
     <?php require 'templates/footer.php' ?>

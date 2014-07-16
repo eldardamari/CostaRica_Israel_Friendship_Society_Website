@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
 
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <?php require 'utils/db_connection.php' ?>
     <?php require 'utils/email.php' ?>
 </head>

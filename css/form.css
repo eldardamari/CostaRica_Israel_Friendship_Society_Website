@@ -65,19 +65,19 @@
 }
 
 .icon_accept {
-    content: url(/costaRicaIsrael/images/icons/accept.png);
+    content: url(/costaRicaIsrael/img/icons/accept.png);
 }
 
 .icon_refresh {
-    content:  url(/costaRicaIsrael/images/icons/refresh.png);
+    content:  url(/costaRicaIsrael/img/icons/refresh.png);
 }
 
 .icon_add {
-    content:  url(/costaRicaIsrael/images/icons/add.png);
+    content:  url(/costaRicaIsrael/img/icons/add.png);
 }
 
 .icon_order {
-    content:  url(/costaRicaIsrael/images/icons/order.png);
+    content:  url(/costaRicaIsrael/img/icons/order.png);
 }
 
 .form_error {

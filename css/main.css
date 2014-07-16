@@ -13,6 +13,7 @@ body {
 body.en :lang(es) {
     display: none;
 }
+
 body.es :lang(en) {
     display: none;
 }
@@ -49,6 +50,7 @@ body.es :lang(en) {
     color: whitesmoke;
     position: relative;
 }
+
 #main_footer hr {
     display: inline-block;
     height: 1px;
@@ -72,11 +74,13 @@ body.es :lang(en) {
     height: 20px;
     width: 100%;
 }
+
 #Copyright {
     text-align:left;
     float:left;
     padding-left:4px;
 }
+
 #resolution {
     text-align:right;
     float:right;
