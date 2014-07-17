@@ -13,7 +13,8 @@
     <script src="/costaRicaIsrael/js/contest.js"></script>
     <script src="/costaRicaIsrael/js/modal.js"></script>
 
-    <?php require './con_util.php' ?>
+    <?php require 'utils/db_connection.php' ?>
+    <?php require 'utils/email.php' ?>
 </head>
 
 <body>
@@ -23,127 +24,122 @@
     <div id="container_center">
         <div class="container">
              <div class="topics"> Registration </div>
-            <form class="general_form" method="get" action="form.php">
-                <fieldset><legend>Personal data:</legend>
 
-                    <label for="fname">First name</label>
-                    <input class="form_field" type="text" id="fname" autofocus="" required><br>
+                <form class="general_form" method="get" action="form.php">
+                    <fieldset><legend>Personal data:</legend>
 
-                    <label for="lname">Last name</label>
-                    <input class="form_field" type="text" id="lname" required><br>
+                        <label for="fname">First name</label>
+                        <input class="form_field form_field_short" type="text" id="fname" autofocus="" required><br>
 
-                    <label for="email">Email</label>
-                    <input class="form_field" type="email" id="email" required><br>
+                        <label for="lname">Last name</label>
+                        <input class="form_field form_field_short" type="text" id="lname" required><br>
 
-                    <label for="mobile">Mobile number</label>
-                    <input class="form_field" type="tel" id="mobile" required pattern="[05]{2}[0|2-9][0-9]{7}" title="Enter a vaild Israeli mobile number"><br><br>
+                        <label for="email">Email</label>
+                        <input class="form_field form_field_short" type="email" id="email" required><br>
 
-                    <label>Gender</label>
-                    <label class="gender" for="male">Male</label>
-                    <input type="radio" id="male" name="gender" value="male" required>
-                    <label class="gender" for="female">Female</label>
-                    <input type="radio" id="female" name="gender" value="female" required><br>
+                        <label for="mobile">Mobile number</label>
+                        <input class="form_field form_field_short" type="tel" id="mobile" required pattern="[05]{2}[0|2-9][0-9]{7}" title="Enter a vaild Israeli mobile number"><br><br>
 
-                    <label for="bDate">Date of birth</label>
-                    <input class="form_field" type="date" id="bDate" min="1920-01-02" onchange="validateDate()" required><br>
+                        <label>Gender</label>
+                        <label class="gender" for="male">Male</label>
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label class="gender" for="female">Female</label>
+                        <input type="radio" id="female" name="gender" value="female" required><br>
 
-                    <label for="address">Address</label>
-                    <input class="form_field" type="text" id="address" required><br>
+                        <label for="bDate">Date of birth</label>
+                        <input class="form_field form_field_short" type="date" id="bDate" min="1920-01-02" onchange="validateDate()" required><br>
 
-                </fieldset>
-                <fieldset><legend>Student data:</legend>
+                        <label for="address">Address</label>
+                        <input class="form_field form_field_short" type="text" id="address" required><br>
 
-                    <label for="institution">Institution</label>
-                    <select class="form_field" id="institution" required>
-                            <option disabled selected value="">Please select..</option>
-                            <option value="university">University</option>
-                            <option value="college">College</option>
-                    </select><br>
+                    </fieldset>
+                    <fieldset><legend>Student data:</legend>
 
-                    <label for="institute_id">Institute name</label>
-                    <input class="form_field" type="text" id="institute_id" required><br>
+                        <label for="institution">Institution</label>
+                        <select class="form_field" id="institution" required>
+                                <option disabled selected value="">Please select..</option>
+                                <option value="university">University</option>
+                                <option value="college">College</option>
+                        </select><br>
 
-                    <label for="faculty">Faculty</label>
-                    <input class="form_field" list="faculty_list" id="faculty" required>
-                    <datalist id="faculty_list">
-                        <option value="Natural Sciences">
-                        <option value="Engineering Science">
-                        <option value="Humanities and Social Sciences">
-                        <option value="Health Sciences">
-                        <option value="Education">
-                        <option value="Art">
-                    </datalist><br>
+                        <label for="institute_id">Institute name</label>
+                        <input class="form_field" type="text" id="institute_id" required><br>
 
-                    <label for="degree">Degree</label>
-                    <input class="form_field" list="degree_list" id="degree" required>
-                    <datalist id="degree_list">
-                        <option disabled selected value="please select">Please select..</option>
-                        <option value="Bachelor"></option>
-                        <option value="Master"></option>
-                        <option value="PhD"></option>
-                    </datalist><br>
+                        <label for="faculty">Faculty</label>
+                        <input class="form_field" list="faculty_list" id="faculty" required>
+                        <datalist id="faculty_list">
+                            <option value="Natural Sciences">
+                            <option value="Engineering Science">
+                            <option value="Humanities and Social Sciences">
+                            <option value="Health Sciences">
+                            <option value="Education">
+                            <option value="Art">
+                        </datalist><br>
 
-                    <label for="year_number">Year number</label>
-                    <input class="form_field" type="number" id="year_number" min="1" max="7" required><br>
-                </fieldset>
-                <div id="formbuttons">
-                    <button class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Submit</button>
-                    <button class="btn_default" type="reset"><span class="btn_icon icon_refresh"></span> Reset</button>
-                </div>
-            </form>
+                        <label for="degree">Degree</label>
+                        <input class="form_field" list="degree_list" id="degree" required>
+                        <datalist id="degree_list">
+                            <option disabled selected value="please select">Please select..</option>
+                            <option value="Bachelor"></option>
+                            <option value="Master"></option>
+                            <option value="PhD"></option>
+                        </datalist><br>
+
+                        <label for="year_number">Year number</label>
+                        <input class="form_field" type="number" id="year_number" min="1" max="7" required><br>
+                    </fieldset>
+                    <div id="formbuttons">
+                        <button class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Submit</button>
+                        <button class="btn_default" type="reset"><span class="btn_icon icon_refresh"></span> Reset</button>
+                    </div>
+                </form>
+
             <br><hr><br>
 
-             <div class="topics"> Know The Winners </div>
-        <?php
-                $con;
-                $i;
+            <div class="topics"> Know The Winners </div>
+
+            <?php
+
+                $con = makeConnection();
                 $row_count = 0;
-                set_con($con);
 
-                $query = "SELECT contest_num FROM winners_en
-                    ORDER BY contest_num DESC 
-                    LIMIT 1";
-                $query_data = get_query_data($con,$query);
-
-                $num_of_contests = (int)mysqli_fetch_row($query_data)[0];
+                $query = "SELECT * FROM winners_en
+                          ORDER BY contest_num DESC , place ASC";
                 
-                // dont need the abouve!
-                $query = "SELECT * FROM winners_en 
-                    ORDER BY contest_num DESC , place ASC";
-                
-                $query_data = get_query_data($con,$query);
+                if(!$result = prepareAndExecuteQuery($con,$query))
+                    echo 'error reading from database... please contact admin!';
 
-                while($row = mysqli_fetch_row($query_data)) {
-                    $new_row = array(  
-                                    "contest_num"       => $row[0],
-                                    "id"                => $row[1],
-                                    "name"              => $row[2],
-                                    "subject"           => $row[3],
-                                    "institute"         => $row[4],
-                                    "number_of_pics"    => $row[5],
-                                    "place"             => $row[6],
-                                    "pic_path"          => $row[7]);
+                foreach($result as $row) {
+                    $new_row = array(
+                        "contest_num"       => $row[0],
+                        "id"                => $row[1],
+                        "name"              => $row[2],
+                        "subject"           => $row[3],
+                        "institute"         => $row[4],
+                        "number_of_pics"    => $row[5],
+                        "place"             => $row[6],
+                        "pic_path"          => $row[7]);
 
                     if ($row_count == 0) {
-                    echo '<br><h2 align="center">' . (2005 + $new_row["contest_num"]) .' 
-                        Contest Winneres - #' . $new_row["contest_num"].'</h3> 
+                        echo '<br><h2 align="center">' . (2005 + $new_row["contest_num"]) .'
+                        Contest Winneres - #' . $new_row["contest_num"].'</h3>
 
                         <table class="winnersTable" id="winners_'.$new_row["contest_num"].'">
                                 <script> eventsHeader(); </script>';
                     }
-                    
+
                     echo '<tr>
                         <td> ' . ($new_row["place"] == 1 ? '1st' : '2nd') . '</td>
-                        <td> <img id="myPic" src=./img/winners/' . 
-                        $new_row["contest_num"] . '/' . $new_row["pic_path"] . ' /> </td> 
-                            <td> ' . $new_row["name"] . ' </td> 
-                            <td> ' . $new_row["subject"] . ' </td> 
+                        <td> <img id="myPic" src=./img/winners/' .
+                        $new_row["contest_num"] . '/' . $new_row["pic_path"] . ' /> </td>
+                            <td> ' . $new_row["name"] . ' </td>
+                            <td> ' . $new_row["subject"] . ' </td>
                             <td> ' . $new_row["institute"] . ' </td>
                         </tr>';
 
                     if ($row_count == 1) {
                         echo '
-                            <tr> 
+                            <tr>
                                 <td colspan="5" class="imageTable_'.$new_row["contest_num"].' imageTable"></td>
                             </tr>
                             </table>
@@ -153,25 +149,26 @@
                                               '.$new_row["number_of_pics"].');
                             </script> ';
                         $row_count = 0;
+
                     } else if ($row_count == 0) {
                         $row_count = 1;
                     }
                 }
-                    if ($row_count == 1) {
-                        echo '
-                            <tr> 
-                                <td colspan="5" class="imageTable_'.$new_row["contest_num"].' imageTable"></td>
-                            </tr>
-                            </table>
-                            <script> loadData(".imageTable_'.$new_row["contest_num"].'",
-                                              "winners",
-                                              '.$new_row["contest_num"].',
-                                              '.$new_row["number_of_pics"].');
-                            </script> ';
-                        $row_count = 0;
-                    }
 
-        ?>
+                if ($row_count == 1) {
+                    echo '
+                        <tr>
+                            <td colspan="5" class="imageTable_'.$new_row["contest_num"].' imageTable"></td>
+                        </tr>
+                        </table>
+                        <script> loadData(".imageTable_'.$new_row["contest_num"].'",
+                                          "winners",
+                                          '.$new_row["contest_num"].',
+                                          '.$new_row["number_of_pics"].');
+                        </script> ';
+                    $row_count = 0;
+                }
+            ?>
 
         </div>
     </div>

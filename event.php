@@ -9,8 +9,9 @@
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="/costaRicaIsrael/js/modal.js"></script>
-    <?php require './con_util.php' ?>
 
+    <?php require 'utils/db_connection.php' ?>
+    <?php require 'utils/email.php' ?>
 </head>
 
 <body>
@@ -25,38 +26,47 @@
 
                 if($id && $type) {
 
-                    $con;
-                    set_con($con);
+                    $con = makeConnection();
 
                     $columns = "id , name , date , text , number_of_pics";
+                    $query = 'SELECT ' . $columns .
+                                     ' FROM ' . ($type == 'events' ? "events" : "meetings") . '_en'.
+                                     ' WHERE id=:id';
 
-                    $prepare_query = 'SELECT ' . $columns .
-                                     ' FROM ' . ($type == 'events' ? "events" : "meetings") . '_en WHERE id=?';
+                    try {
+                        $statement = $con->prepare($query);
+                        $statement->bindParam(':id', $id);
+                        $statement->execute();
 
-                    if($query = $con->prepare($prepare_query)) {
-                        $query->bind_param("i",$id);
-                        $query->execute();
-                        $query->bind_result($id_col,$name,$date,$text,$numOfImages);
-                        $query->fetch();
+                        $statement->bindColumn('id',$id_col);
+                        $statement->bindColumn('name',$name);
+                        $statement->bindColumn('date',$date);
+                        $statement->bindColumn('text',$text);
+                        $statement->bindColumn('number_of_pics',$numOfImages);
+
+                        $statement->fetch();
 
                         if(!$id_col) {
-                            echo $type . ' is not found in db... please contact admin!';
-                            exit();
+                            // Error number 20 - Problem with statement
+                            throw new PDOException("Event id $id - was not found",20);
+                        } else {
+                            echo   '<p class="events_tablesName">' . $name . '<br>' . $date . '</p><hr>
+                                    <p class="text">' . $text . '</p>';
+
                         }
 
-                        echo   '<p class="events_tablesName">' . $name . '<br>' . $date . '</p><hr>
-                                <p class="text">' . $text . '</p>';
-
-                    } else {
-                        echo "Error #20 - Problem with statement.";
-                        exit();
+                    } catch (PDOException $e) {
+                        $sent = sendErrorToAdmin("event.php - DB ERROR: " . $e->getCode(), $e->getMessage());
+                        var_dump($sent);
+                        echo "Error #404 - Event not found <br>";
                     }
 
                 } else {
-                    echo "Error #21 - Missing argument.";
-                    exit();
+                    $sent = sendErrorToAdmin("event.php - Error: #21","Missing argument");
+                    echo "Error #404 - Event not found <br>";
                 }
             ?>
+
             <br>
             <div id="imageTable" class="imageTable"></div>
 

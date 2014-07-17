@@ -16,7 +16,7 @@
 }
 
 .eventsTables td:last-child {
-    color: blue;
+    color: rgb(65,110,225);
     text-decoration:underline;
 
 }

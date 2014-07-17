@@ -26,7 +26,7 @@
                 $sql = "SELECT * FROM members";
 
                 if(!$result = prepareAndExecuteQuery($con,$sql))
-                    echo 'error reading database... please contact admin!';
+                    echo 'error reading from database... please contact admin!';
 
                 if(isset($_REQUEST['email'])) {
                     $email = $_REQUEST['email'];
@@ -75,7 +75,7 @@
                     <select name="contact" id="contact" class="form_field form_field_short" required="">
                         <option value="" disabled>Select Contact</option>
                         <?php
-                            foreach($result as $member){
+                            foreach($result as $member) {
                                 echo '<option value="'.$member['id'].'" >'.$member['name'].'</option>"';
                             }
                         ?>

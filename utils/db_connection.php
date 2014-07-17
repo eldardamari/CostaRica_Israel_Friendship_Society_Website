@@ -6,9 +6,6 @@
     $username = 'root';
     $password = '';
 
-    // email address to send errors
-    $adminEmail = "costaricaisraelassociation@gmail.com";
-
     function makeConnection() {
         global $hostname,$dbname,$username,$password;
 
@@ -26,15 +23,8 @@
             $result = $statement->fetchAll();
 
         } catch (PDOException $e) {
-            var_dump($e->getMessage());
-            mail(getAdminEmail(), "DB ERROR: " . $e->getCode(), $e->getMessage());
+            sendErrorToAdmin("DB ERROR: " . $e->getCode(), $e->getMessage());
             return false;
         }
         return $result;
-    }
-
-    function getAdminEmail() {
-        global $adminEmail;
-
-        return $adminEmail;
     }
