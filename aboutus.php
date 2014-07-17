@@ -53,6 +53,9 @@
                                             "tel_number"  => $row[4],
                                             "picPath"     => $row[5]);
 
+                            if ($new_row["id"] == 0) // Competition memeber -> skip
+                                continue;
+                        
                             echo   '<tr onmousedown="open_abomePage('.$new_row["id"]. ');">
                                         <td> <img id="myPic" src=./img/members/' .  $new_row["picPath"] . ' /> </td>
                                         <td> ' . $new_row["name"] . ' </td>
