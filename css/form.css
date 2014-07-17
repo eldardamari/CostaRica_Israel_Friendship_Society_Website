@@ -1,3 +1,4 @@
+
 .general_form {
     margin-left: 2%;
     margin-right: 2%;
@@ -12,7 +13,7 @@
 
 .general_form label {
     float: left;
-    width: 150px;
+    width: 20%;
     font-weight: bold;
 }
 
@@ -29,7 +30,7 @@
 .general_form .form_field {
     border-width: 1px;
     border-radius: 3px;
-    outline: 0;
+    outline: 1;
 }
 
 .general_form .form_field:required {
@@ -77,4 +78,20 @@
 
 .icon_order {
     content:  url(/costaRicaIsrael/img/icons/order.png);
+}
+
+.form_error {
+    color: red;
+}
+
+.form_field_long {
+    width: 70%;
+}
+
+.form_field_medium {
+    width: 50%;
+}
+
+.form_field_short {
+    width: 30%;
 }

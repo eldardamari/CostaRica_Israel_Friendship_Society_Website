@@ -1,96 +1,83 @@
 <!doctype html>
 <html>
 <head>
+    <meta charset="utf-8" />
+    <title>Costa Rica Israel</title>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/events.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/modal.css">
+
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="/costaRicaIsrael/js/modal.js"></script>
-    <?php require './con_util.php' ?>
 
-    <meta charset="utf-8" />
-    <title>Costa Rica Israel</title>
+    <?php require 'utils/db_connection.php' ?>
+    <?php require 'utils/email.php' ?>
 </head>
 
 <body>
-    <script src="/costaRicaIsrael/js/nav_bar.js"></script>
+    <?php require 'templates/navbar.php'?>
+    <?php include 'templates/modal.php' ?>
 
     <div id="container_center">
         <div class="container">
-
-<?php 
+            <?php
                 $id = isset($_GET["id"]) ? (int)$_GET["id"] : 0;
                 $type = isset($_GET["type"]) ? $_GET["type"] : 0;
 
                 if($id && $type) {
 
-                $con;
-                $numOfImages;
-                set_con($con);
+                    $con = makeConnection();
 
-                $columns = "id , name , date , text , number_of_pics";
+                    $columns = "id , name , date , text , number_of_pics";
+                    $query = 'SELECT ' . $columns .
+                                     ' FROM ' . ($type == 'events' ? "events" : "meetings") . '_en'.
+                                     ' WHERE id=:id';
 
-                $prepare_query = 'SELECT ' . $columns .
-                    ' FROM ' . ($type == 'events' ? "events" : "meetings") . '_en WHERE id=?';
+                    try {
+                        $statement = $con->prepare($query);
+                        $statement->bindParam(':id', $id);
+                        $statement->execute();
 
-                if($query = $con->prepare($prepare_query)) {
+                        $statement->bindColumn('id',$id_col);
+                        $statement->bindColumn('name',$name);
+                        $statement->bindColumn('date',$date);
+                        $statement->bindColumn('text',$text);
+                        $statement->bindColumn('number_of_pics',$numOfImages);
 
-                $query->bind_param("i",$id);
-                $query->execute();
-                $query->bind_result($id_col,$name,$date,$text,$numOfImages);
-                $query->fetch();
+                        $statement->fetch();
 
-                if(!$id_col) {
-                    echo $type . ' is not found in db... please contact admin!';
-                    exit();
-                }
+                        if(!$id_col) {
+                            // Error number 20 - Problem with statement
+                            throw new PDOException("Event id $id - was not found",20);
+                        } else {
+                            echo   '<p class="events_tablesName">' . $name . '<br>' . $date . '</p><hr>
+                                    <p class="text">' . $text . '</p>';
 
-            echo '<p class="events_tablesName">' . $name . '<br>' . $date . '</p><hr>
-            <p class="text">' . $text . '</p>';
+                        }
 
-                    } else {
-                        echo "Error #20 - Problem with statement.";
-                        exit();
+                    } catch (PDOException $e) {
+                        $sent = sendErrorToAdmin("event.php - DB ERROR: " . $e->getCode(), $e->getMessage());
+                        var_dump($sent);
+                        echo "Error #404 - Event not found <br>";
                     }
-                } else {
-                    echo "Error #21 - Missing argument.";
-                    exit();
-                }
 
-            echo '<br>
-            <div id="imageTable"></div>
+                } else {
+                    $sent = sendErrorToAdmin("event.php - Error: #21","Missing argument");
+                    echo "Error #404 - Event not found <br>";
+                }
+            ?>
+
+            <br>
+            <div id="imageTable" class="imageTable"></div>
 
         </div>
     </div>
 
-    <script src="/costaRicaIsrael/js/footer.js"></script>
+    <?php
+        echo '<script> loadData("#imageTable","' . $type .'",'. $id .','. $numOfImages . '); </script>';
+    ?>
 
-    <div id="openModal" class="modalDialog">
-        <div>
-            <a href="#close" title="Close" class="close">X</a>
-            <div>
-                <table>
-                    <tr>
-                        <td onclick="toggleLeft();"> 
-                            <a href="#openModal"><span class="arrow_left"></span></a> 
-                        </td>
-
-                        <td id="image"></td>
-
-                        <td onclick="toggleRight();"> 
-                            <a href="#openModal"><span class="arrow_right"></span></a> 
-                        </td>
-                    </tr>
-                </table>
-
-            </div>
-        </div>
-    </div>';
-
-echo '<script> loadData("#imageTable" , "' . $type .'",'. $id .','. $numOfImages . '); </script>';
-
-?>
-
+    <?php require 'templates/footer.php' ?>
 
 </body>
 </html>

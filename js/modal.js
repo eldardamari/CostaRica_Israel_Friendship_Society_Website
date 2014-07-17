@@ -19,10 +19,10 @@ $(document).keydown(function(e) {
   }
   else if(e.keyCode == 39) { // right
       toggleRight();
-  }});
+  }
+});
 
-function setIndex(index,num_of_object)
-{
+function setIndex(index,num_of_object) {
     index_array[num_of_object] = index;
     $('#image').html('<img class="bigImage" src="' + path_array[num_of_object]  
             +index_array[num_of_object]+'.jpg" />');
@@ -30,25 +30,23 @@ function setIndex(index,num_of_object)
     $('#image').parent().addClass(num_of_object.toString());
 }
 
-function keyDown(e) 
-{
- if (e.keyCode == 37) { 
+function keyDown(e) {
+    if (e.keyCode == 37) {
        alert( "left pressed" );
        return false;
-    }else  if (e.keyCode == 39) { 
+    } else  if (e.keyCode == 39) {
        alert( "right key pressed" );
          return false;
-    }else  if (e.keyCode == 38) { 
+    } else  if (e.keyCode == 38) {
        alert( "Up key pressed" );
          return false;
-    }else  if (e.keyCode == 40) { 
+    } else  if (e.keyCode == 40) {
        alert( "Down key pressed" );
          return false;
     }
 }
 
-function toggleLeft()
-{
+function toggleLeft() {
     var num_of_object = parseInt($('#image').parent().attr('class'));
     if(index_array[num_of_object] > 1) {
         index_array[num_of_object]--;
@@ -59,28 +57,28 @@ function toggleLeft()
             +index_array[num_of_object]+'.jpg" />');
 }
 
-function toggleRight()
-{
+function toggleRight() {
     var num_of_object = parseInt($('#image').parent().attr('class'));
     if(index_array[num_of_object] < amountOfImages_array[num_of_object]) {
         index_array[num_of_object]++;
     } else {
         index_array[num_of_object] = 1;
-
     }
+
     $('#image').html('<img class="bigImage" src="' + path_array[num_of_object]  
             +index_array[num_of_object]+'.jpg" />');
 }
 
 function loadData(table, type, eventId, numOfImages) {
-
     amountOfImages_array[num_of_objects] = numOfImages;
     /*amountOfImages = numOfImages;*/
+    debugger;
+
     if (type == "events") {
         imagePath = path + "events/events/" + eventId + "/";
     } else if (type == "meetings") {
-        imagePath = path + "meetings/meetings/" + eventId + "/";
-    } else if (type == "winners"){
+        imagePath = path + "events/meetings/" + eventId + "/";
+    } else if (type == "winners") {
         imagePath = path + "winners/" + eventId + "/";
     } else {
         $('.container').html("Error #10 - Event type is invalid.");
@@ -105,3 +103,4 @@ function loadData(table, type, eventId, numOfImages) {
     num_of_objects++;
     $(table).html(container);
 }
+

@@ -1,14 +1,15 @@
 <!doctype html>
 <html>
 <head>
-    <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <meta charset="utf-8" />
     <title>Costa Rica Israel</title>
-</head>
+    <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
 
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+</head>
 <body>
-    <script src="/costaRicaIsrael/js/nav_bar.js"></script>
+    <?php require 'templates/navbar.php'?>
 
     <div id="container_center">
         <div class="container text">
@@ -37,7 +38,7 @@
         </div>
     </div>
 
-    <script src="/costaRicaIsrael/js/footer.js"></script>
+    <?php require 'templates/footer.php' ?>
 
 </body>
 </html>
