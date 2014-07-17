@@ -95,3 +95,7 @@
 .form_field_short {
     width: 30%;
 }
+
+.form_granted {
+    color: LimeGreen ;
+}
