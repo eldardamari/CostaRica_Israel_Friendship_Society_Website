@@ -37,38 +37,42 @@
                     <script> eventsHeader(); </script>
 
                     <?php
-                        $con = makeConnection();
+                    $con = makeConnection();
 
-                        $query = "SELECT * FROM members";
+                    $query = "SELECT * FROM members";
 
-                        if(!$result = prepareAndExecuteQuery($con,$query))
-                            echo 'error reading from database... please contact admin!';
+                    if(!$result = prepareAndExecuteQuery($con,$query))
+                        echo 'error reading from database... please contact admin!';
 
-                        foreach($result as $row) {
-                            $new_row = array(
-                                            "name"        => $row[0],
-                                            "id"          => $row[1],
-                                            "position"    => $row[2],
-                                            "email"       => $row[3],
-                                            "tel_number"  => $row[4],
-                                            "picPath"     => $row[5]);
+                    foreach($result as $row) {
+                        $new_row = array(
+                            "name"        => $row[0],
+                            "id"          => $row[1],
+                            "position"    => $row[2],
+                            "email"       => $row[3],
+                            "tel_number"  => $row[4],
+                            "picPath"     => $row[5]);
 
-                            echo   '<tr onmousedown="open_abomePage('.$new_row["id"]. ');">
-                                        <td> <img id="myPic" src=./img/members/' .  $new_row["picPath"] . ' /> </td>
-                                        <td> ' . $new_row["name"] . ' </td>
-                                        <td> ' . $new_row["position"] . ' </td>
-                                        <td> ' . $new_row["email"] . ' </td>
-                                    </tr>';
-                        }
+                        if ($new_row["id"] == 0) // Competition memeber -> skip
+                        continue;
+
+                        echo   '<tr>
+                                            <td  onmousedown="open_aboutMePage('.$new_row["id"]. ');">
+                                                <img id="myPic" src=./img/members/' .  $new_row["picPath"] . ' /> </td>
+                                            <td  onmousedown="open_aboutMePage('.$new_row["id"]. ');">
+                                                ' . $new_row["name"] . ' </td>
+                                            <td  onmousedown="open_aboutMePage('.$new_row["id"]. ');">
+                                                ' . $new_row["position"] . ' </td>
+                                            <td onmousedown="contact_member('.$new_row["id"].');"> ' . $new_row["email"] . ' </td>
+                                        </tr>';
+                    }
                     ?>
 
                 </table>
-
             </div>
         </div>
     </div>
 
     <?php require 'templates/footer.php' ?>
-
 </body>
 </html>

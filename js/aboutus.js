@@ -15,7 +15,7 @@ function eventsHeader() {
     ");
 }
 
-function open_abomePage(id) {
+function open_aboutMePage(id) {
     document.location = "/costaRicaIsrael/aboutme.php?id="+id;
 }
 
