@@ -80,6 +80,10 @@
     content:  url(/costaRicaIsrael/img/icons/order.png);
 }
 
+.icon_login {
+    content:  url(/costaRicaIsrael/img/icons/login.png);
+}
+
 .form_error {
     color: red;
 }
