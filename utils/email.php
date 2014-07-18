@@ -1,6 +1,4 @@
 <?php
-    // email address to send errors
-    $adminEmail = "costaricaisraelassociation@gmail.com";
 
     function spamCheck($field) {
         // Sanitize e-mail address
@@ -15,6 +13,7 @@
     }
 
     function sendErrorToAdmin($subject,$message) {
-        global $adminEmail;
+        // email address to send errors
+        $adminEmail = "costaricaisraelassociation@gmail.com";
         return mail($adminEmail, $subject, $message, "From: $adminEmail\n");
     }
