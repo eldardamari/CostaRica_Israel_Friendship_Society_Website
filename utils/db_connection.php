@@ -4,7 +4,7 @@
     $hostname = 'localhost';
     $dbname   = 'costa_rica_israel';
     $username = 'root';
-    $password = '';
+    $password = 'root';
 
     function makeConnection() {
         global $hostname,$dbname,$username,$password;

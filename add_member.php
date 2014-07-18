@@ -96,24 +96,24 @@
                                 } catch (Exception $e) {
                                     echo "<p class='text form_error'>&emsp;
                                     Error moving profile pic file.. please try again</p>";
-                                    $showForm = true;
+                                    goto form;
                                 }
                             } else {
                                 echo "<p class='text form_error'>&emsp;Failed updating database..
                                     please check if email address is not used by other member.";
-                                $showForm = true;
+                                    goto form;
                             }
                         } catch (PDOException $e) {
                             var_dump($e->getMessage());
                             echo "<p class='text form_error'>&emsp;#3 Failed updating database..please try again.";
-                            $showForm = true;
+                            goto form;
                         }
                     echo '<p class="form_granted">&emsp;Memebers added successfully! 
                         <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
                         </p>';
                     }
                 if($showForm) {
-form:
+                form:
             ?>
                 <form enctype="multipart/form-data" class="general_form" action=<?php echo $_SERVER["PHP_SELF"]?> method="post">
 

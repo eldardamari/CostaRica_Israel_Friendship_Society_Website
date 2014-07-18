@@ -15,7 +15,10 @@ function eventsHeader() {
     ");
 }
 
-function open_abomePage(id) {
+function open_aboutPage(id) {
     document.location = "/costaRicaIsrael/aboutme.php?id="+id;
 }
 
+function contact_member(id) {
+    document.location = "/costaRicaIsrael/contact.php?id="+id;
+}

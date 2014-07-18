@@ -57,17 +57,17 @@
                                 continue;
                         
                             echo   '<tr>
-                                        <td  onmousedown="open_abomePage('.$new_row["id"]. ');">
+                                        <td  onmousedown="open_aboutPage('.$new_row["id"]. ');">
                                             <img id="myPic" src=./img/members/' .  $new_row["picPath"] . ' /> </td>
-                                        <td  onmousedown="open_abomePage('.$new_row["id"]. ');">
+                                        <td  onmousedown="open_aboutPage('.$new_row["id"]. ');">
                                             ' . $new_row["name"] . ' </td>
-                                        <td  onmousedown="open_abomePage('.$new_row["id"]. ');">
+                                        <td  onmousedown="open_aboutPage('.$new_row["id"]. ');">
                                             ' . $new_row["position"] . ' </td>
-                                        <td onmousedown="contact_member('.$new_row["id"].');"> ' . $new_row["email"] . ' </td>
+                                        <td onmousedown="contact_member('.$new_row["id"].');" align="center">
+                                            <img src="/costaRicaIsrael/img/icons/email.png" height="40" width="40" alt="email"/> </td>
                                     </tr>';
                         }
                     ?>
-
                 </table>
             </div>
         </div>
