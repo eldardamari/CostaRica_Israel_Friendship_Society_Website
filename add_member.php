@@ -45,15 +45,14 @@
                         $con = makeConnection();
 
                         $title      = htmlspecialchars($_REQUEST['title']);
-                        $about_me    = htmlspecialchars($_REQUEST['about_me']);
+                        $about_me   = htmlspecialchars($_REQUEST['about_me']);
+                        $full_name  = htmlspecialchars($_REQUEST['full_name']);
+                        $mobile     = htmlspecialchars($_REQUEST['mobile']);
+                        $position   = htmlspecialchars($_REQUEST['position']);
 
-                        $full_name  = $_REQUEST['full_name'];
-                        $mobile     = $_REQUEST['mobile'];
-                        $position   = $_REQUEST['position'];
-                        $pic_path   = "img/members/";
+                        $pic_path   = "/Library/WebServer/Documents/costaRicaIsrael/img/members/";
                         $pic_name = uniqid('member_');
 
-                        echo $pic_name;
                             $sql = "START TRANSACTION;
                                         INSERT INTO members(name,email,position,tel_number,pic_path)
                                             VALUES (:name, :email, :position, :tel_number, :pic_path);
@@ -67,22 +66,24 @@
                             try {
                                 $statement = $con->prepare($sql);
 
-                                $statement->bindParam(':name', $full_name, PDO::PARAM_STR);
-                                $statement->bindParam(':email', $email, PDO::PARAM_STR);
-                                $statement->bindParam(':position', $position, PDO::PARAM_STR);
-                                $statement->bindParam(':tel_number', $mobile, PDO::PARAM_INT);
-                                $statement->bindParam(':pic_path', $pic_name, PDO::PARAM_STR);
-                                $statement->bindParam(':title', $title, PDO::PARAM_STR);
-                                $statement->bindParam(':about_me', $about_me, PDO::PARAM_STR);
+                                $statement->bindParam(':name',      $full_name, PDO::PARAM_STR);
+                                $statement->bindParam(':email',     $email, PDO::PARAM_STR);
+                                $statement->bindParam(':position',  $position, PDO::PARAM_STR);
+                                $statement->bindParam(':tel_number',$mobile, PDO::PARAM_INT);
+                                $statement->bindParam(':pic_path',  $pic_name, PDO::PARAM_STR);
+                                $statement->bindParam(':title',     $title, PDO::PARAM_STR);
+                                $statement->bindParam(':about_me',  $about_me, PDO::PARAM_STR);
                                 $statement->execute();
                                 $statement->closeCursor();
 
                             } catch (PDOException $e) {
                                 var_dump($e->getMessage());
                                 if ($e->errorInfo[1] == 1062) {
-                                    echo "<p class='text form_error'>&emsp;The e-mail: $email is already subscribed</p>";
+                                    echo "<p class='text form_error'>&emsp;
+                                    The e-mail: $email is already subscribed</p>";
                                 } else {
-                                    echo "<p class='text form_error'>&emsp; #1 Failed updating database..please try again.";
+                                    echo "<p class='text form_error'>&emsp; 
+                                    #1 Failed updating database..please try again.";
                                 }
                                 goto form;
                             }
@@ -109,14 +110,16 @@
 
                                 } else {
 
-                                    echo "<p class='text form_error'>&emsp;Failed updating database..
-                                        please check if email address is not used by other member.";
+                                    echo "<p class='text form_error'>&emsp;Failed 
+                                        updating database..  please check if 
+                                        email address is not used by other member.";
                                         goto form;
                                 }
 
                             } catch (PDOException $e) {
                                 var_dump($e->getMessage());
-                                echo "<p class='text form_error'>&emsp;#3 Failed updating database..please try again.";
+                                echo "<p class='text form_error'>&emsp;#3 
+                                    Failed updating database..please try again.";
                                 goto form;
                             }
 
@@ -124,7 +127,6 @@
                                     <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
                                   </p>';
                         }
-
                     form:
                         include 'templates/add_member_form.php';
                 }
