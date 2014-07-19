@@ -1,15 +1,13 @@
 <?php
 
-    // Database info
-    $hostname = 'localhost';
-    $dbname   = 'costa_rica_israel';
-    $username = 'root';
-    $password = 'root';
-
     function makeConnection() {
-        global $hostname,$dbname,$username,$password;
+        // Database info
+        $hostname = 'localhost';
+        $dbname   = 'costa_rica_israel';
+        $db_username = 'root';
+        $db_password = 'root';
 
-        $con = new PDO("mysql:host=$hostname;dbname=$dbname",$username,$password);
+        $con = new PDO("mysql:host=$hostname;dbname=$dbname",$db_username,$db_password);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         return $con;
@@ -28,3 +26,5 @@
         }
         return $result;
     }
+
+?>

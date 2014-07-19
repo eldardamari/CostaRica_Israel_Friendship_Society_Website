@@ -15,6 +15,9 @@
     }
 
     function sendErrorToAdmin($subject,$message) {
+        // email address to send errors
         global $adminEmail;
         return mail($adminEmail, $subject, $message, "From: $adminEmail\n");
     }
+
+?>
