@@ -30,8 +30,6 @@
 
                 } else {
 
-                    $showForm = true;
-
                     if(isset($_REQUEST["email"])) {
 
                         if (!check_file($_FILES["profile_pic"]["name"]))
@@ -54,7 +52,8 @@
                         $mobile     = $_REQUEST['mobile'];
                         $position   = $_REQUEST['position'];
                         $pic_path   = "img/members/";
-                        $pic_name = str_shuffle("12345").'_'.$_FILES["profile_pic"]["name"];
+//                        $pic_name = str_shuffle("12345").'_'.$_FILES["profile_pic"]["name"];
+                        $pic_name = uniqid('member_');
 
                         echo $pic_name;
                             $sql = "START TRANSACTION;
@@ -107,21 +106,20 @@
                                     } catch (Exception $e) {
                                         echo "<p class='text form_error'>&emsp;
                                         Error moving profile pic file.. please try again</p>";
-                                        $showForm = true;
+                                        goto form;
                                     }
 
                                 } else {
 
                                     echo "<p class='text form_error'>&emsp;Failed updating database..
                                         please check if email address is not used by other member.";
-
-                                    $showForm = true;
+                                    goto form;
                                 }
 
                             } catch (PDOException $e) {
                                 var_dump($e->getMessage());
                                 echo "<p class='text form_error'>&emsp;#3 Failed updating database..please try again.";
-                                $showForm = true;
+                                goto form;
                             }
 
                             echo '<p class="form_granted">&emsp;Memebers added successfully!
@@ -129,10 +127,8 @@
                                   </p>';
                         }
 
-                    if($showForm) {
                     form:
                         include 'templates/add_member_form.php';
-                    }
                 }
             ?>
         </div>
