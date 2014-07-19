@@ -19,7 +19,7 @@
                required pattern="[05]{2}[0|2-9][0-9]{7}" title="Enter a vaild Israeli mobile number 05********"><br><br>
 
         <label for="profile_pic">Profile picture</label>
-        <input type="file" name="profile_pic" required><br><br>
+        <input type="file" name="profile_pic" accept="image/*" required><br><br>
     </fieldset>
 
     <fieldset><legend>About member:</legend>
