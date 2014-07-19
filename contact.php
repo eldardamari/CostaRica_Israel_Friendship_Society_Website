@@ -17,7 +17,7 @@
     <div id="container_center">
         <div class="container">
 
-            <h2>Contact us</h2>
+            <h2 class="text_center">Contact us</h2>
 
             <?php
                 $showForm = true;
@@ -55,10 +55,13 @@
                             return false;
                         }
 
-                        $sent = mail($contact['email'], $subject, $content, "From: $email\n");
+                        sendMailToMember($contact['email'], $subject, $content, $email);
 
-                        echo "<p class='text'>Thank you for sending us an email,"
-                            ."<br>We will contact you as soon as possible.</p>";
+                        echo "<p class='text text_center'>Thank you for sending us an e-mail,"
+                            ."<br>We will contact you as soon as possible.</p>"
+                            ."<p class='text text_center'> You are now being redirected to Home...</p>";
+
+                        header( "refresh:5;url=index.php" );
                     }
                 }
 

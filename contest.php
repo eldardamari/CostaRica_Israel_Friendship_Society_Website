@@ -37,8 +37,6 @@
                 <input type="hidden" name="bn"            value="Costa-RicaIsrael_BuyNow_WPS_IL">
                 <input type="hidden" name="charset"       value="utf-8">
 
-
-
                 <fieldset><legend>Personal data:</legend>
 
                     <label for="fname">First name</label>
@@ -110,9 +108,6 @@
                     <input class="form_field" type="number" id="year_number" name="os5" min="1" max="7" name="custom" required><br>
 
                 </fieldset>
-                    
-
-                
 
                 <input type="hidden" name="cn" value="Add special instructions to the seller:">
                 <input type="hidden" name="no_note" value="0">

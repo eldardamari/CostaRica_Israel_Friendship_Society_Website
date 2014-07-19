@@ -25,7 +25,7 @@
                     <a href="panel.php?addmeeting" lang="en">Add Meeting</a>
                 </li>
                 <li>
-                    <a href="templates/logout.php" lang="en">Logout</a>
+                    <a href="utils/logout.php" lang="en">Logout</a>
                 </li>
                 <li id="language">
                     <a href="#" onclick="setLanguage('en')"> English </a> /
