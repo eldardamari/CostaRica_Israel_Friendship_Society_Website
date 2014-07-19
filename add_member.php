@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <?php require 'utils/db_connection.php' ?>
-    <?php require 'utils/email.php' ?>
     <?php require 'utils/files.php' ?>
 </head>
 
@@ -32,17 +30,14 @@
 
                 } else {
 
-                    $showForm = true;
-
                     if(isset($_REQUEST["email"])) {
 
                         if (!check_file($_FILES["profile_pic"]["name"]))
                             goto form;
 
                         $email = $_REQUEST['email'];
-                        $mailCheck = spamCheck($email);
 
-                        if ($mailCheck == false) {
+                        if (spamCheck($email) == false) {
                             echo "<p class='text form_error'>&emsp;Invalid email</p>";
                           goto form;
                         }
@@ -56,7 +51,7 @@
                         $mobile     = $_REQUEST['mobile'];
                         $position   = $_REQUEST['position'];
                         $pic_path   = "img/members/";
-                        $pic_name = str_shuffle("12345").'_'.$_FILES["profile_pic"]["name"];
+                        $pic_name = uniqid('member_');
 
                         echo $pic_name;
                             $sql = "START TRANSACTION;
@@ -126,14 +121,12 @@
                             }
 
                             echo '<p class="form_granted">&emsp;Memebers added successfully!
-                                <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
-                                </p>';
+                                    <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
+                                  </p>';
                         }
 
-                    if($showForm) {
                     form:
                         include 'templates/add_member_form.php';
-                    }
                 }
             ?>
         </div>

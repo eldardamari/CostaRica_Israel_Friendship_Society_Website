@@ -182,6 +182,10 @@ nav ul li {
     font-size: 18px;
 }
 
+.text_center {
+    text-align: center;
+}
+
 .imageTable {
     text-align: center;
 }

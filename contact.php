@@ -17,7 +17,7 @@
     <div id="container_center">
         <div class="container">
 
-            <h2>Contact us</h2>
+            <h2 class="text_center">Contact us</h2>
 
             <?php
                 $showForm = true;
@@ -55,54 +55,18 @@
                             return false;
                         }
 
-                        $sent = mail($contact['email'], $subject, $content, "From: $email\n");
+                        sendMailToMember($contact['email'], $subject, $content, $email);
 
-                        echo "<p class='text'>Thank you for sending us an email,"
-                            ."<br>We will contact you as soon as possible.</p>";
+                        echo "<p class='text text_center'>Thank you for sending us an e-mail,"
+                            ."<br>We will contact you as soon as possible.</p>"
+                            ."<p class='text text_center'> You are now being redirected to Home...</p>";
+
+                        header( "refresh:5;url=index.php" );
                     }
                 }
 
                 if($showForm) {
-            ?>
-
-            <form class="general_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>">
-                <fieldset>
-                    <label for="from">From</label>
-                    <input name="email" type="email" id="from" class="form_field form_field_short" placeholder="Insert Your Email" required="">
-                    <br><br>
-
-                    <label for="contact">To</label>
-                    <select name="contact" id="contact" class="form_field form_field_short" required="">
-                        <option value="" disabled>Select Contact</option>
-                        <?php
-                            foreach($result as $member) {
-                                if(isset($_REQUEST['id'])) {
-                                    $memeber_id = $_REQUEST['id'];
-                                    if($memeber_id == $member['id']) {
-                                        echo '<option selected="selected" value="'.$member['id'].'" >'.$member['name'].'</option>"';
-                                        continue;
-                                    } 
-                                } 
-                                 echo '<option value="'.$member['id'].'" >'.$member['name'].'</option>"';
-                            }
-                        ?>
-                    </select>
-                    <br><br>
-
-                    <label for="subject">Subject</label>
-                    <input name="subject" type="text" id="subject" class="form_field form_field_medium" placeholder="Enter Subject" required="">
-                    <br><br>
-
-                    <label for="mailContent">Content</label>
-                    <textarea name="content" id="mailContent" class="form_field form_field_medium" style="resize: none;" rows="15" maxlength="300" required=""></textarea>
-                </fieldset>
-
-                <div id="formbuttons">
-                    <button class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Send</button>
-                </div>
-            </form>
-
-            <?php
+                    include 'templates/contact_form.php';
                 }
             ?>
 

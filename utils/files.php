@@ -1,6 +1,7 @@
 <?php
 
-function check_file($filename) {
+function check_file($filename) 
+{
 
     if (check_file_length($filename)) {
       echo "<p class='text form_error'>&emsp; Error: File name is too long, need to be less than 225 characters!</p>";
@@ -56,4 +57,3 @@ function check_file_length ($filename)
 {
     return (bool) ((mb_strlen($filename,"UTF-8") > 225) ? true : false);
 }
-?>

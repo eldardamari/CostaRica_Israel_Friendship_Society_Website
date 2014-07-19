@@ -38,20 +38,20 @@
 
                     <?php
                         $con = makeConnection();
-
+    
                         $query = "SELECT * FROM members";
-
+    
                         if(!$result = prepareAndExecuteQuery($con,$query))
                             echo 'error reading from database... please contact admin!';
 
                         foreach($result as $row) {
                             $new_row = array(
-                                            "name"        => $row[0],
-                                            "id"          => $row[1],
-                                            "position"    => $row[2],
-                                            "email"       => $row[3],
-                                            "tel_number"  => $row[4],
-                                            "picPath"     => $row[5]);
+                                "name"        => $row[0],
+                                "id"          => $row[1],
+                                "position"    => $row[2],
+                                "email"       => $row[3],
+                                "tel_number"  => $row[4],
+                                "picPath"     => $row[5]);
 
                             if ($new_row["id"] == 0) // Competition memeber -> skip
                                 continue;
@@ -68,10 +68,14 @@
                                     </tr>';
                         }
                     ?>
+
                 </table>
+
             </div>
         </div>
     </div>
+
     <?php require 'templates/footer.php' ?>
+
 </body>
 </html>
