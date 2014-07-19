@@ -56,4 +56,3 @@ function check_file_length ($filename)
 {
     return (bool) ((mb_strlen($filename,"UTF-8") > 225) ? true : false);
 }
-?>
