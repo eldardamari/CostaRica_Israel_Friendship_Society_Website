@@ -57,13 +57,31 @@
                             $statement->bindParam(':newsletter', $newsletter, PDO::PARAM_BOOL);
                             $statement->execute();
 
-                            echo    '<p class="text"> You have been subscribed successfully!</p>'.
-                                    '<p>Summary</p><ul>'.
-                                    '<li><p>First name: '.$firstName.'</p></li>',
-                                    '<li><p>Last name: '.$lastName.'</p></li>',
-                                    '<li><p>E-Mail: '.$email.'</p></li>',
-                                    '<li><p>Subscribed for:&emsp;'.$subscribed.'</p></li>',
-                                    '</ul>';
+                            $content = '<html><body>'.
+                                    '<div style="text-align: center; font-size: 300%; font-weight: 900; color: rgba(65,110,225,0.9);">
+                                        Welcome To Costa-Rica Israel Friendship Association </div> <br> <hr>
+                                        <div style="text-align: center; font-size: 200%; font-weight: 550; color: #348017;">
+                                             You have been subscribed successfully!</div>
+                                             <div>
+                                    <table width=80% align="center" style="border-style:solid; border-width:medium; border-color:#E8E8E8;"> <tr> <td>
+                                        <div style="text-align: left; font-size: 100%; font-weight: 225;">
+                                            <p><b><u>Summary</u></b></p></div>
+                                        <ul>
+                                    <li><p><b>First name:</b> '.$firstName.'</p></li>'.
+                                    '<li><p><b>Last name:</b> '.$lastName.'</p></li>'.
+                                    '<li><p><b>E-Mail:</b> '.$email.'</p></li>'.
+                                    '<li><p><b>Subscribed for:</b>&emsp;'.$subscribed.'</p></li>'.
+                                    '</ul>'.
+                                    '</td></tr></table></div></body></html>';
+
+                            $subject = "Welcome To Costa-Rica Israel Friendship Association";
+                            mail($email, $subject, $content, "From: $adminEmail\r\nContent-Type: text/html; charset=ISO-8859-1\r\n" );
+                            
+                            echo '<p class="form_granted">&emsp;Subscribed Successfully 
+                                <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
+                                </p>';
+
+                            $showForm = true;
 
                         } catch (PDOException $e) {
                             if ($e->errorInfo[1] == 1062) {
@@ -109,9 +127,14 @@
                 </form>
 
             <?php
+                    echo '<script> 
+                    $(".general_form").submit(function(){
+                        if(!$(".general_form input:checked").length) {
+                            alert("Please check at least one checkbox");
+                            return false; } }); 
+                        </script>';
                 }
             ?>
-
         </div>
     </div>
 

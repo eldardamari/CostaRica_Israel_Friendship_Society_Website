@@ -125,8 +125,8 @@
                             }
 
                             echo '<p class="form_granted">&emsp;Memebers added successfully!
-                                <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
-                                </p>';
+                                    <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
+                                  </p>';
                         }
 
                     if($showForm) {

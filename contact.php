@@ -76,7 +76,14 @@
                         <option value="" disabled>Select Contact</option>
                         <?php
                             foreach($result as $member) {
-                                echo '<option value="'.$member['id'].'" >'.$member['name'].'</option>"';
+                                if(isset($_REQUEST['id'])) {
+                                    $memeber_id = $_REQUEST['id'];
+                                    if($memeber_id == $member['id']) {
+                                        echo '<option selected="selected" value="'.$member['id'].'" >'.$member['name'].'</option>"';
+                                        continue;
+                                    } 
+                                } 
+                                 echo '<option value="'.$member['id'].'" >'.$member['name'].'</option>"';
                             }
                         ?>
                     </select>
