@@ -15,6 +15,7 @@
 
     <?php require 'utils/db_connection.php' ?>
     <?php require 'utils/email.php' ?>
+    <?php require 'utils/contest.php' ?>
 </head>
 
 <body>
@@ -42,6 +43,8 @@
                 if(!$result = prepareAndExecuteQuery($con,$query))
                     echo 'error reading from database... please contact admin!';
 
+                $prev_contect_num = 0;
+                $prev_num_pics = 0;
                 foreach($result as $row) {
                     $new_row = array(
                         "contest_num"       => $row[0],
@@ -53,56 +56,22 @@
                         "place"             => $row[6],
                         "pic_path"          => $row[7]);
 
-                    if ($row_count == 0) {
-                        echo '<br><h2 align="center">' . (2005 + $new_row["contest_num"]) .'
-                        Contest Winneres - #' . $new_row["contest_num"].'</h3>
+                    if ($prev_contect_num == (int)$new_row["contest_num"]) {
+                        print_winner_row($new_row);
+                        print_winner_end_table($new_row);
+                          continue;
+                    } else 
+                        if ($prev_contect_num != (int)$new_row["contest_num"] && $row_count == 1)
+                            print_winner_prev_end_table($prev_contect_num,$prev_num_pics);
 
-                        <table class="winnersTable" id="winners_'.$new_row["contest_num"].'">
-                                <script> eventsHeader(); </script>';
-                    }
-
-                    echo '<tr>
-                        <td> ' . ($new_row["place"] == 1 ? '1st' : '2nd') . '</td>
-                        <td> <img id="myPic" src=./img/winners/' .
-                        $new_row["contest_num"] . '/' . $new_row["pic_path"] . ' /> </td>
-                            <td> ' . $new_row["name"] . ' </td>
-                            <td> ' . $new_row["subject"] . ' </td>
-                            <td> ' . $new_row["institute"] . ' </td>
-                        </tr>';
-
-                    if ($row_count == 1) {
-                        echo '
-                            <tr>
-                                <td colspan="5" class="imageTable_'.$new_row["contest_num"].' imageTable"></td>
-                            </tr>
-                            </table>
-                            <script> loadData(".imageTable_'.$new_row["contest_num"].'",
-                                              "winners",
-                                              '.$new_row["contest_num"].',
-                                              '.$new_row["number_of_pics"].');
-                            </script> ';
-                        $row_count = 0;
-
-                    } else if ($row_count == 0) {
+                        print_table_head($new_row);
+                        print_winner_row($new_row);
+                        
+                        $prev_contect_num = (int)$new_row["contest_num"];
+                        $prev_num_pics    = (int)$new_row["number_of_pics"];
                         $row_count = 1;
-                    }
-                }
-
-                if ($row_count == 1) {
-                    echo '
-                        <tr>
-                            <td colspan="5" class="imageTable_'.$new_row["contest_num"].' imageTable"></td>
-                        </tr>
-                        </table>
-                        <script> loadData(".imageTable_'.$new_row["contest_num"].'",
-                                          "winners",
-                                          '.$new_row["contest_num"].',
-                                          '.$new_row["number_of_pics"].');
-                        </script> ';
-                    $row_count = 0;
                 }
             ?>
-
         </div>
     </div>
 
