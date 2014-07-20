@@ -10,7 +10,7 @@ function check_file($filename)
     if (!check_file_type_and_size($_FILES["profile_pic"]["name"],
                                 $_FILES["profile_pic"]["type"],
                                 $_FILES["profile_pic"]["size"])) {
-      echo "<p class='text form_error'>&emsp; Error: File type is wrong!</p>";
+      echo "<p class='text form_error'>&emsp; Error: File type or size is unvaild (max file size: 500kb)!</p>";
       return false;
     }
   if ($_FILES["profile_pic"]["error"] > 0) {
@@ -56,4 +56,52 @@ function set_legal_filename($filename)
 function check_file_length ($filename)
 {
     return (bool) ((mb_strlen($filename,"UTF-8") > 225) ? true : false);
+}
+
+function check_multiple_files($pictures_var) {
+
+    $pictures = array("num_of_pictures" => 0, "pictures_tmp" => 0, "types" => 0,
+                      "pictures_name" => 0);
+    $num_of_pictures = 0;
+    $pictures_tmp = array ();
+    $pictures_types = array ();
+    $pictures_name  = array ();
+
+    foreach($_FILES[$pictures_var]['tmp_name'] as $key => $tmp_name) {
+
+        $file_name  =   $_FILES[$pictures_var]['name'][$key];
+        $file_size  =   $_FILES[$pictures_var]['size'][$key];
+        $file_tmp   =   $_FILES[$pictures_var]['tmp_name'][$key];
+        $file_type  =   $_FILES[$pictures_var]['type'][$key];
+
+        if (!check_file_type_and_size($file_name,$file_type,$file_size))
+            continue;
+
+        $num_of_pictures++;
+        array_push($pictures_tmp,$file_tmp);
+        array_push($pictures_name,$file_name);
+
+        if (($pos = strpos($file_type, "/")) !== FALSE) { 
+            $type = substr($file_type, $pos+1); 
+        } else {
+            $type = "jpg";
+        }
+        array_push($pictures_types,$type);
+    }
+
+    $pictures['num_of_pictures'] = $num_of_pictures;
+    $pictures['pictures_tmp'] = $pictures_tmp;
+    $pictures['types'] = $pictures_types;
+    $pictures['pictures_name'] = $pictures_name;
+    return $pictures;
+}
+
+function num_of_files_in_dir($path) {
+    $sum = 0;
+    $dir = new DirectoryIterator($path);
+    foreach($dir as $file ){
+        if(!$file->isDot())
+            $sum++;
+    }
+    return $sum;
 }
