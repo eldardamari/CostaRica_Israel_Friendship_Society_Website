@@ -25,6 +25,9 @@
                     <a href="panel.php?addmeeting" lang="en">Edit Meetings</a>
                 </li>
                 <li>
+                    <a href="add_winner.php" lang="en">Edit Winners</a>
+                </li>
+                <li>
                     <a href="utils/logout.php" lang="en">Logout</a>
                 </li>
                 <li id="language">

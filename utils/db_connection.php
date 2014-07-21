@@ -5,7 +5,7 @@
         $hostname = 'localhost';
         $dbname   = 'costa_rica_israel';
         $db_username = 'root';
-        $db_password = 'root';
+        $db_password = '';
 
         $con = new PDO("mysql:host=$hostname;dbname=$dbname",$db_username,$db_password);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -23,6 +23,16 @@
         } catch (PDOException $e) {
             sendErrorToAdmin("DB ERROR: " . $e->getCode(), $e->getMessage());
             return false;
+        }
+        return $result;
+    }
+
+    function prepareAndUpdate($con, $sql) {
+        try {
+            $statement = $con->prepare($sql);
+            $result = $statement->execute();
+        } catch (PDOException $e) {
+            sendErrorToAdmin("DB ERROR: " . $e->getCode(), $e->getMessage());
         }
         return $result;
     }
