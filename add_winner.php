@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
 
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="/costaRicaIsrael/js/add_winner.js"></script>
+   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <?php require 'utils/files.php' ?>
 </head>
 
@@ -30,9 +30,16 @@
                     header('Location: login.php');
 
                 } else {
+
                     $pictures_exist = false;
 
                     if(isset($_REQUEST["email"])) {
+
+                        if(!isset($_FILES["profile_pic"]["tmp_name"])) {
+                            echo "<p class='text form_error'>&emsp;"."
+                                Error: Please check your input for duplicated data . </p>";
+                            goto form;
+                        }
 
                         if (!check_file($_FILES["profile_pic"]["name"]))
                             goto form;
@@ -73,8 +80,6 @@
                             $statement->execute();
                             $result = $statement->fetchAll();
 
-                    /*$num_of_pictures_in_db = (int)$result[0]["number_of_pics"];*/
-                            
                             if (sizeof($result) > 0 && $result[0]["num_of_rows"] > 0) {
                                 echo "<p class='text form_error'>&emsp;"."
                                 Error: Another winner is already subscribed as <b> ".($place == 1 ? "1st" : "2nd"). ' </b>place, please use EDIT mode .</p>';
@@ -95,7 +100,6 @@
                                 //Uploading pictures
                                 if($pictures_exist) {
                                     $msg = "";
-                                    /*$j = ((int)$num_of_pictures_in_db + 1); // extends more pictures*/
                                     for($i = 1, $count = 0 ; $i <= $uploaded_pictures["num_of_pictures"] ; $i++) {
 
                                         $pic_full_path =  $pic_path.$contest_num;
@@ -104,11 +108,9 @@
                                         $filename = $uploaded_pictures["pictures_name"][($i-1)];
 
                                         if (!move_uploaded_file($tmp_path,$pic_full_path.'/'.($count+1).'.jpg')) {
-                                            /*($num_of_pictures_in_db == 0 ? ($count+1) : $j).'.jpg')) {*/
                                             $msg .= '&#149 '. $filename .' <br>';
                                         } else {
                                             $count++;
-                                            /*$j++;*/
                                         }
                                     } 
                                 }
@@ -138,15 +140,15 @@
                                 $statement->closeCursor();
 
                             } catch (PDOException $e) {
-                                var_dump($e->getMessage());
                                 if ($e->errorInfo[1] == 1062) {
                                     echo "<p class='text form_error'>&emsp;
-                                    The winner: " . $full_name . " is already subscribed, use EDIT to change winner's data.</p>";
+                                    Error: duplicate EMAIL in databse, please check email address.</p>";
                                 } else {
                                     echo "<p class='text form_error'>&emsp; 
                                     Failed updating database..please try again.";
                                 }
-                                if(num_of_files_in_dir($pic_path.$contest_num) > 0)
+                                    unlink($pic_path.$contest_num.'/'.$pic_name);
+                                if(num_of_files_in_dir($pic_path.$contest_num) == 0)
                                     rmdir($pic_path.$contest_num);
                                 goto form;
                             }

@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" class="general_form" method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
+<form enctype="multipart/form-data" class="general_form" id="winner_form" method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
 
     <fieldset>
         <legend>Contest Details:</legend>
@@ -43,13 +43,13 @@
                 required pattern="[a-z|A-Z| ]*" title="English Letters Only"><br><br>
 
         <label for="profile_pic">Profile picture</label>
-        <input type="file" name="profile_pic" accept="image/*" required><br><br>
+        <input type="file" class="file" name="profile_pic" accept="image/*" required><br><br>
     </fieldset>
     
     <fieldset>
         <legend>Winner Pictures:</legend>
         <label for="pictures">Select Multiple Pictures</label>
-        <input type="file" name="pictures[]" accept="image/*" multiple><br><br>
+        <input type="file" class="file" name="pictures[]" accept="image/*" multiple><br><br>
     </fieldset>
 
     <div id="formbuttons">
