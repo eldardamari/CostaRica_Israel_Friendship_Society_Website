@@ -30,8 +30,8 @@
 
                     $columns = "id , name , date , text , number_of_pics";
                     $query = 'SELECT ' . $columns .
-                                     ' FROM ' . ($type == 'events' ? "events" : "meetings") . '_en'.
-                                     ' WHERE id=:id';
+                             ' FROM ' . ($type == 'events' ? "events" : "meetings") . '_en'.
+                             ' WHERE id=:id';
 
                     try {
                         $statement = $con->prepare($query);
@@ -57,7 +57,6 @@
 
                     } catch (PDOException $e) {
                         $sent = sendErrorToAdmin("event.php - DB ERROR: " . $e->getCode(), $e->getMessage());
-                        var_dump($sent);
                         echo "Error #404 - Event not found <br>";
                     }
 
@@ -68,14 +67,24 @@
             ?>
 
             <br>
-            <div id="imageTable" class="imageTable"></div>
+            <div id="imageTable" class="imageTable">
+                <?php
+
+                    $imagesPath = "img/events/$type/$id/*.*";
+                    $images = glob($imagesPath);
+                    $j = 1;
+
+                    foreach($images as $image) {
+                        echo '<a href="#openModal" onclick="showModal(\''.$image.'\',\'1_'.$j.'\')">'.
+                             '<img id="1_'.$j.'" class="thumb" src="'.$image.'"></a>';
+                        $j++;
+                    }
+                    echo '<script> setModalTable('. $numOfImages . '); </script>';
+                ?>
+            </div>
 
         </div>
     </div>
-
-    <?php
-        echo '<script> loadData("#imageTable","' . $type .'",'. $id .','. $numOfImages . '); </script>';
-    ?>
 
     <?php require 'templates/footer.php' ?>
 
