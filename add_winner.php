@@ -65,9 +65,8 @@
                         $con = makeConnection();
                         $num_of_pictures_in_db = 0;
 
-                        /*$extension= end(explode(".", $_FILES["profile_pic"]["name"]));*/
-                        $pic_name = (($place == "1") ? "first." : "second.") . 'jpg';
-                        $pic_path   = "/Library/WebServer/Documents/costaRicaIsrael/img/winners/";
+                        $pic_name = (($place == "1") ? "first" : "second") . getFileExtension($_FILES["profile_pic"]["name"]);
+                        $pic_path   = "img/winners/";
 
                         $sql = "SELECT COUNT(*) as num_of_rows FROM winners_en 
                                 WHERE contest_num=:contest_num AND place=:place";
@@ -144,22 +143,27 @@
                                     echo "<p class='text form_error'>&emsp;
                                     Error: duplicate EMAIL in databse, please check email address.</p>";
                                 } else {
+                                    var_dump($e);
                                     echo "<p class='text form_error'>&emsp; 
                                     Failed updating database..please try again.";
                                 }
-                                    unlink($pic_path.$contest_num.'/'.$pic_name);
-                                if(num_of_files_in_dir($pic_path.$contest_num) == 0)
-                                    rmdir($pic_path.$contest_num);
+
+                                $filesToDelete = glob($pic_path.$contest_num.'/*.*');
+                                foreach($filesToDelete as $file) {
+                                    unlink($file);
+                                }
+                                rmdir($pic_path.$contest_num);
+
                                 goto form;
                             }
 
                                 // updatig winners pictures number - in a case of an update
                                 if ($pictures_exist) {
-                                $sql_count = "UPDATE winners_en SET number_of_pics=:count WHERE contest_num=:contest_num";
-                                $statement_count = $con->prepare($sql_count);
-                                $statement_count->bindParam(':count', $count, PDO::PARAM_INT);
-                                $statement_count->bindParam(':contest_num', $contest_num, PDO::PARAM_INT);
-                                $statement_count->execute();
+                                    $sql_count = "UPDATE winners_en SET number_of_pics=:count WHERE contest_num=:contest_num";
+                                    $statement_count = $con->prepare($sql_count);
+                                    $statement_count->bindParam(':count', $count, PDO::PARAM_INT);
+                                    $statement_count->bindParam(':contest_num', $contest_num, PDO::PARAM_INT);
+                                    $statement_count->execute();
                                 }
 
                             } catch (PDOException $e) {
