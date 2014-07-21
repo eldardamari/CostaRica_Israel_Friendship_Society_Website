@@ -37,17 +37,15 @@
                     '</td></tr></table></div></body></html>';
 
         $adminEmail = getAdminMail();
-        $sent = mail($email, $subject, $content, "From: $adminEmail\r\nContent-Type: text/html; charset=ISO-8859-1\r\n");
-
-        return $sent;
+        return mail($email, $subject, $content, "From: $adminEmail\r\nContent-Type: text/html; charset=ISO-8859-1\r\n");
     }
 
     function sendMailToMember($memberEmail, $subject, $content, $fromEmail) {
         $replyInfo = "\n\n\te-mail to reply sender: $fromEmail";
-        $sent = mail($memberEmail, $subject, $content.$replyInfo, "From: $fromEmail\n");
+        return mail($memberEmail, $subject, $content.$replyInfo, "From: $fromEmail\r\nReply-To: $fromEmail\r\n");
     }
 
     function sendErrorToAdmin($subject,$message) {
         $adminEmail = getAdminMail();
-        return mail($adminEmail, $subject, $message, "From: $adminEmail\n");
+        return mail($adminEmail, $subject, $message, "From: $adminEmail\r\n");
     }
