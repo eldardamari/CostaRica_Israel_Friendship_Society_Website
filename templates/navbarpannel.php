@@ -16,13 +16,13 @@
                     echo "<li><strong>Hello ". $_SESSION['username']."!</strong></li>";
             ?>
                 <li>
-                    <a href="add_member.php" lang="en">Add Member</a>
+                    <a href="add_member.php" lang="en">Edit Members</a>
                 </li>
                 <li>
-                    <a href="panel.php?addevent" lang="en">Add Event</a>
+                    <a href="edit_events.php" lang="en">Edit Events</a>
                 </li>
                 <li>
-                    <a href="panel.php?addmeeting" lang="en">Add Meeting</a>
+                    <a href="panel.php?addmeeting" lang="en">Edit Meetings</a>
                 </li>
                 <li>
                     <a href="utils/logout.php" lang="en">Logout</a>
