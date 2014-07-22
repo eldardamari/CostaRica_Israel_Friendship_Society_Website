@@ -80,6 +80,8 @@
                 }
                 if(!$second) {
                     print_winner_prev_end_table($prev_contest_num, $prev_num_pics, $i);
+                } else {
+                    print_winner_end_table($new_row,$i);
                 }
             ?>
         </div>
