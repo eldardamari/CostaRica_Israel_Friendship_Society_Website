@@ -49,14 +49,4 @@ function print_winner_prev_end_table($prev_contect_num, $prev_num_pics, $i)
     }
     echo '</td></tr></table>';
     echo '<script> setModalTable('. $prev_num_pics . '); </script>';
-//    echo '
-//        <tr>
-//        <td colspan="5" class="imageTable_'.$prev_contect_num.' imageTable"></td>
-//        </tr>
-//        </table>
-//        <script> loadData(".imageTable_'.$prev_contect_num.'",
-//                            "winners",
-//                            '.$prev_contect_num.',
-//                            '.$prev_num_pics.');
-//                            </script> ';
 }
