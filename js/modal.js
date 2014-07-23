@@ -20,7 +20,6 @@ $(document).keydown(function(e) {
 });
 
 function showModal(image,id) {
-    alert(id);
     $('#image').html('<img class="bigImage" src="' + image + ' " />');
     $('#image').removeClass();
     $('#image').addClass(id);
