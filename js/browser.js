@@ -1,17 +1,48 @@
-function init(path, base) {
+function init(type, base) {
     browser({
         contentsDisplay     :   document.getElementById("directoryContent"),
         openFolderOnSelect  :   true,
-        currentPath         :   path,
+        currentPath         :   '',
         base                :   base,
-
-        onSelect:function(item,params) {
+        onSelect            :   function(item,params) {
 
             if(item.type != "folder") {
+
                 var path = 'img/' + base + item.path;
-                $('#imagePreview').attr('src',path);
-                $('#imageName').html(item.title);
-                $('#action').css('visibility' , 'visible').prop('value',path);
+                $('#imagePreview').attr('src',path).css('display', 'inline-block');
+                $('#previewName').html("<p>" + item.title + "</p>");
+
+                $('#action').prop('value',path).prop('name','deletePhoto').css('visibility' , 'visible');
+                $('#action').html('<span class="btn_icon icon_delete"></span> Remove Photo');
+
+            } else {
+                $('#imagePreview').css('display', 'none');
+
+                if(item.title == "..") {
+                    $('#previewName').html("");
+                    $('#action').prop('name','').css('visibility' , 'hidden');
+
+                } else {
+                    var events = type.toLowerCase() + "s";
+
+                    $.ajax({
+                        url : "utils/get_event.php?id="+item.title+"&eventType="+events,
+                        type: "GET",
+//                        data: "" +  + "" + events,
+                        dataType: "json",
+                        success : function(result) {
+                            var resultToString =    "<h2>" + type + " Details:</h2>" +
+                                "<p>Name: " + result.name + "</p>" +
+                                "<p>Date: " + result.date + "</p>" +
+                                "<p>Description: " + result.description + "</p>";
+
+                            $('#previewName').html(resultToString);
+                        }
+                    });
+
+                    $('#action').prop('value',item.title).prop('name','deleteEvent').css('visibility' , 'visible');
+                    $('#action').html('<span class="btn_icon icon_delete"></span> Remove ' + type);
+                }
             }
         }
     });

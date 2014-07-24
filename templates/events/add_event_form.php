@@ -1,7 +1,7 @@
-<form enctype="multipart/form-data" class="general_form" id="addEvent" method="post" action="edit_events.php">
+<form enctype="multipart/form-data" class="general_form" id="add<?php echo $eventType ?>" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
 
     <fieldset>
-        <legend>Event Details:</legend>
+        <legend><?php echo $eventType ?> Details:</legend>
         
         <label for="date">Date</label>
         <input type="date" name="date" id="date" class="form_field"
@@ -9,7 +9,7 @@
                required autofocus="" />
         <br><br>
 
-        <label for="eventName">Event's Name</label>
+        <label for="eventName"><?php echo $eventType ?>'s Name</label>
         <input class="form_field form_field_medium" type="text" id="eventName" name="eventName"
                pattern="[a-z|A-Z| ]*" title="English Letters Only" required>
         <br><br>
@@ -22,12 +22,10 @@
         <label for="text">Text</label>
         <textarea id="text" name="text" class="form_field form_field_medium" style="resize: none;"
                   rows="20" maxlength="10000" required=""></textarea>
-
-        <input type="hidden" id="type" name="type">
     </fieldset>
     
     <fieldset>
-        <legend>Event pictures:</legend>
+        <legend><?php echo $eventType ?> pictures:</legend>
         <label for="pictures">Select Multiple Pictures</label>
         <input type="file" class="file" name="pictures[]" accept="image/*" multiple><br><br>
     </fieldset>

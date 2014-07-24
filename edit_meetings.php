@@ -18,7 +18,7 @@
     <?php require 'utils/files.php' ?>
 </head>
 
-<body onload="init('Event','events/events/')">
+<body onload="init('Meeting','events/meetings/')">
     <?php require 'templates/navbarpannel.php'?>
 
     <div id="container_center">
@@ -28,8 +28,8 @@
                 if(!loggedIn()) {
                     header('Location: login.php');
                 } else {
-                    $directoryPath   = "img/events/events/";
-                    $eventType = "Event";
+                    $directoryPath   = "img/events/meetings/";
+                    $eventType = "Meeting";
 
                     require_once 'utils/edit_events_functions.php';
 
@@ -39,8 +39,8 @@
             <div class="tabs">
 
                 <ul class="tab-links">
-                    <li <?php echo isset($_GET['0'])? '' : 'class="active"'; ?>><a href="#tab1">Add Event</a></li>
-                    <li <?php echo isset($_GET['0'])? 'class="active"' : ''; ?>><a href="#tab2">Edit Event</a></li>
+                    <li <?php echo isset($_GET['0'])? '' : 'class="active"'; ?>><a href="#tab1">Add Meeting</a></li>
+                    <li <?php echo isset($_GET['0'])? 'class="active"' : ''; ?>><a href="#tab2">Edit Meeting</a></li>
                 </ul>
 
                 <div class="tab-content">
