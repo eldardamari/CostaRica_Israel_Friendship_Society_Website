@@ -21,7 +21,7 @@ function print_winner_row($new_row)
 }
 function print_winner_end_table($new_row,$i)
 {
-    $imagesPath = "img/winners/".$new_row['contest_num']."/[0-9]*.*";
+    $imagesPath = "./img/winners/".$new_row['contest_num']."/[winner_]*.*";
     $images = glob($imagesPath);
     $j = 1;
 
@@ -37,7 +37,8 @@ function print_winner_end_table($new_row,$i)
 
 function print_winner_prev_end_table($prev_contect_num, $prev_num_pics, $i)
 {
-    $imagesPath = "img/winners/".$prev_contect_num."/[0-9]*.*";
+    /*$imagesPath = "img/winners/".$prev_contect_num."/[0-9]*.*";*/
+    $imagesPath = "./img/winners/".$prev_contect_num."/[winner_]*.*";
     $images = glob($imagesPath);
     $j = 1;
 

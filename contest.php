@@ -62,7 +62,6 @@
                     if($prev_contest_num - 1 == $new_row['contest_num']) {
                         print_winner_prev_end_table($prev_contest_num, $prev_num_pics, $i);
                         $i++;
-                        var_dump($i);
                     }
 
                     if($new_row['place'] == 1) {
