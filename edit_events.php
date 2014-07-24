@@ -17,7 +17,7 @@
     <?php include 'utils/edit_events_functions.php' ?>
 </head>
 
-<body onload="init('','events/events/')">
+<body onload="init('','winners/')">
     <?php require 'templates/navbarpannel.php'?>
 
     <div id="container_center">

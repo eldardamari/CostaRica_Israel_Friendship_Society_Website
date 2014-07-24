@@ -10,8 +10,9 @@ function init(path, base) {
             if(item.type != "folder") {
                 var path = 'img/' + base + item.path;
                 $('#imagePreview').attr('src',path);
-                $('#imageName').html(item.title);
+                /*$('#imageName').html(item.title);*/
                 $('#action').css('visibility' , 'visible').prop('value',path);
+                $('div#preview').show();
             }
         }
     });
@@ -59,6 +60,10 @@ function browser(params) {
 			var f = res.contents[i];
 			var element = document.createElement("p");
 			with(element) {
+                if((f.fName.indexOf("first") > -1) ||
+                   (f.fName.indexOf("second") > -1))
+                    continue;
+
 				setAttribute("title", f.fName);
 				setAttribute("fPath", f.fPath);
 				setAttribute("fType", f.fType);

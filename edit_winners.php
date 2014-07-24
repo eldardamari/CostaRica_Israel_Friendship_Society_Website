@@ -9,9 +9,13 @@
     <title>Costa Rica Israel</title>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
+    <link rel="stylesheet" href="/costaRicaIsrael/css/browser.css">
 
-   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="js/browser.js"></script>
+    <script src="js/edit_winner.js"></script>
     <?php require 'utils/files.php' ?>
+    <?php include 'utils/edit_winners_functions.php' ?>
 </head>
 
 <body>
@@ -20,28 +24,55 @@
     <div id="container_center">
         <div class="container">
 
-            <h2>Add Know Costa-Rica Contest Winners</h2>
+            <h2>Edit Events</h2>
 
             <?php
-
                 if(!loggedIn()) {
-
                     header('Location: login.php');
-
                 } else {
 
+                    /*echo '<pre>';
+                    var_dump($_REQUEST);
+                    echo '</pre>';*/
+
+
+                    if(isset($_POST['delete'])) {
+
+                        if($con_num = removePhoto($_POST['delete'])) {
+                            if(!isset($POST['year_pic']))
+                                $con_year = ($con_num + 2005);  /*var_dump($_REQUEST);*/
+
+                            echo "<p class='form_granted'> Success, photo was removed</p>";
+                        }
+                        else
+                            echo "<script>alert('Failure, could not delete photo');</script>";
+
+                        /*header('refresh:1;url=edit_winners.php');*/
+                    }
+                    if(isset($_POST['add'])) {
+                    }
+
+            ?>
+
+
+
+            <?php
                     $pictures_exist = false;
+                    $profile_pic_exist = false;
 
                     if(isset($_REQUEST["email"])) {
 
-                        if(!isset($_FILES["profile_pic"]["tmp_name"])) {
+                        /*if(!isset($_FILES["profile_pic"]["tmp_name"])) {
                             echo "<p class='text form_error'>&emsp;"."
                                 Error: Please check your input for duplicated data . </p>";
                             goto form;
-                        }
+                        }*/
 
-                        if (!check_file($_FILES["profile_pic"]["name"]))
-                            goto form;
+                        if ($_FILES['profile_pic']['error'] != UPLOAD_ERR_NO_FILE) {
+                            if (!check_file($_FILES["profile_pic"]["name"]))
+                                goto form;
+                            $profile_pic_exist = true;
+                        }
 
                         if ($_FILES['pictures']['error'] != UPLOAD_ERR_NO_FILE) {
                             $pictures_exist = true;
@@ -68,7 +99,8 @@
                         /*$pic_path   = "img/winners/";*/
                         $pic_path   = "/Library/WebServer/Documents/costaRicaIsrael/img/winners/";
 
-                        $sql = "SELECT COUNT(*) as num_of_rows FROM winners_en 
+                        // check for existance of previous winner
+                        /*$sql = "SELECT COUNT(*) as num_of_rows FROM winners_en 
                                 WHERE contest_num=:contest_num AND place=:place";
                         try {
 
@@ -84,17 +116,23 @@
                                 Error: Another winner is already subscribed as <b> ".($place == 1 ? "1st" : "2nd"). ' </b>place, please use EDIT mode .</p>';
                                 goto form;
                             }
-                            $statement->closeCursor();
+                            $statement->closeCursor();*/
                             
                             // folder creation
+                        try {
                             if (!is_dir($pic_path.$contest_num)) {
                                 mkdir($pic_path.$contest_num, 0777, true);
                             }
                             //Uploading profile picture
                             try {
-                                $pic_full_path =  $pic_path.$contest_num.'/'.$pic_name;
-                                if (!move_uploaded_file($_FILES["profile_pic"]["tmp_name"],$pic_full_path)) {
-                                    throw new Exception('Could not move file');
+                                if($profile_pic_exist) {
+                                    foreach (glob($pic_path.$contest_num.'/first*.*') as $filename) {
+                                        unlink($filename);
+                                    }
+                                    $pic_full_path =  $pic_path.$contest_num.'/'.$pic_name;
+                                    if (!move_uploaded_file($_FILES["profile_pic"]["tmp_name"],$pic_full_path)) {
+                                        throw new Exception('Could not move file');
+                                    }
                                 }
                                 
                                 //Uploading pictures
@@ -123,8 +161,17 @@
                                 goto form;
                             }
 
-                        $sql = "INSERT INTO winners_en (contest_num,email,institute,name,number_of_pics,pic_path,place,subject,tel_number)
-                                        VALUES (:contest_num, :email, :institute, :name, :number_of_pics, :pic_path, :place, :subject ,:tel_number);";
+                            $sql = "UPDATE winners_en 
+                                    SET contest_num   =:contest_num,
+                                        email         =:email,
+                                        institute     =:institute,
+                                        name          =:name,
+                                        number_of_pics=:number_of_pics,
+                                        pic_path      =:pic_path,
+                                        place         =:place,
+                                        subject       =:subject,
+                                        tel_number    =:tel_number 
+                                    WHERE email=:email;";
                             try {
                                 $statement = $con->prepare($sql);
 
@@ -135,7 +182,7 @@
                                 $statement->bindParam(':number_of_pics',$uploaded_pictures["num_of_pictures"] ,PDO::PARAM_INT);
                                 $statement->bindParam(':pic_path'    ,$pic_name     ,PDO::PARAM_STR);
                                 $statement->bindParam(':place'       ,$place        ,PDO::PARAM_INT);
-                                $statement->bindParam('subject'      ,$subject      ,PDO::PARAM_STR);
+                                $statement->bindParam(':subject'     ,$subject      ,PDO::PARAM_STR);
                                 $statement->bindParam(':tel_number'  ,$tel_number   ,PDO::PARAM_INT);
                                 $statement->execute();
                                 $statement->closeCursor();
@@ -164,11 +211,14 @@
                                 // updatig winners pictures number - in a case of an update
                                 if ($pictures_exist) {
 
-                                    $sql_count = "SELECT number_of_pics FROM winners_en WHERE contest_num=:contest_num";
+                                    $sql_count = "SELECT number_of_pics FROM winners_en 
+                                                  WHERE contest_num=:contest_num
+                                                  ORDER BY number_of_pics DESC 
+                                                  LIMIT 1;";
                                     $statement_count = $con->prepare($sql_count);
                                     $statement_count->bindParam(':contest_num', $contest_num, PDO::PARAM_INT);
                                     $statement_count->execute();
-                                    $result = $statement->fetchAll();
+                                    $result = $statement_count->fetchAll();
 
                                     /*echo '<pre>';
                                     var_dump($result);
@@ -198,15 +248,25 @@
                                 goto form;
                             }
 
-                            echo '<p class="form_granted">&emsp;Memebers added successfully!
+                            echo '<p class="form_granted">&emsp;Memebers updated successfully!
                                 <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>'
                                 .(($msg != "") ? '<br> The following files failed to be upload: <br>'.$msg : '').'
                                   </p>';
                         }
                     }
                     form:
-                        include 'templates/add_winner_form.php';
+                        include 'templates/edit_winner_form.php';
+
             ?>
+                        <form class="general_form" id="deletePhoto" method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" >
+                            <input type="hidden" id="year_pic" name="year_pic">
+                            <input type="hidden" id="place_pic" name="place_pic">
+                            <button type="submit" class="btn_default" id="action" name="delete">
+                                Remove <span class="btn_icon icon_delete"></span>
+                            </button>
+                        </form>
+
+
         </div>
     </div>
 
@@ -214,3 +274,5 @@
 
 </body>
 </html>
+
+
