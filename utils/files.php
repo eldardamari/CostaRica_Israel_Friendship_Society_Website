@@ -1,7 +1,6 @@
 <?php
 
-function check_file($filename) 
-{
+function check_file($filename) {
     if (check_file_length($filename)) {
       echo "<p class='text form_error'>&emsp; Error: File name is too long, need to be less than 225 characters!</p>";
       return false;
@@ -21,7 +20,7 @@ function check_file($filename)
     return true;
 }
 
-function check_file_type_and_size($filename,$filetype,$filesize) 
+function check_file_type_and_size($filename,$filetype,$filesize)
 {
                 $allowedExts = array("gif", "jpeg", "jpg", "png");
                 $temp = explode(".", $filename);
@@ -37,14 +36,12 @@ function check_file_type_and_size($filename,$filetype,$filesize)
                 && in_array($extension, $allowedExts));
 }
 
-function check_file_name ($filename)
-{
+function check_file_name ($filename) {
     return (bool) ((preg_match("`^[-0-9A-Z_\.]+$`i",$filename)) ? 
         true : false);
 }
 
-function set_legal_filename($filename) 
-{
+function set_legal_filename($filename) {
     $filename = strtolower($filename); // lowecase
     $filename = preg_replace("/[^a-z0-9_\s\.]/", "", $filename); //remove bad characters
     $filename = preg_replace("/[\s-]+/", " ", $filename); // remove multiple space or dash
@@ -52,19 +49,19 @@ function set_legal_filename($filename)
     return $filename;
 }
 
-function check_file_length ($filename)
-{
+function check_file_length ($filename) {
     return (bool) ((mb_strlen($filename,"UTF-8") > 225) ? true : false);
 }
 
 function check_multiple_files($pictures_var) {
 
-    $pictures = array("num_of_pictures" => 0, "pictures_tmp" => 0, "types" => 0,
-                      "pictures_name" => 0);
+    $pictures = array("num_of_pictures" => 0, "pictures_tmp" => 0, 
+                      "pictures_type" => 0, "pictures_name" => 0, "pictures_uniqid"=>0);
     $num_of_pictures = 0;
-    $pictures_tmp = array ();
-    $pictures_types = array ();
+    $pictures_tmp   = array ();
+    $pictures_type = array ();
     $pictures_name  = array ();
+    $pictures_uniqid = array ();
 
     foreach($_FILES[$pictures_var]['tmp_name'] as $key => $tmp_name) {
 
@@ -78,20 +75,16 @@ function check_multiple_files($pictures_var) {
 
         $num_of_pictures++;
         array_push($pictures_tmp,$file_tmp);
+        array_push($pictures_type,get_type($file_type));
         array_push($pictures_name,$file_name);
-
-        if (($pos = strpos($file_type, "/")) !== FALSE) { 
-            $type = substr($file_type, $pos+1); 
-        } else {
-            $type = "jpg";
-        }
-        array_push($pictures_types,$type);
+        array_push($pictures_uniqid,uniqid(get_prefix()).getFileExtension($file_name));
     }
 
     $pictures['num_of_pictures'] = $num_of_pictures;
     $pictures['pictures_tmp'] = $pictures_tmp;
-    $pictures['types'] = $pictures_types;
+    $pictures['pictures_type'] = $pictures_type;
     $pictures['pictures_name'] = $pictures_name;
+    $pictures['pictures_uniqid'] = $pictures_uniqid;
     return $pictures;
 }
 
@@ -110,4 +103,23 @@ function getFileExtension($filename) {
     $extension = end($splitFilename);
 
     return '.'.$extension;
+}
+
+function get_prefix() {
+    if (substr_count($_SERVER['PHP_SELF'],'member')) 
+        return 'member_';
+
+    if (substr_count($_SERVER['PHP_SELF'],'winner'))
+        return 'winner_';
+
+    if (substr_count($_SERVER['PHP_SELF'],'event'))
+        return 'event_';
+}
+
+function get_type($file_type) {
+    if (($pos = strpos($file_type, "/")) !== FALSE) { 
+        return substr($file_type, $pos+1); 
+    } else {
+        return "jpg";
+    }
 }
