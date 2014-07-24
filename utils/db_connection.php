@@ -21,18 +21,19 @@
             $result = $statement->fetchAll();
 
         } catch (PDOException $e) {
-            sendErrorToAdmin("DB ERROR: " . $e->getCode(), $e->getMessage());
+            sendErrorToAdmin("DB ERROR - ON QUERY: ". $sql, $e->getMessage());
             return false;
         }
         return $result;
     }
 
     function prepareAndUpdate($con, $sql) {
+        $result = false;
         try {
             $statement = $con->prepare($sql);
             $result = $statement->execute();
         } catch (PDOException $e) {
-            sendErrorToAdmin("DB ERROR: " . $e->getCode(), $e->getMessage());
+            sendErrorToAdmin("DB ERROR - ON QUERY: ". $sql, $e->getMessage());
         }
         return $result;
     }
