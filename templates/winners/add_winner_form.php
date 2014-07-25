@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" class="general_form" id="winner_form" method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
+<form enctype="multipart/form-data" class="general_form" id="winner_form_add" method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
 
     <fieldset>
         <legend>Contest Details:</legend>
@@ -43,18 +43,33 @@
                 required pattern="[a-z|A-Z| ]*" title="English Letters Only"><br><br>
 
         <label for="profile_pic">Profile picture</label>
-        <input type="file" class="file" name="profile_pic" accept="image/*" required><br><br>
+    <div class="div_files">
+        <label class="btn_icon btn_profile">
+               <span > <input type="file" class="file" name="profile_pic" accept="image/*" required></span>
+        </label>
+        <span class="files_selected" id="file_profile"> </span>
+    </div>
     </fieldset>
-    
+
     <fieldset>
         <legend>Winner Pictures:</legend>
+
         <label for="pictures">Select Multiple Pictures</label>
-        <input type="file" class="file" name="pictures[]" accept="image/*" multiple><br><br>
+    <div class="div_files">
+        <label class="btn_icon btn_pictures">
+                <span><input type="file" class="btn_icon file" id="pictures" name="pictures[]" accept="image/*" multiple> </span>
+        </label>
+        <span class="files_selected" id="files_multi"></span>
+    </div>
     </fieldset>
 
-    <div id="formbuttons">
-        <button class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Save</button>
-        <button class="btn_default" type="reset"><span class="btn_icon icon_refresh"></span> Reset</button>
-    </div>
+        <input type="hidden" name="add_winner_request" value="true">
 
+        <div id="formbuttons">
+            <button class="btn_default" type="submit" name="add">
+                <span class="btn_icon icon_add"></span> Add</button>
+            <button class="btn_default" type="reset"><span class="btn_icon icon_refresh"></span> Reset</button>
+        </div>
 </form>
+
+

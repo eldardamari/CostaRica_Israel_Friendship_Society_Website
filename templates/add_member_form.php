@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" class="general_form" method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
+<form enctype="multipart/form-data" id="add_member_form" class="general_form" method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
 
     <fieldset>
         <legend>Personal data:</legend>

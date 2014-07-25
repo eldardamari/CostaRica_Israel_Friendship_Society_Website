@@ -1,0 +1,47 @@
+/*----- Tabs -----*/
+.tabs {
+    width: 100%;
+}
+
+.tab-links li {
+    margin: 0px 5px;
+    display: inline-block;
+    list-style: none;
+}
+
+.tab-links a {
+    padding: 9px 15px;
+    display: inline-block;
+    border-radius: 3px 3px 0px 0px;
+    background: white;
+    font-size: 18px;
+    font-weight: 600;
+    color: #4c4c4c;
+    transition: all linear 0.15s;
+}
+
+.tab-links a:hover {
+    background: #a7cce5;
+    text-decoration: none;
+}
+
+li.active a, li.active a:hover {
+    background: ghostwhite;
+    color: #4c4c4c;
+}
+
+/*----- Content of Tabs -----*/
+.tab-content {
+    margin-top: -16px;
+    padding: 15px;
+    border-radius: 5px;
+    background: ghostwhite;
+}
+
+.tab {
+    display:none;
+}
+
+.tab.active {
+    display:block;
+}

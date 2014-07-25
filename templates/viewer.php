@@ -1,4 +1,4 @@
-                <div class="viewer">
+                <div class="viewer" id="viewer">
                     <div class="browser">
                         <div id="directoryContent" class="contents">&nbsp;</div>
                     </div>

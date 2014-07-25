@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" class="general_form" id="winner_form" method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
+<form enctype="multipart/form-data" class="general_form" id="winner_form_edit" method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
 
     <fieldset>
         <legend>Contest Details:</legend>
@@ -14,7 +14,7 @@
                 if(isset($_REQUEST['year']))
                     $year_selected = (int)$_REQUEST['year'];
                 foreach($contests_numbers as $i) {
-                    echo '<option value='.($year_selected == (2005+$i) ?
+                    echo '<option value='.($edit_mode && $year_selected == (2005+$i) ?
                         '"'.(2005+$i).'" selected ' : (2005+$i)).' >'.(2005+$i).' - #'.$i.'</option>';
                 }
             ?>
@@ -33,10 +33,10 @@
         <label class="gender" for="male">1st</label>
         <input type="radio" id=radio_first class="place" name="place" value="1" ';
 
-        echo ($set_place == 1 ? "checked" : "").' >
+        echo ($edit_mode && $set_place == 1 ? "checked" : "").' >
         <label class="gender" for="female">2nd</label>
         <input type="radio" class="place" name="place" value="2" 
-        '.($set_place == 2 ? " checked" : "") .'> <br>
+        '.($edit_mode && $set_place == 2 ? " checked" : "") .'> <br>
     </fieldset>';
 ?>
 
@@ -86,9 +86,16 @@
 
     </fieldset>
 
+        <input type="hidden" name="edit_winner_request" value="true">
     <div id="formbuttons">
         <button class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Save</button>
         <button class="btn_default" type="reset"><span class="btn_icon icon_refresh"></span> Reset</button>
     </div>
 
+</form>
+
+<form class="general_form" id="deletePhoto" method="post" action="<?php echo $_SERVER["PHP_SELF"]?>" >
+    <input type="hidden" name="edit_winner_pic_request" value="true">
+    <input type="hidden" id="year_pic" name="year_pic">
+    <input type="hidden" id="place_pic" name="place_pic">
 </form>

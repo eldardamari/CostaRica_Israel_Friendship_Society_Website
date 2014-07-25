@@ -61,7 +61,7 @@
                             ."<br>We will contact you as soon as possible.</p>"
                             ."<p class='text text_center'> You are now being redirected to Home...</p>";
 
-                        header( "refresh:5;url=index.php" );
+                        header( "refresh:5;url=./" );
                     }
                 }
 

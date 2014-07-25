@@ -22,10 +22,10 @@
                     <a href="edit_events.php" lang="en">Edit Events</a>
                 </li>
                 <li>
-                    <a href="panel.php?addmeeting" lang="en">Edit Meetings</a>
+                    <a href="edit_meetings.php" lang="en">Edit Meetings</a>
                 </li>
                 <li>
-                    <a href="add_winner.php" lang="en">Edit Winners</a>
+                    <a href="edit_winners.php" lang="en">Edit Winners</a>
                 </li>
                 <li>
                     <a href="utils/logout.php" lang="en">Logout</a>
