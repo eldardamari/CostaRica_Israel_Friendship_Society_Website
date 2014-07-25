@@ -47,7 +47,10 @@ function removePhoto($photoPath) {
 
 function files_validation(&$pictures_exist) 
 {
-    if (($_FILES['pictures']['error'] != UPLOAD_ERR_NO_FILE)) {
+    var_dump($_FILES['pictures']['error'][0] != UPLOAD_ERR_NO_FILE);
+    var_dump(isset($_FILES['pictures']));
+
+    if (($_FILES['pictures']['error'][0] != UPLOAD_ERR_NO_FILE)) {
         $pictures_exist = true;
         return check_multiple_files('pictures');
     }
@@ -103,8 +106,9 @@ function uploading_pictures(&$pictures_exist, &$count, &$uploaded_pictures,
             } else {
                 $count++;
             }
-        } 
+        }
     }
+    var_dump($count);
 }
 
 function add_check_duplicated(&$con, &$contest_num, &$place)
@@ -130,7 +134,8 @@ function add_check_duplicated(&$con, &$contest_num, &$place)
 }
 
 function execute_query(&$con, &$sql, &$contest_num, &$email, &$institute_name, &$name, 
-                       &$uploaded_pictures, &$pic_name, &$place, &$subject, &$tel_number)
+                       &$uploaded_pictures, &$pic_name, &$place, &$subject, &$tel_number,
+                       $pictures_exist, $profile_pic_exist)
 {
     $statement = $con->prepare($sql);
 
@@ -138,8 +143,10 @@ function execute_query(&$con, &$sql, &$contest_num, &$email, &$institute_name, &
     $statement->bindParam(':email'       ,$email        ,PDO::PARAM_STR);
     $statement->bindParam(':institute'   ,$institute_name ,PDO::PARAM_STR);
     $statement->bindParam(':name'        ,$name         ,PDO::PARAM_STR);
-    $statement->bindParam(':number_of_pics',$uploaded_pictures["num_of_pictures"] ,PDO::PARAM_INT);
-    $statement->bindParam(':pic_path'    ,$pic_name     ,PDO::PARAM_STR);
+    if($pictures_exist)
+        $statement->bindParam(':number_of_pics',$uploaded_pictures["num_of_pictures"] ,PDO::PARAM_INT);
+    if($profile_pic_exist)
+        $statement->bindParam(':pic_path'    ,$pic_name     ,PDO::PARAM_STR);
     $statement->bindParam(':place'       ,$place        ,PDO::PARAM_INT);
     $statement->bindParam(':subject'     ,$subject      ,PDO::PARAM_STR);
     $statement->bindParam(':tel_number'  ,$tel_number   ,PDO::PARAM_STR);
@@ -149,7 +156,6 @@ function execute_query(&$con, &$sql, &$contest_num, &$email, &$institute_name, &
 
 function check_exist_email_before_update(&$con, $email, $name, $tel_number)
 {
-    return true;
     $sql = "SELECT * FROM winners_en WHERE email=:email";
 
     $statement = $con->prepare($sql);
@@ -246,9 +252,9 @@ $tel_number = $err_msg = $pic_full_path = "";
                 SET contest_num   =:contest_num,
                     email         =:email,
                     institute     =:institute,
-                    name          =:name,
-                    number_of_pics=:number_of_pics,
-                    pic_path      =:pic_path,
+                    name          =:name,".
+                    ($pictures_exist ? 'number_of_pics = number_of_pics + :number_of_pics, ' : ' ').
+                    ($profile_pic_exist ? 'pic_path     =:pic_path, ' : ' ')."
                     place         =:place,
                     subject       =:subject,
                     tel_number    =:tel_number 
@@ -263,8 +269,9 @@ $tel_number = $err_msg = $pic_full_path = "";
             }
 
 
-        execute_query($con, $sql, $contest_num, $email, $institute_name, $name, 
-                      $uploaded_pictures, $pic_name, $place, $subject, $tel_number);
+         execute_query($con, $sql, $contest_num, $email, $institute_name, $name, 
+                               $uploaded_pictures, $pic_name, $place, $subject, $tel_number,
+                               $pictures_exist, $profile_pic_exist);
 
         } catch (PDOException $e) {
             if ($e->errorInfo[1] == 1062) {
@@ -288,22 +295,34 @@ $tel_number = $err_msg = $pic_full_path = "";
 
         // updatig winners pictures number - in a case of an update
         if ($pictures_exist) {
+            var_dump($pictures_exist);
 
             $sql_count = ($add_mode == true ?
-                "SELECT number_of_pics FROM winners_en WHERE contest_num=:contest_num"
-                :
                 "SELECT number_of_pics FROM winners_en 
-                      WHERE contest_num=:contest_num
+                    WHERE contest_num=:contest_num AND email != :email;"
+                :
+                "SELECT * FROM winners_en 
+                      WHERE contest_num=:contest_num 
                       ORDER BY number_of_pics DESC 
                       LIMIT 1;");
 
             $statement_count = $con->prepare($sql_count);
             $statement_count->bindParam(':contest_num', $contest_num, PDO::PARAM_INT);
+            if($add_mode) $statement_count->bindParam(':email', $email, PDO::PARAM_STR);
             $statement_count->execute();
             $result = $statement_count->fetchAll();
 
+                echo '<br>mode  = ';
+                var_dump($edit_mode);
+                echo '<br>number_of_pics = ';
+                var_dump($result);
+                echo '<br> count = ';
 
             if (sizeof($result) > 0) {
+                echo 'number_of_pics = ';
+                var_dump($result[0]["number_of_pics"]);
+                echo '<br> count = ';
+                var_dump($count);
                 $count += $result[0]["number_of_pics"];
             }
             $statement_count->closeCursor();
