@@ -47,9 +47,6 @@ function removePhoto($photoPath) {
 
 function files_validation(&$pictures_exist) 
 {
-    var_dump($_FILES['pictures']['error'][0] != UPLOAD_ERR_NO_FILE);
-    var_dump(isset($_FILES['pictures']));
-
     if (($_FILES['pictures']['error'][0] != UPLOAD_ERR_NO_FILE)) {
         $pictures_exist = true;
         return check_multiple_files('pictures');
@@ -108,7 +105,6 @@ function uploading_pictures(&$pictures_exist, &$count, &$uploaded_pictures,
             }
         }
     }
-    var_dump($count);
 }
 
 function add_check_duplicated(&$con, &$contest_num, &$place)
@@ -295,7 +291,6 @@ $tel_number = $err_msg = $pic_full_path = "";
 
         // updatig winners pictures number - in a case of an update
         if ($pictures_exist) {
-            var_dump($pictures_exist);
 
             $sql_count = ($add_mode == true ?
                 "SELECT number_of_pics FROM winners_en 
@@ -312,17 +307,8 @@ $tel_number = $err_msg = $pic_full_path = "";
             $statement_count->execute();
             $result = $statement_count->fetchAll();
 
-                echo '<br>mode  = ';
-                var_dump($edit_mode);
-                echo '<br>number_of_pics = ';
-                var_dump($result);
-                echo '<br> count = ';
 
             if (sizeof($result) > 0) {
-                echo 'number_of_pics = ';
-                var_dump($result[0]["number_of_pics"]);
-                echo '<br> count = ';
-                var_dump($count);
                 $count += $result[0]["number_of_pics"];
             }
             $statement_count->closeCursor();
