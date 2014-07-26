@@ -57,12 +57,25 @@ function set_variables(&$contest_num, &$email, &$institute_name, &$name,
                        &$place, &$subject, &$tel_number) 
 { // need to sanitaize
     $contest_num    = htmlspecialchars(((int)$_REQUEST['year']-2005));
+    $contest_num    = filter_var($contest_num,FILTER_SANITIZE_NUMBER_INT);
+
     $email          = htmlspecialchars($_REQUEST['email']);
+    $email          = filter_var($email,FILTER_SANITIZE_EMAIL);
+    
     $institute_name = htmlspecialchars($_REQUEST['institute']);
+    $institute_name = filter_var($institute_name,FILTER_SANITIZE_STRING);
+
     $name           = htmlspecialchars($_REQUEST['full_name']);
+    $name           = filter_var($name,FILTER_SANITIZE_STRING);
+
     $place          = (int)htmlspecialchars($_REQUEST['place']);
+    $place          = filter_var($place,FILTER_SANITIZE_NUMBER_INT);
+
     $subject        = htmlspecialchars($_REQUEST['subject']);
+    $subject        = filter_var($subject,FILTER_SANITIZE_STRING);
+
     $tel_number     = htmlspecialchars($_REQUEST['mobile']);
+    $tel_number     = filter_var($tel_number,FILTER_SANITIZE_NUMBER_INT);
 }
 
 function folder_creation(&$pic_path, &$contest_num) 
