@@ -18,18 +18,12 @@
 
     <div id="container_center">
         <div class="container">
-            <h2>Subscribe</h2>
+            <div class="topics"> Unsubscribe </div>
 
-            <?php
-                $showForm = true;
+            <?php require 'utils/unsubscribe_functions.php'?>
 
-                require_once 'utils/subscribe_functions.php';
+            <?php require 'templates/unsubscribe_form.php'?>
 
-                if($showForm) {
-
-                    include 'templates/subscribe_form.php';
-                }
-            ?>
         </div>
     </div>
 
