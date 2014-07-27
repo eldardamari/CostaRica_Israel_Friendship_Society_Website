@@ -11,9 +11,17 @@
 
     function getMailHeaders($email) {
 
-        return 'From: Costa-Rica Israel Association <'.getAssociationMail().'> ' . "\r\n" .
-            'Reply-To: '.$email. "\r\n" .
-            'Content-Type: text/html; charset=utf-8 '    . "\r\n";
+        return  'From: Costa-Rica Israel Association <'.getAssociationMail().'> ' . "\r\n" .
+                'Reply-To: '.$email. "\r\n" .
+                'Content-Type: text/html; charset=utf-8 '    . "\r\n";
+    }
+    
+    function printUnsubscribeMsg() {
+
+        return '<div style="text-align: center; font-size: 65%; 
+                            font-weight: 200; color: #348017;">
+                        To stop receiving this content click: 
+                            <a href=/costaRicaIsrael/unsubscribe.php target="_blank"><u>Unsubscribe</u></a> </div>';
     }
 
     function spamCheck($field) {
@@ -67,12 +75,15 @@
                             '<li><p><b>Subject:</b> '.$subject.'</p></li>'.
                             '<li><p><b>Message:</b> '.$content.'</p></li>'.
                             '<li><p><b>Click to Reply:</b> 
-                            <a href="mailto:'.$fromEmail.'?Subject=Re:.'.$subject .' target="_top"> Click Here</a>
-                            </p></li>'.
+                            <a href="mailto:'.$fromEmail.'?Subject=Re: '.$subject .' target="_top"> Click Here</a> </p></li><br>'.
                         '</ul>'.
-                    '</td></tr></table></div></body></html>';
+                        '</td></tr>
+                        <tr> <td> '.printUnsubscribeMsg().'  </td> </tr>
+                        </table></div></body></html>';
+
+        echo $content;
         /*return mail($memberEmail, $subject, $content.$replyInfo, "From: $fromEmail\r\nReply-To: $fromEmail\r\n");*/
-        return mail($memberEmail, $subject, $content, getMailHeaders($fromEmail));
+        return mail($memberEmail, $subject, $content,  getMailHeaders($fromEmail));
     }
 
     function sendErrorToAdmin($subject,$message) {

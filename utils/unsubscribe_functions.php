@@ -33,8 +33,6 @@ function execute_query($con, &$sql, $email)
                 $col = "newsletter = 0 ";
             }
 
-            echo $col;
-            echo $email;
 
             $sql = "UPDATE subscription 
                     SET ". $col ." 
@@ -46,6 +44,8 @@ function execute_query($con, &$sql, $email)
                 echo '<p class="form_granted">&emsp;Unsubscribed Successfully 
                         <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
                       </p>';
+            
+                header( "refresh:5;url=./" );
 
 
             } catch (PDOException $e) {

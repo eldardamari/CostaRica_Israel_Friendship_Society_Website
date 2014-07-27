@@ -44,17 +44,9 @@
     width: 25%;
 }
 
-
 #myPic { 
     height: 100px;
     width:  100px;
-}
-
-.topics {
-    text-align: center;
-    font-size: 400%;
-    font-weight: 900;
-    color: rgba(65,110,225,0.9);
 }
 
 #paypal {
