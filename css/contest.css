@@ -3,7 +3,7 @@
     margin-right: 30%;
     text-align: -webkit-center;
     font-size: larger;
-    font-weight: 900
+    font-weight: 900;
 }
 
 .winnersTable tr:not(:first-child):hover {
@@ -24,24 +24,26 @@
 }
 
 .winnersTable .place{
-    width:5%;
+    width:5px;
+}
+
+.winnersTable .pic{
+    width:10%;
 }
 
 .winnersTable .wname{
-    width: 35%;
+    width: 30%;
 }
 
 .winnersTable .major{
-    padding-right: 30%;
+    /*padding-right: 30%;*/
+    width: 30%;
 }
 
 .winnersTable .uni{
     width: 25%;
 }
 
-.winnersTable .pic{
-    width:10%;
-}
 
 #myPic { 
     height: 100px;
@@ -64,4 +66,3 @@
 #cost {
     font-weight: bold;
 }
-
