@@ -1,4 +1,4 @@
-<form class="general_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>">
+deletdeletee<form class="general_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>">
     <fieldset>
         <legend>Personal data:</legend>
 

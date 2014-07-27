@@ -9,12 +9,6 @@ function init(type, base) {
             if(item.type != "folder") {
 
                 var path = 'img/' + base + item.path;
-/*<<<<<<< HEAD
-                $('#imagePreview').attr('src',path);
-                [>$('#imageName').html(item.title);<]
-                $('#action').css('visibility' , 'visible').prop('value',path);
-                $('div#preview').show();
-=======*/
                 $('#imagePreview').attr('src',path).css('display', 'inline-block');
                 $('#previewName').html("<p>" + item.title + "</p>");
 

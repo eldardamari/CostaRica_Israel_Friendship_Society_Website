@@ -35,6 +35,8 @@
 
 #action {
     visibility: hidden;
+    width: 40%;
+    background: rgba(128,0,0,0.60);
 }
 
 .contents {

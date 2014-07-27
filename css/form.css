@@ -146,3 +146,7 @@ label.btn_pictures {
     padding: 16px 2px 0px 30px;
     float: left;
 }
+
+#btn_delete {
+    width: 100px;
+}
