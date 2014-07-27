@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/costaRicaIsrael/js/subscribe.js"></script>
 
     <?php require 'utils/db_connection.php' ?>
     <?php require 'utils/email.php' ?>
@@ -27,13 +28,6 @@
                 if($showForm) {
 
                     include 'templates/subscribe_form.php';
-
-                    echo   '<script>
-                                $(".general_form").submit(function(){
-                                    if(!$(".general_form input:checked").length) {
-                                        alert("Please check at least one checkbox");
-                                        return false; } });
-                            </script>';
                 }
             ?>
         </div>
