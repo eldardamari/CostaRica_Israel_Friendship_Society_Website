@@ -1,17 +1,19 @@
-<form enctype="multipart/form-data" class="general_form" id="add<?php echo $eventType ?>" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+<form enctype="multipart/form-data"
+      class="general_form" id="addEventForm"
+      method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
 
     <fieldset>
         <legend><?php echo $eventType ?> Details:</legend>
-        
-        <label for="date">Date</label>
-        <input type="date" name="date" id="date" class="form_field"
-               value="<?php echo date('Y-m-d'); ?>"  min="<?php echo date('Y-m-d'); ?>"
-               required autofocus="" />
-        <br><br>
 
         <label for="eventName"><?php echo $eventType ?>'s Name</label>
         <input class="form_field form_field_medium" type="text" id="eventName" name="eventName"
-               pattern="[a-z|A-Z| ]*" title="English Letters Only" required>
+               pattern="[a-z|A-Z| ]*" title="English Letters Only" required autofocus="">
+        <br><br>
+
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date" class="form_field"
+               value="<?php echo date('Y-m-d'); ?>"  min="1990-01-01"
+               required />
         <br><br>
 
         <label for="description">Description</label>
@@ -27,7 +29,13 @@
     <fieldset>
         <legend><?php echo $eventType ?> pictures:</legend>
         <label for="pictures">Select Multiple Pictures</label>
-        <input type="file" class="file" name="pictures[]" accept="image/*" multiple><br><br>
+
+        <div class="div_files">
+            <label class="btn_icon btn_pictures">
+                <span><input type="file" class="btn_icon file" id="pictures" name="pictures[]" accept="image/*" multiple> </span>
+            </label>
+            <span class="files_selected" id="files_multi"></span>
+        </div>
     </fieldset>
 
     <div id="formbuttons">

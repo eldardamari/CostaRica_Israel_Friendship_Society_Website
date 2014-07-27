@@ -1,4 +1,13 @@
 <?php
+    function getEventsName($eventType) {
+
+        $con = makeConnection();
+        $query = "SELECT id, name FROM ".$eventType;
+
+        $result = prepareAndExecuteQuery($con,$query);
+        return $result;
+    }
+
     function removePhoto($eventType, $photoPath) {
         $result = false;
 
@@ -50,9 +59,6 @@
 
         if (!is_dir($directoryPath)) {
             mkdir($directoryPath, 0777, true);
-        } else {
-            echo "<p class='text form_error'>&emsp;
-                    event's directory already exist.";
         }
 
         $msg = "";
@@ -74,6 +80,34 @@
                              <br>'.$msg.'</p>' : '';
 
         return $count;
+    }
+
+    function updateEvent($eventType, $id, $date, $name, $description, $text, $filesAdded) {
+        $success = false;
+        $con = makeConnection();
+
+        try {
+            $sql = "UPDATE ".$eventType."_en
+                    SET name=:name, date=:date, description=:description,
+                    text=:text, number_of_pics= number_of_pics + :filesAdded
+                    WHERE id=:id";
+
+            $statement = $con->prepare($sql);
+            $statement->bindParam(':name', $name);
+            $statement->bindParam(':date', $date);
+            $statement->bindParam(':description', $description);
+            $statement->bindParam(':text', $text);
+            $statement->bindParam(':filesAdded', $filesAdded);
+            $statement->bindParam(':id', $id);
+            $success = $statement->execute();
+
+        } catch (PDOException $e) {
+            sendErrorToAdmin("DB ERROR - Updating event id: $id", $e->getMessage());
+            echo "<p class='text form_error'>&emsp;
+                                    Failed updating database..please try again.";
+        }
+
+        return $success;
     }
 
     function updateNumOfPics($eventType, $filesMoved) {
@@ -107,7 +141,9 @@
             foreach($files as $file) {
                 unlink($file);
             }
-            rmdir($directoryPath.$eventId);
+
+            if (is_dir($directoryPath.$eventId))
+                rmdir($directoryPath.$eventId);
 
             return true;
 
@@ -125,7 +161,7 @@
                                         could not remove event ".$eventId.", please try again";
         }
 
-        header('refresh:2;url='.$_SERVER['PHP_SELF'].'?0');
+//        header('refresh:2;url='.$_SERVER['PHP_SELF'].'?0');
     }
 
     if(isset($_POST['deletePhoto'])) {
@@ -137,7 +173,36 @@
         else
             echo "<p class='text form_error'>&emsp; could not delete photo";
 
-        header('refresh:2;url='.$_SERVER['PHP_SELF'].'?0');
+//        header('refresh:2;url='.$_SERVER['PHP_SELF'].'?0');
+    }
+
+    if(isset($_POST['updateEvent'])) {
+        $id = $_POST['eventId'];
+
+        $filesMoved = 0;
+        if ($_FILES['pictures']['error'] != UPLOAD_ERR_NO_FILE) {
+            $uploaded_pictures = check_multiple_files('pictures');
+            $num_of_pictures = $uploaded_pictures['num_of_pictures'];
+            $filesMoved = uploadPhotosToEvent($uploaded_pictures, $directoryPath.$id, $num_of_pictures);
+        }
+
+        $date = $_POST['date'];
+        $eventName = htmlspecialchars($_POST['eventName']);
+
+        $description = htmlspecialchars($_POST['description']);
+        $description = filter_var($description,FILTER_SANITIZE_STRING);
+
+        $text = htmlspecialchars($_POST['text']);
+        $text = filter_var($text,FILTER_SANITIZE_STRING);
+//
+        if( updateEvent(strtolower($eventType).'s', $id, $date, $eventName, $description, $text, $filesMoved) )
+            echo '<p class="form_granted">&emsp;Event was updated successfully!
+                                        <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
+
+        else
+            echo "<p class='text form_error'>&emsp; could not update event";
+
+//        header('refresh:2;url='.$_SERVER['PHP_SELF'].'?0');
     }
 
     if(isset($_POST['add'])) {
@@ -170,7 +235,7 @@
             echo '<p class="form_granted">&emsp;Event added successfully!
                                         <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
 
-            header('refresh:2;url='.$_SERVER['PHP_SELF']);
+//            header('refresh:2;url='.$_SERVER['PHP_SELF']);
 
         } else {
             echo "<p class='text form_error'>&emsp;

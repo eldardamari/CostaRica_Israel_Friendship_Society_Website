@@ -4,7 +4,7 @@
 
     function searchDir($base_dir, $p="", $allowed_depth=-1) {
 
-        $f = "folder,jpg,png,gif,bmp";
+        $f = "folder,jpg,png,gif,bmp,jpeg,tiff";
 
         if(loggedIn()) {
 

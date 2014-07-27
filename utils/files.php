@@ -118,6 +118,9 @@ function get_prefix() {
 
     if (substr_count($_SERVER['PHP_SELF'],'event'))
         return 'event_';
+
+    if (substr_count($_SERVER['PHP_SELF'],'meeting'))
+        return 'meeting_';
 }
 
 function get_type($file_type) {

@@ -4,9 +4,8 @@
                     </div>
                     <div id="preview" class="preview">
                         <img id="imagePreview" class="imagePreview" />
-                        <br><br>
-                        <?php echo '<p id="imageName" class="text_center"></p> '?>
-                            <button type="submit" class="btn_default" id="action" name="delete">
+                        <div id="previewName"></div>
+                            <button type="submit" class="btn_large" id="action" name="delete">
                                 Remove <span class="btn_icon icon_delete"></span>
                             </button>
                     </div>
