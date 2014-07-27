@@ -1,3 +1,14 @@
+$(document).ready(function() {
+    
+    $("#paypal_form").submit(function() {
+        $("#paypal_form input[name=active_pay]").val("true");
+        if($("#paypal_form input[name=hosted_button_id]").val() == "A9TGAAGBZ5WEU")
+        else
+            alert("Problem with payment.. please try again");
+    });
+});
+
+
 function eventsHeader() {
     document.write("\
                 <tr class=\"table_header\" id='table_header' lang=\"en\">\

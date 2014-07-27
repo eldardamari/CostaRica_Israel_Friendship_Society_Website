@@ -1,15 +1,8 @@
-<form class="general_form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<form id="paypal_form" class="general_form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
     <!-- PayPal Vars -->
-    <input type="hidden" name="cmd"           value="_xclick">
-    <input type="hidden" name="business"      value="costarica.isr@gmail.com">
-    <input type="hidden" name="item_name"     value="Know-Costa Rica #9">
-    <input type="hidden" name="item_number"   value="#9">
-    <input type="hidden" name="amount"        value="20.00">
-    <input type="hidden" name="no_shipping"   value="2"> <!-- to check 2- must enter -->
-    <input type="hidden" name="currency_code" value="ILS">
-    <input type="hidden" name="lc"            value="IL">
-    <input type="hidden" name="bn"            value="Costa-RicaIsrael_BuyNow_WPS_IL">
-    <input type="hidden" name="charset"       value="utf-8">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="A9TGAAGBZ5WEU">
+<input type="hidden" name="active_pay">
 
     <fieldset><legend>Personal data:</legend>
 
