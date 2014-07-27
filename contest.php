@@ -26,8 +26,7 @@
         <div class="container">
             <div class="topics"> Registration </div>
 
-        <?php 
-            include 'templates/contest_form.php' ; ?>
+        <?php include 'templates/contest_form.php' ?>
             <br><hr><br>
 
 

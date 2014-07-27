@@ -20,9 +20,11 @@
         <div class="container">
             <div class="topics"> Unsubscribe </div>
 
-            <?php require 'utils/unsubscribe_functions.php'?>
+        <?php 
+            require 'utils/unsubscribe_functions.php';
 
-            <?php require 'templates/unsubscribe_form.php'?>
+            require 'templates/unsubscribe_form.php';
+        ?>
 
         </div>
     </div>
