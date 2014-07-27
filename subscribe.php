@@ -22,62 +22,7 @@
             <?php
                 $showForm = true;
 
-                if(isset($_REQUEST['email'])) {
-                    $email = $_REQUEST['email'];
-                    $mailCheck = spamCheck($email);
-                    if ($mailCheck == false) {
-                        echo "<p class='text form_error'>&emsp;Invalid email</p>";
-
-                    } else {
-                        $showForm = false;
-
-                        $con = makeConnection();
-
-                        $firstName = $_REQUEST['first_name'];
-                        $lastName = $_REQUEST['last_name'];
-                        isset($_REQUEST['bulletin'])?
-                            $bulletin = true : $bulletin = false;
-
-                        isset($_REQUEST['newsletter'])?
-                            $newsletter = true : $newsletter = false;
-
-                        $subscribed = "";
-                        $bulletin? $subscribed .= "Bulletin, &emsp;" : "";
-                        $newsletter? $subscribed .= "Newsletter" : $subscribed = substr($subscribed,0,8);
-
-                        $sql = "INSERT INTO subscription(first_name,last_name,email,bulletin,newsletter)
-                                    VALUES (:first_name, :last_name, :email, :bulletin, :newsletter)";
-                        try {
-                            $statement = $con->prepare($sql);
-
-                            $statement->bindParam(':first_name', $firstName, PDO::PARAM_STR);
-                            $statement->bindParam(':last_name', $lastName, PDO::PARAM_STR);
-                            $statement->bindParam(':email', $email, PDO::PARAM_STR);
-                            $statement->bindParam(':bulletin', $bulletin, PDO::PARAM_BOOL);
-                            $statement->bindParam(':newsletter', $newsletter, PDO::PARAM_BOOL);
-                            $statement->execute();
-
-                            sendWelcomeMail($email,$firstName,$lastName,$subscribed);
-
-                            echo '<p class="form_granted">&emsp;Subscribed Successfully 
-                                    <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
-                                  </p>';
-
-                            $showForm = true;
-
-                        } catch (PDOException $e) {
-                            if ($e->errorInfo[1] == 1062) {
-                                echo "<p class='text form_error'>&emsp;The e-mail: $email is already subscribed</p>";
-                            } else {
-                                echo 'could not subscribe... please contact admin!';
-                                var_dump($e->getMessage());
-                            }
-
-                            $showForm = true;
-                        }
-
-                    }
-                }
+                require_once 'utils/subscribe.php';
 
                 if($showForm) {
 
