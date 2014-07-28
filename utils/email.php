@@ -81,14 +81,12 @@
                         <tr> <td> '.printUnsubscribeMsg().'  </td> </tr>
                         </table></div></body></html>';
 
-        echo $content;
-        /*return mail($memberEmail, $subject, $content.$replyInfo, "From: $fromEmail\r\nReply-To: $fromEmail\r\n");*/
         return mail($memberEmail, $subject, $content,  getMailHeaders($fromEmail));
     }
 
     function sendErrorToAdmin($subject,$message) {
+
         $adminEmail = getAdminMail();
-        /*return mail($adminEmail, $subject, $message, "From: $adminEmail\r\n");*/
         return mail($adminEmail, $subject, $message, getMailHeaders(getAdminMail()));
  
     }
