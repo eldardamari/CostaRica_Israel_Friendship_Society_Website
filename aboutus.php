@@ -20,7 +20,7 @@
         <div class="container">
             <div class="AssociationInfo">
 
-                <p><h2>Who are we?</h2></p>
+                <p><h2 id="who_are_we_tag">Who are we?</h2></p>
                 <p>
                     Costa Rica (Listeni/ˌkoʊstə ˈriːkə/, meaning "rich coast" in Spanish),
                     officially the Republic of Costa Rica (Spanish: Costa Rica or República de Costa Rica,
@@ -30,7 +30,7 @@
                 </p>
 
                 <hr>
-                <p><h2>Members</h2></p>
+                <p><h2 id="members_tag">Members</h2></p>
 
                 <table class="membersTable" id="members_table" >
 

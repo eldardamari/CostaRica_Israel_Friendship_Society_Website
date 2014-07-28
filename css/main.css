@@ -24,6 +24,8 @@ body.es :lang(en) {
     height:100px;
     position:fixed;
     top:0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #container_center {
@@ -41,7 +43,9 @@ body.es :lang(en) {
 }
 
 #main_footer, #container_center:after {
-    height:60px;
+    height:150px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
 }
 
 #main_footer {
@@ -51,7 +55,7 @@ body.es :lang(en) {
     position: relative;
 }
 
-#main_footer hr {
+/*#main_footer hr {
     display: inline-block;
     height: 1px;
     border: 0;
@@ -64,27 +68,32 @@ body.es :lang(en) {
     border-top-width: 0.5;
     margin-left: 4px;
     margin-right: 4px;
-}
+}*/
 
 #main_footer_copyNres {
     font-size:small;
     height:50px;
     position: absolute;
     bottom: 0;
-    height: 20px;
+    height: 25%;
     width: 100%;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    border-top: 1px solid;
 }
 
 #Copyright {
     text-align:left;
     float:left;
-    padding-left:4px;
+    padding-left: 20px;
+    padding-top: 10px;
 }
 
 #resolution {
     text-align:right;
     float:right;
-    padding-right:4px;
+    padding-right: 20px;
+    padding-top: 10px;
 }
 
 .container {
@@ -132,6 +141,8 @@ a {
 nav {
     background: rgba(128,0,0,0.90);
     height:40%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 nav a:link {
@@ -196,3 +207,46 @@ nav ul li {
     font-weight: 900;
     color: rgba(65,110,225,0.9);
 }
+
+
+#sitemap {
+
+    height: 65%;
+    margin-top: 0px;
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+
+}
+
+.col_footer {
+    float: left;
+    width: 155px;
+    padding: 10px 3px 8px 30px;
+    font-size: small;
+}
+
+#sitemap ul{
+    list-style-type : none;
+    margin-top      : 4px;
+    padding-left    : 0px;
+}
+
+#sitemap ul li{
+    padding-bottom   : 2px;
+}
+
+#sitemap ul a:hover{
+    color: darkgrey;
+}
+
+#sitemap ul a{
+    color: lightgray;
+}
+
+.col_header {
+    font-weight: lighter;
+    color:white;
+}
+

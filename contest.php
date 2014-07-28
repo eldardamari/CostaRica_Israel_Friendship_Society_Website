@@ -24,13 +24,13 @@
 
     <div id="container_center">
         <div class="container">
-            <div class="topics"> Registration </div>
+            <div class="topics" id="registration_tag"> Registration </div>
 
         <?php include 'templates/contest_form.php' ?>
             <br><hr><br>
 
 
-            <div class="topics"> Know The Winners </div>
+                <div class="topics" id="know_the_winners_tag"> Know The Winners </div>
 
             <?php
                 $con = makeConnection();
