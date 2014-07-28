@@ -35,6 +35,43 @@
                 Su índice de desarrollo humano de 2012 es el séptimo mejor de Latinoamérica y el segundo en América Central.5 Para 2010, según el Índice de Desigualdad de Género Costa Rica es el país más igualitario de América Latina.16 En 2010 el PNUD destacó que Costa Rica está entre los pocos países que han alcanzado un desarrollo humano mucho más alto que otros países de su mismo nivel de ingreso.17 En el reporte del PNUD de 2013, Costa Rica fue el país que registró la mayor esperanza de vida de América Latina (79.4 años).18 Costa Rica es el país más democrático de Latinoamérica, según la Fundación Konrad Adenauer, debido a la alta participación de mujeres en cargos de elección popular, la abundante participación de partidos en el Congreso y la eficiencia y cobertura en los servicios de salud y educación.19 Es el país de América Latina y el Caribe, con el menor déficit habitacional, según el Banco Interamericano de Desarrollo (BID) y según Latin Security Index, Latin Business Chronicle (FTI Consulting), Costa Rica es el país más seguro de Latinoamérica.20 En 2014, el país se ubica en el primer lugar de América Latina en el Indice de Progreso Social21 y el sistema de salud del país fue calificado entre los cinco mejores del mundo según International Living.22
                 En 2007 el Gobierno de Costa Rica anunció planes para convertirse en el primer país del mundo neutral en carbono para el año 2021, cuando cumplirá su bicentenario como nación independiente.23 24 De acuerdo con la Fundación Nueva Economía (FNE), Costa Rica ocupa el primer lugar en el Índice del Planeta Feliz (HPI) de 2012, distinción que ya había recibido en la anterior clasificación de 2009.25 26 Además, la FNE clasificó a Costa Rica como el "más verde" de los países del mundo en 2009.27 En 2012 Costa Rica se convirtió en el primer país del continente americano en prohibir la cacería deportiva, una ley de iniciativa popular28 En 2014, el acceso al agua es declarado un derecho humano según el proyecto 17.742 y establece como prioritario el abastecimiento a las comunidades.29
             </p>
+            <div class="main_red_box">
+
+                <span class="main_red_box left_box">
+                    <fieldset class="title">
+                        <legend>Events</legend>
+                    </fieldset>
+                </span>
+
+                <span class="main_red_box right_box">
+                    <fieldset class="title">
+                        <legend>Meetings</legend>
+                    </fieldset>
+                </span>
+            </div>
+
+
+            <div class="main_red_box" id="partners">
+                <fieldset class="title" id="asd">
+                <legend>Partners</legend>
+            <div> 
+                <a href="http://mfa.gov.il/MFA/Pages/default.aspx" target="_blank">
+                    <img src="./img/partners/imf.jpg" height="118" width="100" ></a>
+                <a href="http://www.rree.go.cr/" target="_blank"> 
+                    <img src="./img/partners/crmf.png" height="100" width="200" ></a>
+                <a href="http://embassies.gov.il/san-jose/Pages/default.aspx" target="_blank">
+                    <img src="./img/partners/iemb.png" height="50" width="400" ></a>
+                <a href="http://english.tau.ac.il/" target="_blank">
+                    <img src="./img/partners/tau.png" height="54" width="256" ></a>
+                    <a href="http://en.allalouf.com/" target="_blank">
+                    <img src="./img/partners/allalouf.png" height="74" width="277" ></a>
+                <a href="http://www.proimagen.cr/en" target="_blank">
+                    <img src="./img/partners/proimagen.png" height="107" width="312" ></a>
+                <a href="http://www.ophirtours.co.il/" target="_blank">
+                    <img src="./img/partners/ophir_tours.jpg" height="88" width="288" ></a>
+                </div>
+            </fieldset>
+        </div>
         </div>
     </div>
 

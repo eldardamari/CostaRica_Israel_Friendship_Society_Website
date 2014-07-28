@@ -250,3 +250,49 @@ nav ul li {
     color:white;
 }
 
+#partners img{
+    padding: 20px 20px 20px 20px;
+    margin:auto;
+}
+
+#partners div{
+    text-align:center;
+}
+
+.main_red_box fieldset.title {
+    /*border-top: 4px solid rgba(128,0,0,0.90);
+    border-left: 4px solid rgba(128,0,0,0.90);
+    border-bottom: 4px solid rgba(128,0,0,0.90);
+    border-right: 4px solid rgba(128,0,0,0.90);*/
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    text-align: left;
+    
+    border: 10px solid rgba(65,110,225,0.9);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px
+}
+
+.main_red_box fieldset.title legend {
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.left_box fieldset.title{
+    width:42%;
+    display: inline;
+    float:left;
+    text-align: center;
+}
+
+.right_box fieldset.title{
+    width:42%;
+    display: inline;
+    float:right;
+    text-align: center;
+}
