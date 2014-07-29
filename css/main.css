@@ -260,45 +260,54 @@ nav ul li {
     padding: 20px 20px 20px 20px;
     margin:auto;
 }
+#partners img:hover{
+    box-shadow: 4px 5px 13px rgb(219, 214, 214);
+}
 
-#partners div{
+#partners div:not(:first-child) {
     text-align:center;
 }
 
-.main_red_box fieldset.title {
-    /*border-top: 4px solid rgba(128,0,0,0.90);
-    border-left: 4px solid rgba(128,0,0,0.90);
-    border-bottom: 4px solid rgba(128,0,0,0.90);
-    border-right: 4px solid rgba(128,0,0,0.90);*/
-    border-top: none;
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
+.main_box {
+    box-shadow: 5px 5px 30px rgb(199, 199, 199);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.box_header {
     text-align: left;
-    
-    border: 10px solid rgba(65,110,225,0.9);
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px
+    font-weight: 900;
+    color: rgba(65,110,225,0.9);
+    box-shadow: 0px 5px 8px -8px black;
 }
 
-.main_red_box fieldset.title legend {
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 20px;
+.box_header_large {
+    font-size: 150%;
+    padding: 15px 0px 10px 15px;
 }
 
-.left_box fieldset.title{
-    width:42%;
-    display: inline;
+.box_header_medium {
+    font-size: 100%;
+    padding: 8px 0px 5px 10px;
+}
+
+.main_col_box{
+    width: 32%;
     float:left;
-    text-align: center;
+    display:inline-block;
 }
 
-.right_box fieldset.title{
-    width:42%;
-    display: inline;
-    float:right;
-    text-align: center;
+#middle {
+    margin: 0px 13px 0px 13px;
+}
+
+
+.main_col_box:hover{
+    box-shadow: -15px 5px 30px rgb(199, 199, 199);
+}
+
+.multi_box {
+    height: 180px;
 }

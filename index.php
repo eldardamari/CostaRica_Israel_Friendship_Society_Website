@@ -26,54 +26,44 @@
                 the Caribbean Sea to the east, and Ecuador to the south of Cocos Island.<br><br>
             </p>
 
-            <p lang="es">
-                <strong>Costa-Rica Israel Friendship Association - Español </strong>
-                <br><br>
-                Costa Rica, denominado oficialmente República de Costa Rica, es un país de Centroamérica.
-                Limita al norte con la República de Nicaragua y al sureste con la República de Panamá.
-                Cuenta con 4,889,826 de habitantes según el último censo de población.
-                1 Su territorio, con un área total de 51.100 km², es bañado al este por el mar Caribe y al
-                oeste por el océano Pacífico. En cuanto a límites marítimos, colinda con Panamá, Colombia,
-                Nicaragua y Ecuador (a través de la Isla del Coco).6 7 Su capital, centro político y económico
-                es San José, y su idioma oficial es el español.8 <br><br>
-            </p>
-            <div class="main_red_box">
 
-                <span class="main_red_box left_box">
-                    <fieldset class="title">
-                        <legend>Events</legend>
-                    </fieldset>
-                </span>
-
-                <span class="main_red_box right_box">
-                    <fieldset class="title">
-                        <legend>Meetings</legend>
-                    </fieldset>
-                </span>
-            </div>
-
-
-            <div class="main_red_box" id="partners">
-                <fieldset class="title" id="asd">
-                <legend>Partners</legend>
-            <div> 
-                <a href="http://mfa.gov.il/MFA/Pages/default.aspx" target="_blank">
-                    <img src="./img/partners/imf.jpg" height="118" width="100" ></a>
-                <a href="http://www.rree.go.cr/" target="_blank"> 
-                    <img src="./img/partners/crmf.png" height="100" width="200" ></a>
-                <a href="http://embassies.gov.il/san-jose/Pages/default.aspx" target="_blank">
-                    <img src="./img/partners/iemb.png" height="50" width="400" ></a>
-                <a href="http://english.tau.ac.il/" target="_blank">
-                    <img src="./img/partners/tau.png" height="54" width="256" ></a>
-                    <a href="http://en.allalouf.com/" target="_blank">
-                    <img src="./img/partners/allalouf.png" height="74" width="277" ></a>
-                <a href="http://www.proimagen.cr/en" target="_blank">
-                    <img src="./img/partners/proimagen.png" height="107" width="312" ></a>
-                <a href="http://www.ophirtours.co.il/" target="_blank">
-                    <img src="./img/partners/ophir_tours.jpg" height="88" width="288" ></a>
+            <div class="multi_box"> 
+                <div class="main_box main_col_box">
+                    <div class="box_header box_header_medium"> Events </div>
+                    Cuenta con 4,889,826 de habitantes según el último censo de población.
+                    1 Su territorio, con un área total de 51.100 km², es bañado al este por el mar Caribe y al
                 </div>
-            </fieldset>
-        </div>
+                <div class="main_box main_col_box" id="middle">
+                    <div class="box_header box_header_medium"> Meetings </div>
+                    Cuenta con 4,889,826 de habitantes según el último censo de población.
+                    1 Su territorio, con un área total de 51.100 km², es bañado al este por el mar Caribe y al
+                </div>
+                <div class="main_box main_col_box">
+                    <div class="box_header box_header_medium"> Newspaper </div>
+                    Cuenta con 4,889,826 de habitantes según el último censo de población.
+                    1 Su territorio, con un área total de 51.100 km², es bañado al este por el mar Caribe y al
+                </div>
+            </div>
+            <br>
+            <div class="main_box" id="partners">
+                <div class="box_header box_header_large"> Partners </div>
+                <div> 
+                    <a href="http://mfa.gov.il/MFA/Pages/default.aspx" target="_blank">
+                        <img src="./img/partners/imf.jpg" height="118" width="100" ></a>
+                    <a href="http://www.rree.go.cr/" target="_blank"> 
+                        <img src="./img/partners/crmf.png" height="100" width="200" ></a>
+                    <a href="http://embassies.gov.il/san-jose/Pages/default.aspx" target="_blank">
+                        <img src="./img/partners/iemb.png" height="50" width="400" ></a>
+                    <a href="http://english.tau.ac.il/" target="_blank">
+                        <img src="./img/partners/tau.png" height="54" width="256" ></a>
+                        <a href="http://en.allalouf.com/" target="_blank">
+                        <img src="./img/partners/allalouf.png" height="74" width="277" ></a>
+                    <a href="http://www.proimagen.cr/en" target="_blank">
+                        <img src="./img/partners/proimagen.png" height="107" width="312" ></a>
+                    <a href="http://www.ophirtours.co.il/" target="_blank">
+                        <img src="./img/partners/ophir_tours.jpg" height="88" width="288" ></a>
+                </div>
+            </div>
         </div>
     </div>
 
