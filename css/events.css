@@ -28,15 +28,19 @@
     border-radius:10px;
 }
 
-#general_events .dateCol{
+.eventsTables .dateCol{
+    width: 15%;
 }
 
-#general_events .enameCol{
+.eventsTables .enameCol{
+    width: 35%;
 }
 
-#general_events .infoCol{
+.eventsTables .infoCol{
     padding-right: 10%;
+    width: 40%
 }
 
-#general_events .linkCol{
+.eventsTables .linkCol{
+    width:10%;
 }

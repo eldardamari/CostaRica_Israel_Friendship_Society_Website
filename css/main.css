@@ -295,6 +295,7 @@ nav ul li {
 
 .main_col_box{
     width: 32%;
+    height: 180px;
     float:left;
     display:inline-block;
 }
@@ -310,4 +311,27 @@ nav ul li {
 
 .multi_box {
     height: 180px;
+    font-size:13px;
 }
+
+.multi_box ul{
+    padding-left:27px;
+
+}
+
+.multi_box li{
+    margin-top:4px;
+}
+
+.box_table {
+    font-size: 14px;
+    margin: 5px 0px 0px 8px;
+    width:95%;
+}
+
+.box_table tr:hover{
+    cursor: pointer;
+    font-weight: bold;
+    color: rgb(25, 25, 34);
+}
+

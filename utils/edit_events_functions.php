@@ -152,6 +152,8 @@
         }
     }
 
+    date_default_timezone_set('Israel'); // important for date format
+
     if(isset($_POST['deleteEvent'])) {
         if(removeEvent(strtolower($eventType).'s',$_POST['deleteEvent'],$directoryPath)){
             echo '<p class="form_granted">&emsp;Event was removed successfully!
@@ -186,7 +188,9 @@
             $filesMoved = uploadPhotosToEvent($uploaded_pictures, $directoryPath.$id, $num_of_pictures);
         }
 
-        $date = $_POST['date'];
+        $date = date_create($_POST['date']);
+        $date = date_format($date, 'd/m/y');
+
         $eventName = htmlspecialchars($_POST['eventName']);
 
         $description = htmlspecialchars($_POST['description']);
@@ -204,7 +208,6 @@
 
 //        header('refresh:2;url='.$_SERVER['PHP_SELF'].'?0');
     }
-
     if(isset($_POST['add'])) {
 
         if ($_FILES['pictures']['error'] != UPLOAD_ERR_NO_FILE) {
@@ -213,7 +216,14 @@
 
         $num_of_pictures = $uploaded_pictures['num_of_pictures'];
 
-        $date = $_POST['date'];
+        $date = date_create($_POST['date']);
+        $date = date_format($date, 'd/m/y');
+
+        echo $date;
+        echo $date;
+        echo $date;
+        echo $date;
+        echo $date;
         $eventName = htmlspecialchars($_POST['eventName']);
 
         $description = htmlspecialchars($_POST['description']);

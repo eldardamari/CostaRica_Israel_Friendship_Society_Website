@@ -12,7 +12,7 @@
 
         <label for="date">Date</label>
         <input type="date" name="date" id="date" class="form_field"
-               value="<?php echo date('Y-m-d'); ?>"  min="1990-01-01"
+               value="<?php echo date("d/m/Y"); ?>"  min="1990-01-01"
                required />
         <br><br>
 
