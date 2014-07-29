@@ -305,7 +305,7 @@ nav ul li {
 }
 
 .main_col_box:hover{
-    box-shadow: -15px 5px 30px rgb(199, 199, 199);
+    /*box-shadow: -15px 5px 30px rgb(199, 199, 199);*/
 }
 
 .multi_box {
