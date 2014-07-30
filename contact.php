@@ -40,6 +40,7 @@
                         $content = htmlspecialchars($_REQUEST['content']);
 
                         $content = wordwrap($content, 70, "\n");
+                        $content = '<br/>'.str_replace("\n","<br/>",$content);
 
                         // on server there will be a ma
                         $sql = "SELECT email FROM members WHERE id=:id";
