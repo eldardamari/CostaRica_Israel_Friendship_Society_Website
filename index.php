@@ -25,9 +25,9 @@
                 the Republic of Costa Rica (Spanish: Costa Rica or República de Costa Rica,
                 pronounced: [reˈpuβlika ðe ˈkosta ˈrika]), is a country in Central America, bordered
                 by Nicaragua to the north, Panama to the southeast, the Pacific Ocean to the west,
-                the Caribbean Sea to the east, and Ecuador to the south of Cocos Island.<br><br>
+                the Caribbean Sea to the east, and Ecuador to the south of Cocos Island.
+                <br><br>
             </p>
-
 
             <div class="multi_box"> 
                 <div class="main_box main_col_box">

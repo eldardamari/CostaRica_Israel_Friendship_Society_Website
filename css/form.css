@@ -61,6 +61,15 @@
     outline: 0;
 }
 
+.general_form .btn_medium {
+    border-radius: 3px;
+    border-width: 1px;
+    width: 110px;
+    height: 40px;
+    vertical-align: middle; /* align the text vertically centered */
+    outline: 0;
+}
+
 .general_form .btn_large {
     border-radius: 3px;
     border-width: 1px;
@@ -147,6 +156,3 @@ label.btn_pictures {
     float: left;
 }
 
-#btn_delete {
-    width: 100px;
-}

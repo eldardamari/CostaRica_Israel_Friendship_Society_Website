@@ -12,7 +12,7 @@
 
     </fieldset>
     <div id="formbuttons">
-        <button class="btn_default" id="btn_delete" type="submit"><span class="btn_icon icon_delete"></span> Unsubscribe</button>
+        <button class="btn_medium" type="submit"><span class="btn_icon icon_delete"></span> Unsubscribe</button>
     </div>
 
 </form>

@@ -3,16 +3,22 @@
 
     <div id="slideshow">
         <div class="active">
-            <a href="#"><img  src="img/slide_show/map/map-costa-rica.gif"></a>
+            <a href="#"><img  src="img/slide_show/map/map-costa-rica.png"></a>
             <p class="caption text_center">Map Of Costa Rica</p>
         </div>
 
         <?php
+            include 'utils/resize-class.php';
             $images = glob("img/slide_show/*.*");
 
             foreach($images as $image) {
-                $splitFilename = explode("/",$image);
-                $caption = explode(".",end($splitFilename));
+                $splitPath = explode("/",$image);
+
+                $resizeObj = new resize($image);
+                $resizeObj -> resizeImage(1024, 400, 'crop');
+                $resizeObj -> saveImage($image, 100);
+
+                $caption = explode(".",end($splitPath));
                 $caption = $caption[0];
 
                 echo '<div>'.
