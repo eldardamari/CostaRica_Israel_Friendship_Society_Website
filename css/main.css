@@ -213,6 +213,12 @@ nav ul li {
     font-weight: 900;
     color: rgba(65,110,225,0.9);
 }
+.topics_medium {
+    text-align: center;
+    font-size: 300%;
+    font-weight: 900;
+    color: rgba(65,110,225,0.9);
+}
 
 #sitemap {
 
@@ -289,7 +295,7 @@ nav ul li {
 }
 
 .box_header_medium {
-    font-size: 100%;
+    font-size: 125%;
     padding: 8px 0px 5px 10px;
 }
 
