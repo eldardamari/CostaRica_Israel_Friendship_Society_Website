@@ -1,8 +1,6 @@
 #slideshow {
     position:relative;
-    height:350px;
-    margin-left: 20%;
-    margin-right: 20%;
+    height:450px;
 }
 
 #slideshow div {
@@ -11,7 +9,7 @@
     left:0;
     z-index:8;
     opacity:0.0;
-    height: 350px;
+    height: 450px;
     background-color: White;
 }
 
@@ -25,7 +23,7 @@
 }
 
 #slideshow div img {
-    height: 300px;
+    height: 400px;
     max-width: 100%;
     display: block;
     border: 0;
