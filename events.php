@@ -19,7 +19,7 @@
     <div id="container_center">
         <div class="container">
 
-            <p class="events_tablesName"> Events Tables </p>
+            <p class="topics_medium"> Events Tables </p>
             <!-- Events table -->
             <table class="eventsTables" id="general_events" >
                 <script> eventsHeader(); </script>
@@ -51,7 +51,7 @@
 
             <br><br>
 
-            <p class="events_tablesName"> Meeting Tables </p>
+            <p class="topics_medium"> Meeting Tables </p>
             <!-- Meetings table -->
             <table class="eventsTables" id="meetings_events">
                 <script> eventsHeader(); </script>

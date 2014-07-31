@@ -19,13 +19,14 @@
             <?php include 'templates/slide_show.php' ?>
 
             <p lang="en">
-                <strong>Costa-Rica Israel Friendship Association - English </strong>
+                <strong>Costa-Rica Israel Friendship Association</strong>
                 <br><br>
-                Costa Rica (Listeni/ˌkoʊstə ˈriːkə/, meaning "rich coast" in Spanish), officially
-                the Republic of Costa Rica (Spanish: Costa Rica or República de Costa Rica,
-                pronounced: [reˈpuβlika ðe ˈkosta ˈrika]), is a country in Central America, bordered
-                by Nicaragua to the north, Panama to the southeast, the Pacific Ocean to the west,
-                the Caribbean Sea to the east, and Ecuador to the south of Cocos Island.
+                The association was funded in July 30, as a non-profit register organization. 
+                Established by a handful jewish pioneers from south & central america countires. 
+                Beleiving in the state of Israel and the maintaining relationship with both countires.
+                By doing so, communities living in Costa-Rica can have an address for establishing they Israeli
+                relations. The association conduct a special yearly program "Know Costa-Rica Contest" an opprotunity
+                for students in Israel to explorer Costa-Rica in a unique way.
                 <br><br>
             </p>
 

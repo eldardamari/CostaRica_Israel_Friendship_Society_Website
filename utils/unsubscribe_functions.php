@@ -34,9 +34,7 @@ function execute_query($con, &$sql, $email)
             }
 
 
-            $sql = "UPDATE subscription 
-                    SET ". $col ." 
-                    WHERE email=:email;";
+            $sql = "UPDATE subscription SET ". $col ." WHERE email=:email;";
             try {
 
                 execute_query($con, $sql, $email);

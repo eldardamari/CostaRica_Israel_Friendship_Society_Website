@@ -42,6 +42,17 @@ $(document).ready(function () {
         $('#editEventForm #files_multi').text(this.files.length + " file selected");
         $('#addEventForm #files_multi').text(this.files.length + " file selected");
     });
+
+
+    $('#deleteEvent').click(function(e) {
+
+        if(!confirm('Are you sure you want to delete event?\n'+
+                    'All data will be lost!')) {
+                e.preventDefault();
+                    }
+    });
+
+
 });
 
 

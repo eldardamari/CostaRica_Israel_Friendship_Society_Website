@@ -49,14 +49,17 @@
                         <div style="text-align: left; font-size: 100%; font-weight: 225;">
                             <p><b><u>Summary</u></b></p></div>
                         <ul>
-                    <li><p><b>First name:</b> '.$firstName.'</p></li>'.
-                    '<li><p><b>Last name:</b> '.$lastName.'</p></li>'.
-                    '<li><p><b>E-Mail:</b> '.$email.'</p></li>'.
-                    '<li><p><b>Subscribed for:</b>&emsp;'.$subscribed.'</p></li>'.
-                    '</ul>'.
-                    '</td></tr></table></div></body></html>';
+                            <li><p><b>First name:</b> '.$firstName.'</p></li>'.
+                            '<li><p><b>Last name:</b> '.$lastName.'</p></li>'.
+                            '<li><p><b>E-Mail:</b> '.$email.'</p></li>'.
+                            '<li><p><b>Subscribed for:</b>&emsp;'.$subscribed.'</p></li>'.
+                        '</ul>'.
+                            '</td></tr>
+                    <tr> <td> '.printUnsubscribeMsg().'  </td> </tr>
+                    </table></div></body></html>';
 
         $adminEmail = getAdminMail();
+        echo 'sending email to: ' . $email;
         return mail($email, $subject, $content, getMailHeaders(getAssociationMail()));
     }
 
@@ -75,11 +78,8 @@
                             '<li><p><b>Subject:</b> '.$subject.'</p></li>'.
                             '<li><p><b>Message:</b> '.$content.'</p></li>'.
                             '<li><p><b>Click to Reply:</b> 
-                            <a href="mailto:'.$fromEmail.'?Subject=Re: '.$subject .' target="_top"> Click Here</a> </p></li><br>'.
-                        '</ul>'.
-                        '</td></tr>
-                        <tr> <td> '.printUnsubscribeMsg().'  </td> </tr>
-                        </table></div></body></html>';
+                            <a href="mailto:'.$fromEmail.'?Subject=Re: '.$subject .'" target="_top"> Click Here</a> </p></li><br>'.
+                        '</ul></td></tr></table></div></body></html>';
 
         return mail($memberEmail, $subject, $content,  getMailHeaders($fromEmail));
     }

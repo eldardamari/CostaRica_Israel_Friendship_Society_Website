@@ -219,11 +219,6 @@
         $date = date_create($_POST['date']);
         $date = date_format($date, 'd/m/y');
 
-        echo $date;
-        echo $date;
-        echo $date;
-        echo $date;
-        echo $date;
         $eventName = htmlspecialchars($_POST['eventName']);
 
         $description = htmlspecialchars($_POST['description']);

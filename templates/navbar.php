@@ -38,8 +38,7 @@
                 <a href="contact.php" lang="es"> Contáctenos</a>
             </li>
             <li id="language">
-                <a href="#" onclick="setLanguage('en')"> English </a> /
-                <a href="#" onclick="setLanguage('es')">Español</a>
+                <a href="#" onclick="setLanguage('en')"> English </a>
             </li>
         </ul>
     </nav>

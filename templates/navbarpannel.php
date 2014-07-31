@@ -18,7 +18,7 @@
                     echo "<li><strong>Hello ". $_SESSION['username']."!</strong></li>";
             ?>
                 <li>
-                    <a href="add_member.php" lang="en">Edit Members</a>
+                    <a href="edit_member.php" lang="en">Edit Members</a>
                 </li>
                 <li>
                     <a href="edit_events.php" lang="en">Edit Events</a>

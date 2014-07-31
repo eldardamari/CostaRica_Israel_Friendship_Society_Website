@@ -18,11 +18,8 @@
                 <div class="main_box main_col_box">
                     <div class="box_header box_header_medium"> News </div>
                     <div class="box_text">
-
-                    Cuenta con 4,889,826 de habitantes según el últVimo censo de población.
-                    1 Su territorio, con un área total de 51.100 km², es bañado al este por el mar Caribe y al
-                    1 Su territorio, con un área total de 51.100 km², es bañado al este por el mar Caribe y al
-                    1 Su territorio, con un área total de 51.100 km², es bañado al este por el mar 
+                        <i>"The Costa-Rica Friendship Association sends her condolences to all the familes who lost their
+                            beloved ones in operation "Protective Edge"."</i>
                 </div>
                 </div>
             </div>

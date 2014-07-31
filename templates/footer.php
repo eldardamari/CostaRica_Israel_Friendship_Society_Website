@@ -36,7 +36,15 @@
             <ul>
                 <li> <a href="/costaRicaIsrael/contact.php">Email Us</a></li>
                 <li><br></li>
-                <li> <div class="col_header">Admin <a href="/costaRicaIsrael/panel.php">(Log In)</a></div></li>
+            <?php
+                if (isset($_SESSION['username'])) {
+                    echo '<li> Welcome: <u>'.$_SESSION['username']."</u>".
+                        '<a href="/costaRicaIsrael/utils/logout.php" id="adminLogIn"> (Log Out)</a>';
+                } else {
+                    echo '<li><div class="col_header">Admin 
+                        <a href="/costaRicaIsrael/panel.php" id="adminLogIn">(Log In) </a></div></li>';
+                }
+            ?>
             </ul>
         </div>
     </div>
