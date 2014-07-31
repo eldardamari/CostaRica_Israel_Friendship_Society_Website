@@ -3,8 +3,7 @@
 function get_contests_numbers() {
 
     $con = makeConnection();
-    $query = "SELECT DISTINCT(contest_num)
-        FROM winners_en;";
+    $query = "SELECT DISTINCT(contest_num) FROM winners_en;";
 
     $query_res = prepareAndExecuteQuery($con,$query);
     $res = array();
@@ -146,7 +145,9 @@ function execute_query(&$con, &$sql, &$contest_num, &$email, &$institute_name, &
                        &$uploaded_pictures, &$pic_name, &$place, &$subject, &$tel_number,
                        $pictures_exist, $profile_pic_exist)
 {
+
     $statement = $con->prepare($sql);
+    $zero = 0;
 
     $statement->bindParam(':contest_num' ,$contest_num  ,PDO::PARAM_INT);
     $statement->bindParam(':email'       ,$email        ,PDO::PARAM_STR);
@@ -154,8 +155,12 @@ function execute_query(&$con, &$sql, &$contest_num, &$email, &$institute_name, &
     $statement->bindParam(':name'        ,$name         ,PDO::PARAM_STR);
     if($pictures_exist)
         $statement->bindParam(':number_of_pics',$uploaded_pictures["num_of_pictures"] ,PDO::PARAM_INT);
+    else 
+        $statement->bindParam(':number_of_pics',$zero ,PDO::PARAM_INT);
+
     if($profile_pic_exist)
         $statement->bindParam(':pic_path'    ,$pic_name     ,PDO::PARAM_STR);
+
     $statement->bindParam(':place'       ,$place        ,PDO::PARAM_INT);
     $statement->bindParam(':subject'     ,$subject      ,PDO::PARAM_STR);
     $statement->bindParam(':tel_number'  ,$tel_number   ,PDO::PARAM_STR);
@@ -202,6 +207,7 @@ $tel_number = $err_msg = $pic_full_path = "";
         }
         else
             echo "<script>alert('Failure, could not delete photo');</script>";
+        goto form;
     }
 
     if($add_mode || $edit_mode) {
@@ -255,7 +261,7 @@ $tel_number = $err_msg = $pic_full_path = "";
                 winners_en (contest_num,email,institute,name,number_of_pics,pic_path,
                         place,subject,tel_number)
              VALUES (:contest_num, :email, :institute, :name, :number_of_pics, :pic_path, 
-                     :place, :subject ,:tel_number);" 
+                     :place, :subject, :tel_number);" 
              :
             "UPDATE winners_en 
                 SET contest_num   =:contest_num,
@@ -288,15 +294,16 @@ $tel_number = $err_msg = $pic_full_path = "";
                 Error: duplicate EMAIL in databse, please check email address.</p>";
             } else {
                 echo "<p class='text form_error'>&emsp; 
-                Failed updating database..please try again.";
+                INSET mode Failed updating database..please try again.";
             }
 
             // Remove profile picture
             unlink($pic_full_path);
             // Remove pictures
-            foreach($uploaded_pictures["pictures_uniqid"] as $file) {
-                unlink($pic_path.$contest_num.'/'.$file);
-            }
+            if($pictures_exist)
+                foreach($uploaded_pictures["pictures_uniqid"] as $file) {
+                    unlink($pic_path.$contest_num.'/'.$file);
+                }
             if (num_of_files_in_dir($pic_path.$contest_num) == 0)
                 rmdir($pic_path.$contest_num);
             goto form;
