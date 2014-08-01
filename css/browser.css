@@ -81,3 +81,12 @@
 .item.ft_gif {
 	background-image: url(../img/browser/picture.png);
 }
+
+.item.ft_pdf{
+    background-image:url(../img/browser/pdf.png);
+}
+
+.item.ft_doc,
+.item.ft_docx{
+    background-image:url(../img/browser/doc.png);
+}
