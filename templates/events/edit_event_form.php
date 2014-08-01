@@ -70,5 +70,5 @@
 
 <form id="deletePhoto" class="general_form"
       method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
-    <button type="submit" class="btn_large" id="action"/>
+    <button type="submit" class="btn_medium" id="action"/>
 </form>
