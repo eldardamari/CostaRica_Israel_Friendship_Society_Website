@@ -27,14 +27,16 @@
                     <a href="edit_meetings.php" lang="en">Edit Meetings</a>
                 </li>
                 <li>
+                    <a href="edit_subscriptions.php" lang="en">Edit Subscriptions</a>
+                </li>
+                <li>
                     <a href="edit_winners.php" lang="en">Edit Winners</a>
                 </li>
                 <li>
-                    <a href="utils/logout.php" lang="en">Logout</a>
+                    <a href="utils/logout.php" lang="en"><u>Logout</u></a>
                 </li>
                 <li id="language">
-                    <a href="#" onclick="setLanguage('en')"> English </a> /
-                    <a href="#" onclick="setLanguage('es')">Español</a>
+                    <a href="#" onclick="setLanguage('en')"> English </a>
                 </li>
             <?php
                 } else {
