@@ -48,8 +48,8 @@
                         <img src="./img/partners/allalouf.png" height="74" width="277" ></a>
                     <a href="http://www.proimagen.cr/en" target="_blank">
                         <img src="./img/partners/proimagen.png" height="107" width="312" ></a>
-                    <a href="http://www.ophirtours.co.il/" target="_blank">
-                        <img src="./img/partners/ophir_tours.jpg" height="88" width="288" ></a>
+                        <a href="http://www.google.co.il/" target="_blank">
+                            <img src="./img/partners/alpha_club.gif" height="90" width="180" ></a>
                 </div>
             </div>
         </div>
