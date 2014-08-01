@@ -2,7 +2,7 @@
 function get_month($month) {
 
     switch($month) {
-    case 1: return  'january';  break;
+    case 1: return  'January';  break;
     case 2: return  'February'; break;
     case 3: return  'March';    break;
     case 4: return  'April';    break;

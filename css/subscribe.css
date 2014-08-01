@@ -8,9 +8,27 @@
     text-align:center;
 }
 
-tfoot td:hover {
+/*tfoot td:hover {
     background-color:rgba(8, 127, 251, 0.20);
     cursor: pointer;
+}*/
+
+.publications th {
+    font-size: 18px;
+    padding-left:30%;
+    text-decoration: underline;
+    text-align:left;
+}
+
+.publications tbody td{
+    padding-left:30%;
+    font-size: 15px;
+    text-align:left;
+}
+
+.publications td:last-child {
+    color: rgb(65,110,225);
+    text-decoration:none;
 }
 
 .publications td:hover {

@@ -1,5 +1,10 @@
 <?php
 
+define('KB', 1024);
+define('MB', 1048576);
+define('GB', 1073741824);
+define('TB', 1099511627776);
+
 function check_file($filename) {
     if (check_file_length($filename)) {
       echo "<p class='text form_error'>&emsp; Error: File name is too long, need to be less than 225 characters!</p>";
@@ -20,16 +25,39 @@ function check_file($filename) {
     return true;
 }
 
+
+function check_document($filename) {
+
+    $allowedExts = array("doc", "docx", "pdf");
+    $temp = explode(".", $_FILES[$filename]["name"]);
+    $extension = end($temp);
+
+    if ($_FILES[$filename]["error"] > 0) {
+        echo "<p class='text form_error'>&emsp; Error: File can't be opened...please try again!</p>";
+        return false;
+    }
+    if ( $_FILES[$filename]["type"] != "application/pdf" &&
+        $_FILES[$filename]["type"] != "application/vnd.openxmlformats-officedocument.wordprocessingml.document" &&
+        $_FILES[$filename]["type"] != "application/msword") {    
+            echo "<p class='text form_error'>&emsp; Error: File type is illigal (Only *.doc / *.docx / *.pdf)...please try again!</p>";
+            return false;
+        }
+    if (!in_array($extension, $allowedExts)) {
+        echo "<p class='text form_error'>&emsp; Error: File extension error (Only *.doc / *.docx / *.pdf)...please try again!</p>";
+        return false;
+    }
+    if ($_FILES[$filename]["size"] > 2*MB) {
+        echo "<p class='text form_error'>&emsp; Error: Document size is unvaild (max file size: 2MB)!</p>";
+      return false;
+    }
+    return true;
+}
+
 function check_file_type_and_size($filename,$filetype,$filesize)
 {
                 $allowedExts = array("gif", "jpeg", "jpg", "png");
                 $temp = explode(".", $filename);
                 $extension = strtolower(end($temp));
-                /*var_dump($extension);
-                var_dump($filesize);
-                var_dump($filetype);
-                var_dump($filesize > 0 && $filesize < 5000000); //5000kb limit
-                var_dump(in_array($extension, $allowedExts));*/
                 return ((($filetype == "image/gif")
                 || ($filetype == "image/jpeg")
                 || ($filetype == "image/jpg")
