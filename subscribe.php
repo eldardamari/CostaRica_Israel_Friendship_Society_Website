@@ -12,6 +12,7 @@
     <script src="/costaRicaIsrael/js/subscribe.js"></script>
 
     <?php require 'utils/db_connection.php' ?>
+    <?php require 'utils/general_utils.php' ?>
     <?php require 'utils/email.php' ?>
 </head>
 
@@ -21,7 +22,6 @@
     <div id="container_center">
         <div class="container">
 
-            <?php require_once 'utils/subscribe_functions.php'; ?>
 
             <div class="topics_medium">Bulletin & Newspaper</div><br>
 
@@ -59,7 +59,7 @@
             
 
                 <table class="eventsTables publications" id="bulletin_table">
-                    <tr> <th class="enameCol" colspan="2"> Bulletin (Spanish) </th></tr>
+                    <tr> <th class="enameCol" colspan="2"> Bulletin (Español) </th></tr>
                     <tbody>
 <?php
 
@@ -92,7 +92,7 @@
 
             </div>
 
-            <br><br><br><br><hr><br>
+            <br><br><br><br><br><hr><br>
 
 
             <div class="topics_medium">Subscribe</div>
@@ -100,6 +100,7 @@
             <?php
                 $showForm = true;
 
+                require_once 'utils/subscribe_functions.php';
 
                 if($showForm) {
 

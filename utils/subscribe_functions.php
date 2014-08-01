@@ -15,6 +15,7 @@ function execute_query($con, &$sql, $firstName, $lastName, $email, $bulletin, $n
     $statement->execute();
 }
 
+
     if(isset($_REQUEST['email'])) {
         $email = $_REQUEST['email'];
         $mailCheck = spamCheck($email);

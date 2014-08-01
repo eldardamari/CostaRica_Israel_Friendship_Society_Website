@@ -13,9 +13,11 @@ function init(type, base) {
                 $('#previewName').html("<p>" + item.title + "</p>");
 
                 $('#action').prop('value',path).prop('name','deletePhoto').css('visibility' , 'visible');
-                $('#action').html('<span class="btn_icon icon_delete"></span> Remove Photo');
+                if (base.indexOf("document") > -1)
+                    $('#action').html('<span class="btn_icon icon_delete"></span> Remove Document');
+                else 
+                    $('#action').html('<span class="btn_icon icon_delete"></span> Remove Photo');
                 $('div#preview').show();
-
             }
         }
     });
