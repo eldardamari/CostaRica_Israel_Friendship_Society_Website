@@ -15,6 +15,60 @@ function execute_query($con, &$sql, $firstName, $lastName, $email, $bulletin, $n
     $statement->execute();
 }
 
+function print_subscriptions_data_rows_for($table) {
+
+    $res = "";
+    $con = makeConnection();
+
+    $query = "SELECT * FROM ".$table."
+              ORDER BY year DESC , month DESC
+              LIMIT 0 , 6;";
+    
+    $result = prepareAndExecuteQuery($con,$query);
+
+    foreach($result as $row)
+        $res.= '<tr data-filename="'.$row["file_name"].'"><td colspan=2 > <img src="./img/icons/doc.png" height="22" width="22"> '
+        . $row["year"]  . ' ' . get_month($row["month"]) . ' (' . $row["catalog"] . ')</td></tr>';
+    
+    if(sizeof($result) < 6) {
+        for ($i=0 ; $i< 6-sizeof($result) ;$i++) 
+            $res.= '<tr> <td colspan="2"></td></tr>';
+    }
+
+    return $res;
+}
+
+function print_subscriptions_tables() {
+
+    echo '<table class="eventsTables publications" id="newsletter_table">
+        <tr> <th colspan="2"> Newletter (Hebrew) </th></tr> 
+        <tbody>'.
+        print_subscriptions_data_rows_for("newsletter").'
+    </tbody>
+    <tfoot>
+        <tr>
+            <td><button id="prev" value="-6" disabled> prev</button></td>
+            <td><button id="next" value="6"> next</button></td>
+        </tr>
+      </tfoot>
+    </table>
+
+
+    <table class="eventsTables publications" id="bulletin_table">
+        <tr> <th class="enameCol" colspan="2"> Bulletin (Español) </th></tr>
+        <tbody>'.
+        print_subscriptions_data_rows_for('bulletin').'
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <td><button id="prev" value="-6" disabled> prev</button></td>
+            <td><button id="next" value="6"> next</button></td>
+        </tr>
+    </tfoot>
+</table>';
+}
+
 
     if(isset($_REQUEST['email'])) {
         $email = $_REQUEST['email'];
