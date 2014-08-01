@@ -1,0 +1,23 @@
+.publications_box {
+    height: 175px;
+}
+
+.publications {
+    float: left;
+    width: 50%;
+    text-align:center;
+}
+
+tfoot td:hover {
+    background-color:rgba(8, 127, 251, 0.20);
+    cursor: pointer;
+}
+
+.publications td:hover {
+    background-color:rgba(226, 255, 199, 0.79);
+    cursor: pointer;
+}
+
+.publications td{
+    height: 30px;
+}
