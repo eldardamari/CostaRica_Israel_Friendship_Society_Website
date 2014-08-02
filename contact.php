@@ -17,7 +17,7 @@
     <div id="container_center">
         <div class="container">
 
-            <h2 class="text_center">Contact us</h2>
+            <div class="topics_medium">Contact us</div>
 
             <?php
                 $showForm = true;

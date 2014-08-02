@@ -19,7 +19,7 @@
     <div id="container_center">
         <div class="container">
 
-            <p class="topics_medium"> Events Tables </p>
+            <div class="topics_medium"> Events</div>
             <!-- Events table -->
             <table class="eventsTables" id="general_events" >
                 <script> eventsHeader(); </script>
@@ -39,7 +39,7 @@
                             "name"          => $row[2],
                             "description"   => $row[3]);
 
-                        echo   '<tr onmousedown="open_eventPage('.$new_row["id"]. ');">
+                        echo   '<tr onmousedown="open_eventPage(event,'.$new_row["id"]. ');">
                                 <td> ' . $new_row["date"] . ' </td>
                                 <td> ' . $new_row["name"] . ' </td>
                                 <td> ' . $new_row["description"] . ' </td>
@@ -51,7 +51,7 @@
 
             <br><br>
 
-            <p class="topics_medium"> Meeting Tables </p>
+            <div class="topics_medium"> Meeting</div>
             <!-- Meetings table -->
             <table class="eventsTables" id="meetings_events">
                 <script> eventsHeader(); </script>
@@ -68,7 +68,7 @@
                             "name"          => $row[2],
                             "description"   => $row[3]);
 
-                        echo   '<tr onmousedown="open_meetingPage('.$new_row["id"]. ');">
+                        echo   '<tr onmousedown="open_meetingPage(event,'.$new_row["id"]. ');">
                                 <td> ' . $new_row["date"] . ' </td>
                                 <td> ' . $new_row["name"] . ' </td>
                                 <td> ' . $new_row["description"] . ' </td>
