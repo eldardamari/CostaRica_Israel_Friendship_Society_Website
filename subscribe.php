@@ -24,7 +24,7 @@
 
             <?php require_once 'utils/subscribe_functions.php'; ?>
 
-            <div class="topics_medium">Bulletin & Newspaper</div><br>
+            <div class="topics_medium" id="publications">Bulletin & Newspaper</div><br>
 
             <div class="publications_box">
                 <?php print_subscriptions_tables(); ?>

@@ -13,7 +13,7 @@ $(document).ready(function() {
         get_data_server(table,page,state);
     });
     
-    $('.publications').on('click', '.pub_row', function(){
+    $('.publications ').on('click', '.pub_row', function(){
         download_file($(this));
     });
 
@@ -32,8 +32,6 @@ function get_data_server(table,row,stat) {
             success : function(data) {
                 if(data)
                     update_table(table,data,stat);
-                else {
-                }
             },
             error: function(xhr, status, error) {
                 alert(xhr.responseText);

@@ -4,7 +4,6 @@
 
     function get_subscriptions_data($table,$row) {
 
-        if(loggedIn()) {
 
             try {
             $con = makeConnection();
@@ -15,11 +14,6 @@
             $statement = $con->prepare($sql);
             $statement->execute();
             $result = $statement->fetchAll();
-
-            /*echo '<pre>';
-            var_dump(sizeof($result));
-            echo '</pre>';
-            return $result;*/
 
             if(!sizeof($result))
                 return 0;
@@ -34,12 +28,9 @@
         }
         return $result;
 
-    } catch (Exception $e) {
-        return 0;
-    }
-        } else {
-            header('Location: login.php');
-        }
+            } catch (Exception $e) {
+                return 0;
+            }
     }
 
     $table = isset($_POST['table']) ? $_POST['table'] : "";

@@ -1,9 +1,44 @@
-            <div class="multi_box"> 
+
+            <div class="main_box main_col_box multi_box">
+                <div class="split_box">
+                    <a href="./subscribe.php#publications">
+                        <div class="box_header box_header_medium"> Newsletters (Hebrew)</div></a>
+                    <table class="box_table newsletter_box">
+                <?php add_newsletter_bulletin_home_page("newsletter"); ?>
+            </table>
+                </div>
+                <div>
+                    <a href="./subscribe.php#publications">
+                        <div class="box_header box_header_medium"> Bulletin (Español)</div></a>
+            <table class="box_table bulletin_box">
+                <?php add_newsletter_bulletin_home_page("bulletin"); ?>
+            </table>
+                </div>
+            </div>
+
+                <div id="text_box" lang="en">
+                    <div id="text_box_header"> <strong>Costa-Rica Israel Friendship Association</strong></div>
+                <div id="text_box_body">
+                The association was funded in July 30, as a non-profit register organization. 
+                Established by a handful jewish pioneers from south & central america countires. 
+                Beleiving in the state of Israel and the maintaining relationship with both countires.
+                By doing so, communities living in Costa-Rica can have an address for establishing they Israeli
+                relations. The association conduct a special yearly program "Know Costa-Rica Contest" an opprotunity
+                for students in Israel to explorer Costa-Rica in a unique way.
+                </div>
+            </div>
+
+
+
+
+
+
+<div class="multi_box"> 
                 <div class="main_box main_col_box">
                     <a href="./events.php"><div class="box_header box_header_medium"> Events </div> </a>
                     <div>
             <table class="box_table">
-                <?php add_events_home_page(); ?>
+                <?php add_events_meetings_home_page("event"); ?>
             </table>
                     </div>
                 </div>
@@ -11,7 +46,7 @@
                     <a href="./events.php"><div class="box_header box_header_medium"> Meetings</div> </a>
                     <div>
             <table class="box_table">
-                <?php add_meetings_home_page(); ?>
+                <?php add_events_meetings_home_page("meeting"); ?>
             </table>
                     </div>
                 </div>
@@ -24,17 +59,42 @@
                 </div>
             </div>
 
+            <br>
+            <div class="main_box" id="partners">
+                <div class="box_header box_header_large"> Partners </div>
+                <div> 
+                    <a href="http://mfa.gov.il/MFA/Pages/default.aspx" target="_blank">
+                        <img src="./img/partners/imf.jpg" height="118" width="100" ></a>
+                    <a href="http://www.rree.go.cr/" target="_blank"> 
+                        <img src="./img/partners/crmf.png" height="100" width="200" ></a>
+                    <a href="http://embassies.gov.il/san-jose/Pages/default.aspx" target="_blank">
+                        <img src="./img/partners/iemb.png" height="50" width="400" ></a>
+                    <a href="http://english.tau.ac.il/" target="_blank">
+                        <img src="./img/partners/tau.png" height="54" width="256" ></a>
+                        <a href="http://en.allalouf.com/" target="_blank">
+                        <img src="./img/partners/allalouf.png" height="74" width="277" ></a>
+                    <a href="http://www.proimagen.cr/en" target="_blank">
+                        <img src="./img/partners/proimagen.png" height="107" width="312" ></a>
+                        <a href="http://www.google.co.il/" target="_blank">
+                            <img src="./img/partners/alpha_club.gif" height="90" width="180" ></a>
+                </div>
+            </div>
+
 <?php
 
-function add_events_home_page()
+function add_events_meetings_home_page($table)
  {
     $con = makeConnection();
     $i=0;
 
-    $query = "SELECT * FROM events_en";
+    $table = ($table == "event" ? "event" : "meeting");
 
-    if(!$result = prepareAndExecuteQuery($con,$query))
-        echo 'error reading from database... please contact admin!';
+    $query = "SELECT * FROM ".$table."s_en";
+
+    if(!$result = prepareAndExecuteQuery($con,$query)) {
+        sendErrorToAdmin("home_page events/meetings boxes - failed","result is empty from SELECT * FROM ".$table);
+        return;
+    }
 
     foreach($result as $row) {
         if($i++ == 5) {
@@ -46,43 +106,42 @@ function add_events_home_page()
             "name"          => $row[2]);
 
         if (strlen($new_row["name"]) >= 20) {
-            $new_row["name"] = substr($new_row["name"],0,17);
+            $new_row["name"] = substr($new_row["name"],0,20).'..';
         }
             
-        echo   '<tr onmousedown="open_eventPage('.$new_row["id"]. ');"> 
-                    <td> &bull; '.str_pad($new_row["name"],20,'.') . '</td>
+        echo   '<tr onmousedown="open_'.$table.'Page(event,'.$new_row["id"]. ');"> 
+                    <td> &bull; '.str_pad($new_row["name"],20," &nbsp;") . '</td>
                     <td>'.$new_row["date"].' </td>
                 <tr>';
     }
  }
 
-function add_meetings_home_page()
+function add_newsletter_bulletin_home_page($table)
  {
     $con = makeConnection();
     $i=0;
 
-    $query = "SELECT * FROM meetings_en";
+    $table = ($table == "newsletter" ? "newsletter" : "bulletin");
 
-    if(!$result = prepareAndExecuteQuery($con,$query))
-        echo 'error reading from database... please contact admin!';
+    $query = "SELECT * FROM ".$table."
+              ORDER BY year DESC , month DESC
+              LIMIT 0 , 2;";
+
+    if(!$result = prepareAndExecuteQuery($con,$query)) {
+        sendErrorToAdmin("home_page newsletter/bulletin boxes - failed","result is empty from SELECT * FROM ".$table);
+        return;
+    }
 
     foreach($result as $row) {
-        if($i++ == 5) {
+        if($i++ == 2) {
             break;
         }
-        $new_row = array(
-            "id"            => $row[0],
-            "date"          => $row[1],
-            "name"          => $row[2]);
+        $type = "doc";
 
-        if (strlen($new_row["name"]) >= 20) {
-            $new_row["name"] = substr($new_row["name"],0,17);
-        }
-            
-        echo   '<tr onmousedown="open_meetingPage('.$new_row["id"]. ');"> 
-                    <td> &bull; '.str_pad($new_row["name"],20,'.') . '</td>
-                    <td>'.$new_row["date"].' </td>
-                <tr>';
+        if (strpos($row["file_name"],"pdf"))
+            $type = "pdf";
+        echo '<tr onmousedown=download_'.$table.'(event,"'.$row["file_name"].'") ><td> <img src="./img/browser/'.$type.'.png" height="16" width="16"> '
+        . $row["year"]  . ' ' . get_month($row["month"]) . ' (' . $row["catalog"] . ')</td></tr>';
     }
  }
- ?>
+

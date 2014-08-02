@@ -15,10 +15,25 @@ function eventsHeader() {
     ");
 }
 
-function open_eventPage(id) {
-    document.location = "/costaRicaIsrael/event.php?type=events&id="+id;
+function open_eventPage(e,id) {
+    if(left_mouse_click(e))
+        document.location = "/costaRicaIsrael/event.php?type=events&id="+id;
 }
 
-function open_meetingPage(id) {
-    document.location = "/costaRicaIsrael/event.php?type=meetings&id="+id;
+function open_meetingPage(e,id) {
+    if(left_mouse_click(e))
+        document.location = "/costaRicaIsrael/event.php?type=meetings&id="+id;
+}
+
+function left_mouse_click(e) {
+
+     if (e.type != "mousedown") return false;
+
+     if (e.which) { 
+         if (e.which==3 || e.which==2) return false;
+     }
+     else if (e.button) {
+         if (e.button==2 || e.button==4) return false;
+     }
+          return true;
 }

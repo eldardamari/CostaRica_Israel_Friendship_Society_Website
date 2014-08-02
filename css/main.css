@@ -353,7 +353,7 @@ nav ul li {
 }
 
 .box_table {
-    font-size: 14px;
+    font-size: 13px;
     margin: 5px 0px 0px 8px;
     width:95%;
 }
@@ -366,4 +366,27 @@ nav ul li {
 
 .box_text {
     margin: 5px 5px 0px 8px;
+}
+
+#text_box {
+    width: 64%;
+    height: 180px;
+    padding: 1px 0px 1px 0px;
+    margin: 0px 0px 20px 34%;
+}
+
+#text_box_body {
+    font-size: 15px;
+    /*text-align: justify;*/
+    /*font-style:oblique;*/
+}
+
+#text_box_header {
+    margin-bottom: 2%;
+    padding-top: 3%;
+    font-size: 16px;
+}
+
+.split_box {
+    margin-bottom: -4px;
 }
