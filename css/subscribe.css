@@ -27,12 +27,15 @@
 }
 
 .publications td:last-child {
-    color: rgb(65,110,225);
     text-decoration:none;
 }
 
-.publications td:hover {
+.publications tbody tr:hover {
     background-color:rgba(226, 255, 199, 0.79);
+    cursor: pointer;
+}
+
+.publications tfoot img:hover {
     cursor: pointer;
 }
 

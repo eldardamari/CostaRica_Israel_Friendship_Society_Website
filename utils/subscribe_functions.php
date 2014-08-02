@@ -41,29 +41,29 @@ function print_subscriptions_data_rows_for($table) {
 function print_subscriptions_tables() {
 
     echo '<table class="eventsTables publications" id="newsletter_table">
-        <tr> <th colspan="2"> Newletter (Hebrew) </th></tr> 
+        <thead> <tr> <th colspan="2"> Newletter (Hebrew) </th></tr> </thead>
         <tbody>'.
         print_subscriptions_data_rows_for("newsletter").'
     </tbody>
     <tfoot>
         <tr>
-            <td><button id="prev" value="-6" disabled> prev</button></td>
-            <td><button id="next" value="6"> next</button></td>
+        <td id="prev" data-page="-6"><img src="./img/icons/prev.png" height="22" width="22"></td>
+        <td id="next" data-page="6"><img src="./img/icons/next.png" height="22" width="22"></td>
         </tr>
       </tfoot>
     </table>
 
 
     <table class="eventsTables publications" id="bulletin_table">
-        <tr> <th class="enameCol" colspan="2"> Bulletin (Español) </th></tr>
+    <thead><tr> <th class="enameCol" colspan="2"> Bulletin (Español) </th></tr></thead>
         <tbody>'.
         print_subscriptions_data_rows_for('bulletin').'
         </tbody>
 
         <tfoot>
         <tr>
-            <td><button id="prev" value="-6" disabled> prev</button></td>
-            <td><button id="next" value="6"> next</button></td>
+        <td id="prev" data-page="-6"><img src="./img/icons/prev.png" height="22" width="22"></td>
+        <td id="next" data-page="6"><img src="./img/icons/next.png" height="22" width="22"></td>
         </tr>
     </tfoot>
 </table>';

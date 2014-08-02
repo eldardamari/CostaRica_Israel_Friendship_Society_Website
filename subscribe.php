@@ -33,7 +33,7 @@
             <br><br><br><br><br><hr><br>
 
 
-            <div class="topics_medium">Subscribe</div>
+            <div class="topics_medium">Subscribe Now.</div>
 
             <?php
                 $showForm = true;
