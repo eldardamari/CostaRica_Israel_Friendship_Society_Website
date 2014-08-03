@@ -39,6 +39,7 @@
     background: rgba(128,0,0,0.60);
 }
 
+
 .contents {
 	padding: 0px;
 	margin: 0px;
@@ -89,4 +90,10 @@
 .item.ft_doc,
 .item.ft_docx{
     background-image:url(../img/browser/doc.png);
+}
+
+#sendMail {
+    visibility: hidden;
+    width: 50%;
+    background-color: rgba(0,240,0,0.30);
 }

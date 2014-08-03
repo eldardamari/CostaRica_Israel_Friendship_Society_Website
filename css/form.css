@@ -48,6 +48,7 @@
 .general_form #formbuttons {
     text-align: center;
 }
+
 #formbuttons {
     text-align: center;
 }
@@ -74,6 +75,15 @@
     border-radius: 3px;
     border-width: 1px;
     width: 140px;
+    height: 40px;
+    vertical-align: middle; /* align the text vertically centered */
+    outline: 0;
+}
+
+.general_form .btn_Xlarge {
+    border-radius: 3px;
+    border-width: 1px;
+    width: 70%;
     height: 40px;
     vertical-align: middle; /* align the text vertically centered */
     outline: 0;
@@ -107,6 +117,10 @@
 
 .icon_delete {
     content:  url(/costaRicaIsrael/img/icons/delete.png);
+}
+
+.icon_email {
+    content:  url(/costaRicaIsrael/img/icons/email.png);
 }
 
 .form_error {
@@ -146,9 +160,11 @@ label.btn_pictures {
     position:relative;
     cursor: pointer;
 }
+
 .div_files {
     height: 50px;
 }
+
 .files_selected {
     text-align: center;
     /* height: 100%; */
