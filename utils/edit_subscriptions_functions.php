@@ -128,8 +128,8 @@ $file_full_path = "";
 
 
         $file_name = $type .'_' .$year .'_' .get_month($month) .'_('. $catalog .')'. getFileExtension($_FILES["uploaded_document"]["name"]);
-        /*$pic_path   = "img/winners/";*/
-        $file_path   = "/Library/WebServer/Documents/costaRicaIsrael/img/documents/".$type;
+        $file_path   = "img/documents/".$type;
+//        $file_path   = "/Library/WebServer/Documents/costaRicaIsrael/img/documents/".$type;
 
         try {
             try {

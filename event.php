@@ -50,6 +50,7 @@
                             // Error number 20 - Problem with statement
                             throw new PDOException("Event id $id - was not found",20);
                         } else {
+                            $date = date("d/m/Y", strtotime($date));
                             echo   '<p class="events_tablesName">' . $name . '<br>' . $date . '</p><hr>
                                     <p class="text">' . $text . '</p>';
 
