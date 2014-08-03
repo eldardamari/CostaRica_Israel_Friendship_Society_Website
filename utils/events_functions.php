@@ -3,7 +3,7 @@
 
 function print_table_rows($table) {
 
-        $func = ($table == "events_en" ? "events" : "meeting");
+        $func = ($table == "events_en" ? "event" : "meeting");
         $con = makeConnection();
 
         $query = "SELECT * FROM ".$table;

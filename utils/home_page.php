@@ -107,12 +107,12 @@ function add_events_meetings_home_page($table)
             "date"          => date("d/m/Y", strtotime($row[1])),
             "name"          => $row[2]);
 
-        if (strlen($new_row["name"]) >= 20) {
-            $new_row["name"] = substr($new_row["name"],0,20).'..';
+        if (strlen($new_row["name"]) >= 22) {
+            $new_row["name"] = substr($new_row["name"],0,19).'..';
         }
             
         echo   '<tr onmousedown="open_'.$table.'Page(event,'.$new_row["id"]. ');"> 
-                    <td> &bull; '.str_pad($new_row["name"],20," &nbsp;") . '</td>
+                    <td> &bull; '.$new_row["name"]. '</td>
                     <td>'.$new_row["date"].' </td>
                 <tr>';
     }
