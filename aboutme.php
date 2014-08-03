@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/aboutme.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/costaRicaIsrael/js/aboutme.js"></script>
+
     <?php require 'utils/db_connection.php' ?>
     <?php require 'utils/email.php' ?>
 </head>
@@ -56,9 +58,10 @@
                                             </span>
                                         </span>
                                         </div>
-                                        <span class="myMainInfo">
-                                            <p class="pMyMainInfo"> ' . $text . ' </p>
-                                        <span>';
+                                        <div class="myMainInfo">
+                                        <p class="pMyMainInfo"> ' . str_replace("\n","<br>",$text) . ' </p>
+
+                                        </div>';
                             }
 
                         } catch (PDOException $e) {

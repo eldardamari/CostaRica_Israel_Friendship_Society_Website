@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/modal.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/costaRicaIsrael/js/events.js"></script>
     <script src="/costaRicaIsrael/js/modal.js"></script>
 
     <?php require 'utils/db_connection.php' ?>
@@ -52,7 +53,7 @@
                         } else {
                             $date = date("d/m/Y", strtotime($date));
                             echo   '<p class="events_tablesName">' . $name . '<br>' . $date . '</p><hr>
-                                    <p class="text">' . $text . '</p>';
+                                    <p class="text">' . str_replace("\n","<br>",$text) . '</p>';
 
                         }
 

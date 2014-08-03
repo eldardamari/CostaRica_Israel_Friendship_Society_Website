@@ -1,3 +1,11 @@
+$(document).ready(function() {
+
+    var str  = $('.text').text().charCodeAt(1);
+    if (str > 1424 && str < 1535)
+        $('.text').css("direction","rtl");
+
+});
+
 function eventsHeader() {
     document.write("\
                 <tr class=\"table_header\" id='table_header' lang=\"en\">\

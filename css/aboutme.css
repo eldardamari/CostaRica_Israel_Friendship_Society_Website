@@ -1,25 +1,35 @@
 .pictureWithInfo {
     overflow: hidden;
 }
+
 .myPic{
     float: left;
     padding-right: 4%;
 }
+
 .myHeaderInfo {
     vertical-align: top;
 }
+
 .myName{
     margin: 0% 0% -1% 0%;;
 }
+
 .myJob p.pMyjob{
     font-size: 110%;
 }
+.myMainInfo {
+    word-wrap: break-word;
+}
+
 .myJob p.pMyjob:first-letter{
     font-size: 110%;
 }
+
 .myMainInfo p.pMyMainInfo{
     font-size: 110%;
 }
+
 .myMainInfo p.pMyMainInfo:first-letter{
     text-transform:uppercase;
     font-size: 150%;

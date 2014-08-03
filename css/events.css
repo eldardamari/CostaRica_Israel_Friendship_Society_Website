@@ -43,3 +43,7 @@
 .eventsTables .linkCol{
     width:10%;
 }
+
+.text {
+    word-wrap: break-word;
+}
