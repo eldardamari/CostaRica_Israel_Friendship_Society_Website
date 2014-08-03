@@ -35,7 +35,7 @@
                     foreach($result as $row) {
                         $new_row = array(
                             "id"            => $row[0],
-                            "date"          => $row[1],
+                            "date"          => date("d/m/Y", strtotime($row[1])),
                             "name"          => $row[2],
                             "description"   => $row[3]);
 
@@ -64,7 +64,7 @@
                     foreach($result as $row) {
                         $new_row = array(
                             "id"            => $row[0],
-                            "date"          => $row[1],
+                            "date"          => date("d/m/Y", strtotime($row[1])),
                             "name"          => $row[2],
                             "description"   => $row[3]);
 

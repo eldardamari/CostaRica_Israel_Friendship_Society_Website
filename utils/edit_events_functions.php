@@ -188,8 +188,7 @@
             $filesMoved = uploadPhotosToEvent($uploaded_pictures, $directoryPath.$id, $num_of_pictures);
         }
 
-        $date = date_create($_POST['date']);
-        $date = date_format($date, 'd/m/y');
+        $date = $_POST['date'];
 
         $eventName = htmlspecialchars($_POST['eventName']);
 
@@ -216,8 +215,7 @@
 
         $num_of_pictures = $uploaded_pictures['num_of_pictures'];
 
-        $date = date_create($_POST['date']);
-        $date = date_format($date, 'd/m/y');
+        $date = $_POST['date'];
 
         $eventName = htmlspecialchars($_POST['eventName']);
 

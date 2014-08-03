@@ -104,7 +104,7 @@ function add_events_meetings_home_page($table)
         }
         $new_row = array(
             "id"            => $row[0],
-            "date"          => $row[1],
+            "date"          => date("d/m/Y", strtotime($row[1])),
             "name"          => $row[2]);
 
         if (strlen($new_row["name"]) >= 20) {

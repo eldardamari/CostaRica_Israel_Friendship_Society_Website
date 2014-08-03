@@ -3,8 +3,8 @@
 
     <div id="slideshow">
         <div class="active">
-            <a href="#"><img  src="img/slide_show/map/map-costa-rica.png"></a>
-            <p class="caption text_center">Map Of Costa Rica</p>
+            <a href="#"><img  src="img/slide_show/first/Tree Frog.jpg"></a>
+            <p class="caption text_center">Tree Frog</p>
         </div>
 
         <?php
