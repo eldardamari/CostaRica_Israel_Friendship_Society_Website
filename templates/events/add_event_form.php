@@ -7,7 +7,7 @@
 
         <label for="eventName"><?php echo $eventType ?>'s Name</label>
         <input class="form_field form_field_medium" type="text" id="eventName" name="eventName"
-               pattern="[a-z|A-Z|1-9|#|* ]*" title="English Letters Only" required autofocus="">
+               pattern="[a\u05D0-\u05F3|-z|A-Z|1-9|#|* ]*" title="English Letters Only" required autofocus="">
         <br><br>
 
         <label for="date">Date</label>

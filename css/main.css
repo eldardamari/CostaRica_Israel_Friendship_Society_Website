@@ -364,6 +364,11 @@ nav ul li {
     color: rgb(25, 25, 34);
 }
 
+.box_table td:nth-child(2) {
+text-align: right;
+width: 30%;
+}
+
 .box_text {
     margin: 5px 5px 0px 8px;
 }
