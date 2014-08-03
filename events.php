@@ -20,63 +20,7 @@
         <div class="container">
 
             <div class="topics_medium"> Events</div>
-            <!-- Events table -->
-            <table class="eventsTables" id="general_events" >
-                <script> eventsHeader(); </script>
-
-                <?php
-                    $con = makeConnection();
-
-                    $query = "SELECT * FROM events_en";
-
-                    if(!$result = prepareAndExecuteQuery($con,$query))
-                        echo 'error reading from database... please contact admin!';
-
-                    foreach($result as $row) {
-                        $new_row = array(
-                            "id"            => $row[0],
-                            "date"          => date("d/m/Y", strtotime($row[1])),
-                            "name"          => $row[2],
-                            "description"   => $row[3]);
-
-                        echo   '<tr onmousedown="open_eventPage(event,'.$new_row["id"]. ');">
-                                <td> ' . $new_row["date"] . ' </td>
-                                <td> ' . $new_row["name"] . ' </td>
-                                <td> ' . $new_row["description"] . ' </td>
-                                <td> click here </td>
-                                </tr>';
-                    }
-                ?>
-            </table>
-
-            <br><br>
-
-            <div class="topics_medium"> Meeting</div>
-            <!-- Meetings table -->
-            <table class="eventsTables" id="meetings_events">
-                <script> eventsHeader(); </script>
-                <?php
-                    $query = "SELECT * FROM meetings_en";
-
-                    if(!$result = prepareAndExecuteQuery($con,$query))
-                        echo 'error reading from database... please contact admin!';
-
-                    foreach($result as $row) {
-                        $new_row = array(
-                            "id"            => $row[0],
-                            "date"          => date("d/m/Y", strtotime($row[1])),
-                            "name"          => $row[2],
-                            "description"   => $row[3]);
-
-                        echo   '<tr onmousedown="open_meetingPage(event,'.$new_row["id"]. ');">
-                                <td> ' . $new_row["date"] . ' </td>
-                                <td> ' . $new_row["name"] . ' </td>
-                                <td> ' . $new_row["description"] . ' </td>
-                                <td> click here </td>
-                                </tr>';
-                    }
-                ?>
-            </table>
+            <?php require 'utils/events_functions.php' ?>
 
         </div>
     </div>
