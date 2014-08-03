@@ -91,11 +91,11 @@ $file_full_path = "";
     if(isset($_POST['sendMail'])) {
         if(sendEmails($_POST['sendMail'],$_POST['subscription'])) {
                 $edit_mode = true;
-                echo "<p class='form_granted'> Success, email send successfully!</p>";
+                echo "<p class='form_granted email_sent'> Success, email send successfully!</p>";
             goto form;
         }
         else
-            echo "<p class='form_granted'> Failed to send emails...plase try again </p>";
+            echo "<p class='form_error'> Failed to send emails...plase try again </p>";
         goto form;
     }
 
@@ -103,7 +103,7 @@ $file_full_path = "";
     if(isset($_POST['deletePhoto'])) {
         if(removeDocument($_POST['deletePhoto'],$_POST['subscription'])) {
                 $edit_mode = true;
-                echo "<p class='form_granted'> Success, photo was removed</p>";
+                echo "<p class='form_granted'> Success, document was removed</p>";
             goto form;
         }
         else
@@ -178,7 +178,7 @@ $file_full_path = "";
             goto form;
         }
 
-        echo '<p class="form_granted">&emsp;'.$type . ' ' .($add_mode ? 'added' : 'edited').' successfully!
+        echo '<p class="form_granted document_added">&emsp;'.$type . ' ' .($add_mode ? 'added' : 'edited').' successfully!
             <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
         }
     form:

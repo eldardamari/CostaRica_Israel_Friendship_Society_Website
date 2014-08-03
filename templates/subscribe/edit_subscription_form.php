@@ -3,7 +3,7 @@
     <fieldset>
         <legend>Publish Details:</legend>
         
-        <label>Select</label>
+        <label>Select Publish</label>
         <label class="gender" for="male">Newsletter</label>
         <input type="radio"  class="type" id="gender" name="subscription" value="newsletter" required>
         <label class="gender" for="female">Bulletin</label>
@@ -11,8 +11,8 @@
 
     </fieldset>
 
-    <fieldset id="winner_pics">
-        <legend>Edit Winner Pictures:</legend>
+    <br><fieldset id="winner_pics">
+        <legend>Select Document:</legend>
 
     <?php require 'templates/viewer.php' ?> <br>
 

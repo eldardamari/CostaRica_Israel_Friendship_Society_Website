@@ -1,7 +1,12 @@
 $(document).ready(function() {
 
-    if($('.form_granted').length > 0){
+    if($('.email_sent').length > 0){
         alert('Email send successfully! :)');
+        location.reload();
+    }
+    
+    if($('.document_added').length > 0){
+        alert('Document uploaded successfully! :)');
         location.reload();
     }
 
