@@ -64,6 +64,22 @@ function execute_query(&$con, &$sql, $year, $month, $catalog, $file_name)
     $statement->closeCursor();
 }
 
+function sendEmails($file_path, $table) {
+
+    $con = makeConnection();
+    $query = "SELECT first_name , email FROM subscription 
+                WHERE ".$table." = 1";
+
+    $result = prepareAndExecuteQuery($con,$query);
+    $failed = array();
+
+    foreach($result as $data) {
+        if(!sendSubscriptionMail($data["first_name"],$data["email"],$table,$file_path))
+            array_push($failed,$data["email"]);
+    }
+    return true;
+}
+
 $add_mode   = (isset($_REQUEST['add_subscription_request'])   ? true : false);
 $edit_mode  = (isset($_REQUEST['edit_subscription_request']) 
             || isset($_REQUEST['edit_subscription_request'])  ? true : false);
@@ -71,10 +87,20 @@ $edit_mode  = (isset($_REQUEST['edit_subscription_request'])
 $type = $year = $month = $catalog = "";
 $file_full_path = "";
 
+    //send emails
+    if(isset($_POST['sendMail'])) {
+        if(sendEmails($_POST['sendMail'],$_POST['subscription'])) {
+                $edit_mode = true;
+                echo "<p class='form_granted'> Success, email send successfully!</p>";
+            goto form;
+        }
+        else
+            echo "<p class='form_granted'> Failed to send emails...plase try again </p>";
+        goto form;
+    }
 
+    //delete document
     if(isset($_POST['deletePhoto'])) {
-
-
         if(removeDocument($_POST['deletePhoto'],$_POST['subscription'])) {
                 $edit_mode = true;
                 echo "<p class='form_granted'> Success, photo was removed</p>";
@@ -85,6 +111,7 @@ $file_full_path = "";
         goto form;
     }
 
+    //add documents
     if($add_mode || $edit_mode) {
 
         if ($_FILES['uploaded_document']['error'] != UPLOAD_ERR_NO_FILE) {

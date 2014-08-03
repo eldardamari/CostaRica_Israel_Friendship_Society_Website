@@ -1,3 +1,24 @@
+$(document).ready(function() {
+
+    $('.viewer ').on('click', '#action', function(e){
+        if(!confirm('Are you sure you want to delete this?\n'+
+                    'All data will be lost!')) {
+                e.preventDefault();
+                    }
+    });
+    
+    $('.viewer ').on('click', '#sendMail', function(e){
+        if(!confirm('Are you sure you want to send email to all registered users?')) {
+                e.preventDefault();
+        } else {
+            setTimeout(function() {
+                $('#sendMail,#action').prop( "disabled", true);
+            }, 100);
+        }
+    });
+});
+
+
 function init(type, base) {
     browser({
         contentsDisplay     :   document.getElementById("directoryContent"),
@@ -13,8 +34,13 @@ function init(type, base) {
                 $('#previewName').html("<p>" + item.title + "</p>");
 
                 $('#action').prop('value',path).prop('name','deletePhoto').css('visibility' , 'visible');
-                if (base.indexOf("document") > -1)
-                    $('#action').html('<span class="btn_icon icon_delete"></span> Remove Document');
+                //sendMail
+                $('#sendMail').prop('value',path).prop('name','sendMail').css('visibility' , 'hidden');
+
+                if (base.indexOf("document") > -1) {
+                    $('#action').html('<span class="btn_icon icon_delete"></span> Remove Document <br>');
+                    $('#sendMail').prop('value',path).prop('name','sendMail').css('visibility' , 'visible');
+                }
                 else 
                     $('#action').html('<span class="btn_icon icon_delete"></span> Remove Photo');
                 $('div#preview').show();

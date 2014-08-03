@@ -140,7 +140,7 @@ function add_newsletter_bulletin_home_page($table)
 
         if (strpos($row["file_name"],"pdf"))
             $type = "pdf";
-        echo '<tr onmousedown=download_'.$table.'(event,"'.$row["file_name"].'") ><td> <img src="./img/browser/'.$type.'.png" height="16" width="16"> '
+        echo '<tr onmousedown=download_'.$table.'(event,"'.$row["file_name"].'") ><td> <img src="./img/browser/'.$type.'.png" height="14" width="14"> '
         . $row["year"]  . ' ' . get_month($row["month"]) . ' (' . $row["catalog"] . ')</td></tr>';
     }
  }

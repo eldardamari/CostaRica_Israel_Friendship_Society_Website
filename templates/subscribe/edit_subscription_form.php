@@ -13,7 +13,9 @@
 
     <fieldset id="winner_pics">
         <legend>Edit Winner Pictures:</legend>
+
     <?php require 'templates/viewer.php' ?> <br>
+
 <br>
 
     </fieldset>
