@@ -51,13 +51,6 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         return "test_need_to_chgne@rgmail.com";
     }
 
-    function getMailHeaders($email) {
-
-        return  'From: Costa-Rica Israel Association <'.getAssociationMail().'> ' . "\r\n" .
-                'Reply-To: '.$email. "\r\n" .
-                'Content-Type: text/html; charset=utf-8 '    . "\r\n";
-    }
-    
     function printUnsubscribeMsg() {
 
         return '<div style="text-align: center; font-size: 65%; 
@@ -114,10 +107,6 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         } else {
             return true;
         }
-
-        /*$adminEmail = getAdminMail();
-        echo 'sending email to: ' . $email;
-        return mail($email, $subject, $content, getMailHeaders(getAssociationMail()));*/
     }
 
     function sendMailToMember($memberEmail, $subject, $content, $fromEmail) {
@@ -151,8 +140,6 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         } else {
             return true;
         }
-
-        /*return mail($memberEmail, $subject, $content,  getMailHeaders($fromEmail));*/
     }
 
     function sendErrorToAdmin($subject,$message) {
@@ -161,18 +148,12 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         $mail->setFrom(getAdminMail(), getAdminMail());
         $mail->addAddress(getAdminMail(), '');
         $mail->Subject = $subject;
-        $mail->msgHTML($content);
+        $mail->msgHTML($message);
 
         $mail->send();
-
-        /*$adminEmail = getAdminMail();
-
-        return mail($adminEmail, $subject, $message, getMailHeaders(getAdminMail()));*/
- 
     }
     
-    // print data from server in web
-    // Subscribed users ok msg - fix in page
+    // Subscribed users ok msg - fix in page //TODO
     function sendSubscriptionMail($first_name, $email, $type, $file_path) {
 
         $mail = set_connection();

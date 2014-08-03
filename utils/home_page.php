@@ -91,8 +91,10 @@ function add_events_meetings_home_page($table)
 
     $query = "SELECT * FROM ".$table."s_en";
 
-    if(!$result = prepareAndExecuteQuery($con,$query)) {
-        sendErrorToAdmin("home_page events/meetings boxes - failed","result is empty from SELECT * FROM ".$table);
+    $result = prepareAndExecuteQuery($con,$query);
+
+    if( sizeof($result) == 0) {
+        sendErrorToAdmin("home_page event/meetings boxes - failed","result is empty from SELECT * FROM ".$table);
         return;
     }
 
@@ -127,7 +129,9 @@ function add_newsletter_bulletin_home_page($table)
               ORDER BY year DESC , month DESC
               LIMIT 0 , 2;";
 
-    if(!$result = prepareAndExecuteQuery($con,$query)) {
+    $result = prepareAndExecuteQuery($con,$query);
+
+    if( sizeof($result) == 0) {
         sendErrorToAdmin("home_page newsletter/bulletin boxes - failed","result is empty from SELECT * FROM ".$table);
         return;
     }
@@ -140,8 +144,8 @@ function add_newsletter_bulletin_home_page($table)
 
         if (strpos($row["file_name"],"pdf"))
             $type = "pdf";
-        echo '<tr onmousedown=download_'.$table.'(event,"'.$row["file_name"].'") ><td> <img src="./img/browser/'.$type.'.png" height="14" width="14"> '
-        . $row["year"]  . ' ' . get_month($row["month"]) . ' (' . $row["catalog"] . ')</td></tr>';
+        echo '<tr onmousedown=download_'.$table.'(event,"'.$row["file_name"].'") ><td> &bull; <img src="./img/browser/'.$type.'.png" height="14" width="14"> '
+        . $row["year"]  . ' ' . get_month($row["month"]) . ' (#' . $row["catalog"] . ')</td></tr>';
     }
  }
 
