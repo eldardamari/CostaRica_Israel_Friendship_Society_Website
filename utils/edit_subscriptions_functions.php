@@ -53,12 +53,11 @@ function uploading_document($type, $year, $month, $file_path, $file_name, &$file
 
 function execute_query(&$con, &$sql, $year, $month, $catalog, $file_name)
 {
-
     $statement = $con->prepare($sql);
 
     $statement->bindParam(':year'       ,$year      ,PDO::PARAM_INT);
     $statement->bindParam(':month'      ,$month     ,PDO::PARAM_INT);
-    $statement->bindParam(':catalog'    ,$catalog   ,PDO::PARAM_INT);
+    $statement->bindParam(':catalog'    ,$catalog   ,PDO::PARAM_STR);
     $statement->bindParam(':file_name'  ,$file_name ,PDO::PARAM_STR);
     $statement->execute();
     $statement->closeCursor();

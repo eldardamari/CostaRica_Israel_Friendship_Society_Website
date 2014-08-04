@@ -30,7 +30,6 @@ function set_variables( &$name, &$email, &$position, &$tel_number,
     
     $about_me        = htmlspecialchars($_REQUEST['about_me']);
     $about_me        = filter_var($about_me,FILTER_SANITIZE_STRING);
-
 }
 
 function get_old_user_data($email) 
