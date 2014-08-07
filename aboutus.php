@@ -30,7 +30,7 @@
                 </p>
 
                 <hr>
-                <p><h2 id="members_tag">Members</h2></p>
+                <p><h2 id="members_tag">Board of Directors</h2></p>
 
                 <table class="membersTable" id="members_table" >
 
