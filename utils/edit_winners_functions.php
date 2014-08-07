@@ -310,7 +310,7 @@ $tel_number = $err_msg = $pic_full_path = "";
         }
 
         // updatig winners pictures number - in a case of an update
-        if ($pictures_exist) {
+        if (1) {
 
             $sql_count = ($add_mode == true ?
                 "SELECT number_of_pics FROM winners_en 

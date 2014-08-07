@@ -53,30 +53,33 @@
                 <div class="main_box main_col_box">
                     <div class="box_header box_header_medium"> News </div>
                     <div class="box_text">
-                        <i>"The Costa-Rica Friendship Association sends her condolences to all the familes who lost their
-                            beloved ones in operation "Protective Edge"."</i>
+                        <!--<i> "The Costa-Rica Friendship Association sends her condolences to all the familes who lost their
+                            beloved ones in operation "Protective Edge"."
+                        </i> -->
+<i> "The Costa-Rica Friendship Association news here! <br> 
+                        </i> 
                 </div>
                 </div>
             </div>
 
             <br>
             <div class="main_box" id="partners">
-                <div class="box_header box_header_large"> Partners </div>
+                <div class="box_header box_header_large"> Collaborators </div>
                 <div> 
+                    <a href="http://www.student.co.il/" target="_blank">
+                        <img src="./img/partners/tau.png" height="169" width="255" ></a>
+                    <a href="http://en.allalouf.com/" target="_blank">
+                        <img src="./img/partners/allalouf.png" height="74" width="277" ></a>
+                    <a href="http://www.proimagen.cr/en" target="_blank">
+                        <img src="./img/partners/proimagen.png" height="107" width="312" ></a>
                     <a href="http://mfa.gov.il/MFA/Pages/default.aspx" target="_blank">
-                        <img src="./img/partners/imf.jpg" height="118" width="100" ></a>
+                        <img src="./img/partners/imf.png" height="140" width="150" ></a>
+                    <a href="http://google.co.il" target="_blank">
+                        <img src="./img/partners/cremb.png" height="208" width="188" ></a>
                     <a href="http://www.rree.go.cr/" target="_blank"> 
                         <img src="./img/partners/crmf.png" height="100" width="200" ></a>
                     <a href="http://embassies.gov.il/san-jose/Pages/default.aspx" target="_blank">
                         <img src="./img/partners/iemb.png" height="50" width="400" ></a>
-                    <a href="http://english.tau.ac.il/" target="_blank">
-                        <img src="./img/partners/tau.png" height="54" width="256" ></a>
-                        <a href="http://en.allalouf.com/" target="_blank">
-                        <img src="./img/partners/allalouf.png" height="74" width="277" ></a>
-                    <a href="http://www.proimagen.cr/en" target="_blank">
-                        <img src="./img/partners/proimagen.png" height="107" width="312" ></a>
-                        <a href="http://www.google.co.il/" target="_blank">
-                            <img src="./img/partners/alpha_club.gif" height="90" width="180" ></a>
                 </div>
             </div>
 

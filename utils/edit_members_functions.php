@@ -39,7 +39,8 @@ function get_old_user_data($email)
               WHERE email="'.$email.'";';
 
     $result = prepareAndExecuteQuery($con,$query);
-
+    if(sizeof($result) == 0)
+        return 0;
     return $result[0];
 }
 
@@ -95,7 +96,7 @@ $edit_mode  = (isset($_REQUEST['edit_member_request'])
 
 $profile_pic_exist  = false;
 
-$name = $email = $position = $tel_number = $title = $about_me = ""; 
+$old_pic_name = $name = $email = $position = $tel_number = $title = $about_me = ""; 
 $pic_path   = "/Library/WebServer/Documents/costaRicaIsrael/img/members/";
 
 
@@ -214,7 +215,8 @@ $pic_path   = "/Library/WebServer/Documents/costaRicaIsrael/img/members/";
         if ($result[0]["email"] == $email) {
 
             if($profile_pic_exist) {
-                unlink($pic_path.$old_pic_name);
+                if($old_pic_name)
+                    unlink($pic_path.$old_pic_name);
 
                 try {
                     if (!move_uploaded_file($_FILES["profile_pic"]["tmp_name"],$pic_path.$pic_name)) {
