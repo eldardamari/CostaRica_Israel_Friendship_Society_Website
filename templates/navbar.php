@@ -6,8 +6,8 @@
         </div>
         <a href="./">
             <div id="right_box_text">
-                <div id="company_he" dir="rtl"> אגודת ידידות קוסטה-ריקה ישראל </div>
-                <div id="company_en" dir="rtl"> Costa-Rica Israel Friendship Association </div>
+                <div id="company_he" dir="rtl"> אגודת ידידות ישראל - קוסטה ריקה </div>
+                <div id="company_en" dir="rtl"> Israel - Costa Rica Friendship Association </div>
             </div>
         </a>
     </div>
