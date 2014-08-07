@@ -62,6 +62,7 @@
                     if ($prev_contect_num == (int)$new_row["contest_num"]) {
                         print_winner_row($new_row);
                         print_winner_end_table($new_row,$i);
+                        $row_count = 0;
                         $i++;
                           continue;
                     } else 
