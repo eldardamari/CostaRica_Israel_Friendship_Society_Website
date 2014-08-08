@@ -2,13 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Costa Rica Israel</title>
+    <title>Event</title>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/events.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/modal.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="/costaRicaIsrael/js/events.js"></script>
+    <script src="/costaRicaIsrael/js/events/event.js"></script>
     <script src="/costaRicaIsrael/js/modal.js"></script>
 
     <?php require 'utils/db_connection.php' ?>

@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Costa Rica Israel</title>
+    <title> Events </title>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/events.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="/costaRicaIsrael/js/events.js"></script>
+    <script src="/costaRicaIsrael/js/events/events.js"></script>
 
     <?php require 'utils/db_connection.php' ?>
     <?php require 'utils/email.php' ?>

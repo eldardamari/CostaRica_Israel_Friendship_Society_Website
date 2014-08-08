@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Costa Rica Israel</title>
+    <title>Edit events</title>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/browser.css">
@@ -15,7 +15,7 @@
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="js/browser.js"></script>
     <script src="js/tabs.js"></script>
-    <script src="js/edit_events.js"></script>
+    <script src="js/events/edit_events.js"></script>
     <?php require 'utils/files.php' ?>
 </head>
 

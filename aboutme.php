@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Costa Rica Israel</title>
+    <title>About us</title>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
     <link rel="stylesheet" href="/costaRicaIsrael/css/aboutme.css">
 

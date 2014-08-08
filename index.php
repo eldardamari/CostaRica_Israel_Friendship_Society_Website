@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Costa Rica Israel</title>
+    <title>Israel-Costa Rica Friendship Assoc.</title>
     <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>

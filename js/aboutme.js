@@ -4,4 +4,6 @@ $(document).ready(function() {
     if (str > 1424 && str < 1535)
         $('.pMyMainInfo').css("direction","rtl");
 
+    $(document).prop('title', $(".myName").text());
+
 });
