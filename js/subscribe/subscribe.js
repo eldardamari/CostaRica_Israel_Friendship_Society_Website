@@ -1,9 +1,17 @@
 $(document).ready(function() {
 
     $(".general_form").submit(function(){
-        if(!$(".general_form input:checked").length) {
-                alert("Please check at least one checkbox");
-            return false; } });
+        debugger;
+        if(!$(".general_form input:checked").length) 
+        {
+            alert("Please check at least one checkbox");
+            return false; 
+        } 
+    
+        setTimeout(function() {
+            $('.btn_default').prop( "disabled", true);
+        }, 100);
+    });
 
 
     $('.publications tfoot td').click(function() {
