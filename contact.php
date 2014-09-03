@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/costaRicaIsrael/js/contact.js"></script>
     <?php require 'utils/db_connection.php' ?>
     <?php require 'utils/email.php' ?>
 </head>
@@ -23,7 +24,9 @@
                 $showForm = true;
 
                 $con = makeConnection();
-                $sql = "SELECT * FROM members";
+$sql = <<<SQL
+SELECT * FROM members
+SQL;
 
                 if(!$result = prepareAndExecuteQuery($con,$sql))
                     echo 'error reading from database... please contact admin!';

@@ -31,6 +31,6 @@
     </fieldset>
 
     <div id="formbuttons">
-        <button class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Send</button>
+        <button id="contact_btn" class="btn_default" type="submit"><span class="btn_icon icon_accept"></span> Send</button>
     </div>
 </form>
