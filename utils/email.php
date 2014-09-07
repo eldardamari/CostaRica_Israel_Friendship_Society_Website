@@ -33,6 +33,9 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         //Whether to use SMTP authentication
         $mail->SMTPAuth = true;
 
+        //hebrew char set
+        $mail->CharSet = 'UTF-8';
+
         //Username to use for SMTP authentication - use full email address for gmail
         $mail->Username = "costaricaisraelassociation@gmail.com";
 
