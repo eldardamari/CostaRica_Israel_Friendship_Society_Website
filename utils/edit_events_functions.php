@@ -157,7 +157,7 @@
     if(isset($_POST['deleteEvent'])) {
         if(removeEvent(strtolower($eventType).'s',$_POST['deleteEvent'],$directoryPath)){
             echo '<p class="form_granted">&emsp;Event was removed successfully!
-                                        <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
+                                        <img src="./img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
         } else {
             echo "<p class='text form_error'>&emsp;
                                         could not remove event ".$eventId.", please try again";
@@ -170,7 +170,7 @@
 
         if(removePhoto(strtolower($eventType).'s', $_POST['deletePhoto']))
             echo '<p class="form_granted">&emsp;photo was removed successfully!
-                                        <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
+                                        <img src="./img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
 
         else
             echo "<p class='text form_error'>&emsp; could not delete photo";
@@ -200,7 +200,7 @@
 //
         if( updateEvent(strtolower($eventType).'s', $id, $date, $eventName, $description, $text, $filesMoved) )
             echo '<p class="form_granted">&emsp;Event was updated successfully!
-                                        <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
+                                        <img src="./img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
 
         else
             echo "<p class='text form_error'>&emsp; could not update event";
@@ -236,7 +236,7 @@
                 updateNumOfPics(strtolower($eventType).'s', $filesMoved);
 
             echo '<p class="form_granted">&emsp;Event added successfully!
-                                        <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
+                                        <img src="./img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
 
 //            header('refresh:2;url='.$_SERVER['PHP_SELF']);
 

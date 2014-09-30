@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <title>Israel-Costa Rica Friendship Assoc.</title>
-    <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="/costaRicaIsrael/js/events.js"></script>
-    <script src="/costaRicaIsrael/js/index.js"></script>
+    <script src="./js/events/events.js"></script>
+    <script src="./js/index.js"></script>
 
     <?php require 'utils/db_connection.php' ?>
     <?php require 'utils/email.php' ?>
@@ -15,6 +15,7 @@
 
 </head>
 <body>
+    <?php include_once("analyticstracking.php") ?>
     <?php require 'templates/navbar.php'?>
 
     <div id="container_center">

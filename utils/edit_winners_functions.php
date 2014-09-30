@@ -233,8 +233,7 @@ $tel_number = $err_msg = $pic_full_path = "";
         $num_of_pictures_in_db = 0;
 
         $pic_name = (($place == "1") ? "first" : "second") . getFileExtension($_FILES["profile_pic"]["name"]);
-        /*$pic_path   = "img/winners/";*/
-        $pic_path   = "/Library/WebServer/Documents/costaRicaIsrael/img/winners/";
+	$pic_path   = "/home/israelcrhost/webapps/php/img/winners/";
 
         try {
         if($add_mode) {
@@ -352,7 +351,7 @@ $tel_number = $err_msg = $pic_full_path = "";
         }
 
         echo '<p class="form_granted">&emsp;Memeber '.($add_mode ? 'added' : 'edited').' successfully!
-            <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>'
+            <img src="./img/icons/green_v.png" height="20" width="20" alt="green_v"/>'
             .(($err_msg != "") ? '<br> The following files failed to be upload: <br>'.$err_msg : '').'
               </p>';
         }

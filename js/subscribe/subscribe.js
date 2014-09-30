@@ -114,7 +114,7 @@ function download_file(selector) {
         table =  table.substring(0,table.indexOf('_'));
         var file_name = $(selector).data("filename");
         if(file_name)
-            document.location = "/costaRicaIsrael/img/documents/"+table+"/"+file_name;
+            document.location = "./img/documents/"+table+"/"+file_name;
 }
 
 function publicationsHeader() {

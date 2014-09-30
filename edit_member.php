@@ -7,9 +7,9 @@
 <head>
     <meta charset="utf-8" />
     <title>Edit members</title>
-    <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/tabs.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/tabs.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="js/tabs.js"></script>
@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <?php include_once("analyticstracking.php") ?>
     <?php require 'templates/navbarpannel.php'?>
 
     <div id="container_center">

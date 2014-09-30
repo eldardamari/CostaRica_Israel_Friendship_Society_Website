@@ -1,4 +1,4 @@
-<script src="/costaRicaIsrael/js/nav_bar.js"></script>
+<script src="./js/nav_bar.js"></script>
 <div id="main_header">
     <div id="container_upper">
         <div id="left_box_logo">

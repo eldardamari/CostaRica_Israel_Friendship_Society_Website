@@ -4,6 +4,10 @@
 <input type="hidden" name="hosted_button_id" value="A9TGAAGBZ5WEU">
 <input type="hidden" name="active_pay">
 
+	 <div id="formbuttons">
+		<span id="cost">Registration is over, see you next year :)</span>
+	</div>
+
     <fieldset><legend>Personal data:</legend>
 
         <label for="fname">First name</label>
@@ -28,7 +32,7 @@
 
         <label for="bDate">Date of birth</label>
         <input type="hidden" name="on0" value="Birth Date">
-        <input class="form_field" type="date" id="bDate" name="os0" min="1920-01-02" onchange="validateDate()" required><br>
+        <input class="form_field" type="date" id="bDate" name="os0" min="1920-01-02" onchange="validateDate()" required><br> 
 
         <!--<label for="address">Address</label>
         <input class="form_field" type="text" id="address" name="address1" required><br> -->
@@ -85,7 +89,7 @@
     </div> -->
 
     <div id="formbuttons">
-        <input id="paypal" type="image" src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_checkout_pp_142x27.png"  name="submit" alt="PayPal - הדרך הקלה והבטוחה לשלם באינטרנט!"> <br>
+        <img id="paypal" type="image" src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_checkout_pp_142x27.png"  name="submit"> <br>
         <span id="cost">Cost: 20 &#8362</span>
     </div>
 

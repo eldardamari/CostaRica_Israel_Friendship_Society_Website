@@ -97,13 +97,13 @@ $edit_mode  = (isset($_REQUEST['edit_member_request'])
 $profile_pic_exist  = false;
 
 $old_pic_name = $name = $email = $position = $tel_number = $title = $about_me = ""; 
-$pic_path   = "/Library/WebServer/Documents/costaRicaIsrael/img/members/";
+$pic_path   = "/home/israelcrhost/webapps/php/img/members/";
 
 
     if(isset($_POST['deleteMember'])) {
         if(removeMember($_POST['deleteMember'],$pic_path)){
             echo '<p class="form_granted">&emsp;Memeber was removed successfully!
-                                        <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
+                                        <img src="./img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
         } else {
             echo "<p class='text form_error'>&emsp;
             Error: Failed to delete memeber...please try again.";
@@ -245,6 +245,6 @@ $pic_path   = "/Library/WebServer/Documents/costaRicaIsrael/img/members/";
     }
 
         echo '<p class="form_granted">&emsp;Memeber '.($add_mode ? 'added' : 'edited').' successfully!
-            <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
+            <img src="./img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
         }
 form:

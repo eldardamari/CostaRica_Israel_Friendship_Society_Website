@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <title>Contest</title>
 
-    <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/contest.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/modal.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/contest.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/modal.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="/costaRicaIsrael/js/contest.js"></script>
-    <script src="/costaRicaIsrael/js/modal.js"></script>
+    <script src="./js/contest.js"></script>
+    <script src="./js/modal.js"></script>
 
     <?php require 'utils/db_connection.php' ?>
     <?php require 'utils/email.php' ?>
@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <?php include_once("analyticstracking.php") ?>
     <?php require 'templates/navbar.php'?>
     <?php include 'templates/modal.php' ?>
 
@@ -27,7 +28,7 @@
             <img src="./img/contest_poster.jpg" height="10%" width="100%">
             <div class="topics" id="registration_tag"> Registration </div>
 
-        <?php include 'templates/contest_form.php' ?>
+         <?php include 'templates/contest_form.php' ?>
             <br><hr><br>
 
 
@@ -63,14 +64,16 @@
                         print_winner_row($new_row);
                         print_winner_end_table($new_row,$i);
                         $row_count = 0;
-                        $i++;
+                        /*$i++;*/
                           continue;
                     } else 
                         if ($prev_contect_num != (int)$new_row["contest_num"] 
-                            && $row_count == 1)
-                            print_winner_prev_end_table($prev_contect_num,$prev_num_pics,$i);
-                            $i++;                    
+                            && $row_count == 1) {
+				print_winner_prev_end_table($prev_contect_num,
+					$prev_num_pics,$i);
+			}
 
+			$i++;                    
                         print_table_head($new_row);
                         print_winner_row($new_row);
                         

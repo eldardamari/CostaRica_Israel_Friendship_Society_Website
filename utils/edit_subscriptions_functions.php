@@ -178,6 +178,6 @@ $file_full_path = "";
         }
 
         echo '<p class="form_granted document_added">&emsp;'.$type . ' ' .($add_mode ? 'added' : 'edited').' successfully!
-            <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
+            <img src="./img/icons/green_v.png" height="20" width="20" alt="green_v"/></p>';
         }
     form:

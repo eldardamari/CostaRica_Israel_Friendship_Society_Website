@@ -1,11 +1,11 @@
 function download_newsletter(e,file) {
      if(left_mouse_click(e))
-         document.location = "/costaRicaIsrael/img/documents/newsletter/"+file;
+         document.location = "./img/documents/newsletter/"+file;
 }
 
 function download_bulletin(e,file) {
     if(left_mouse_click(e))
-        document.location = "/costaRicaIsrael/img/documents/bulletin/"+file;
+        document.location = "./img/documents/bulletin/"+file;
 }
 function left_mouse_click(e) {
 

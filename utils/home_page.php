@@ -17,14 +17,10 @@
             </div>
 
                 <div id="text_box" lang="en">
-                    <div id="text_box_header"> <strong>Costa-Rica Israel Friendship Association</strong></div>
+                    <div id="text_box_header"> <strong>Israel - Costa Rica Friendship Association</strong></div>
                 <div id="text_box_body">
-                The association was funded in July 30, as a non-profit register organization. 
-                Established by a handful jewish pioneers from south & central america countires. 
-                Beleiving in the state of Israel and the maintaining relationship with both countires.
-                By doing so, communities living in Costa-Rica can have an address for establishing they Israeli
-                relations. The association conduct a special yearly program "Know Costa-Rica Contest" an opprotunity
-                for students in Israel to explorer Costa-Rica in a unique way.
+		Israel - Costa Rica Friendship Assoc. a non-profit organization, established at july 30,1984 
+		by a group of pioneers from Costa-Rica & south america countries.Believing in the state of Israel and the maintaining relationship with both countries. Both communities living in Costa-Rica and Israel can keep a close relations with each other. The association conduct a unique yearly program:"Know Costa-Rica Contest" an opportunity for students in Israel to explorer Costa-Rica in a unique way.
                 </div>
             </div>
 

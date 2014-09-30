@@ -17,12 +17,13 @@ function eventsHeader() {
 
 function open_eventPage(e,id) {
     if(left_mouse_click(e))
-        document.location = "/costaRicaIsrael/event.php?type=events&id="+id;
+        //document.location = "/home/israelcrhost/webapps/php/event.php?type=events&id="+id;
+        document.location = "./event.php?type=events&id="+id;
 }
 
 function open_meetingPage(e,id) {
     if(left_mouse_click(e))
-        document.location = "/costaRicaIsrael/event.php?type=meetings&id="+id;
+        document.location = "./event.php?type=meetings&id="+id;
 }
 
 function left_mouse_click(e) {

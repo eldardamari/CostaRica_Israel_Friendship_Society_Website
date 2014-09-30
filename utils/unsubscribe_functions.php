@@ -40,7 +40,7 @@ function execute_query($con, &$sql, $email)
                 execute_query($con, $sql, $email);
 
                 echo '<p class="form_granted">&emsp;Unsubscribed Successfully 
-                        <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
+                        <img src="./img/icons/green_v.png" height="20" width="20" alt="green_v"/>
                       </p>';
             
                 header( "refresh:5;url=./" );

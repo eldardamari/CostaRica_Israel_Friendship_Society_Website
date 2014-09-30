@@ -70,7 +70,7 @@ function get_data_server(place) {
                     $( "#winner_form_edit input:not(.place)" ).prop( "disabled", true )
                     .css("background-color","LightGray");
                     if(confirm('Winner is not set, would you like to add new winner?')) {
-                        location.href='http://localhost/costaRicaIsrael/edit_winners.php';
+                        location.href='http://israel-cr.org/edit_winners.php';
                     }
                 }
             },

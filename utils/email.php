@@ -22,7 +22,8 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         $mail->Debugoutput = 'html';
 
         //Set the hostname of the mail server
-        $mail->Host = 'smtp.gmail.com';
+        #$mail->Host = 'smtp.gmail.com';
+        $mail->Host = 'mail.gandi.net';
 
         //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
         $mail->Port = 587;
@@ -37,21 +38,21 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         $mail->CharSet = 'UTF-8';
 
         //Username to use for SMTP authentication - use full email address for gmail
-        $mail->Username = "costaricaisraelassociation@gmail.com";
+        $mail->Username = "no-reply@israel-cr.org";
 
         //Password to use for SMTP authentication
-        $mail->Password = "euxyvrhev";
+        $mail->Password = "euxyvrhev1234!@#$";
 
         return $mail;
     }
 
     function getAdminMail() {
-        return "costarica.israel.association@gmail.com";
+        return "costaricaisraelassociation@gmail.com";
     }
 
     function getAssociationMail() {
         /*return "costarica.isr@gmail.com";*/
-        return "test_need_to_chgne@rgmail.com";
+        return "no-reply@israel-cr.org";
     }
 
     function printUnsubscribeMsg() {
@@ -59,7 +60,7 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         return '<div style="text-align: center; font-size: 65%; 
                             font-weight: 200; color: #348017;">
                         To stop receiving this content click: 
-                            <a href=/costaRicaIsrael/unsubscribe.php target="_blank"><u>Unsubscribe</u></a> </div>';
+                            <a href=http://www.israel-cr.org/unsubscribe.php target="_blank"><u>Unsubscribe</u></a> </div>';
     }
 
     function spamCheck($field) {
@@ -79,12 +80,12 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         $mail = set_connection();
         $mail->setFrom(getAssociationMail(), getAssociationMail());
         $mail->addAddress($email, '');
-        $mail->Subject = "Welcome To Costa-Rica Israel Friendship Association";
+        $mail->Subject = "Welcome To Israel - Costa Rica Friendship Association";
 
 
         $content =  '<html><body>'.
                     '<div style="text-align: center; font-size: 300%; font-weight: 900; color: rgba(65,110,225,0.9);">
-                        Welcome To Costa-Rica Israel Friendship Association </div> <br> <hr>
+                        '.'Welcome To Israel - Costa Rica Friendship Association'.' </div> <br> <hr>
                         <div style="text-align: center; font-size: 200%; font-weight: 550; color: #348017;">
                              You have been subscribed successfully!</div>
                              <div>
@@ -138,6 +139,7 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
 
         //send the message, check for errors
         if (!$mail->send()) {
+		echo "error sending mail - $mail->ErrorInfo";
             sendErrorToAdmin("sendMailToMember","Mailer Error: " . $mail->ErrorInfo);
             return false;
         } else {

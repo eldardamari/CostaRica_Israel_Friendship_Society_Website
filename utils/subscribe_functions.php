@@ -104,7 +104,7 @@ function print_subscriptions_tables() {
                 sendWelcomeMail($email,$firstName,$lastName,$subscribed);
 
                 echo '<p class="form_granted">&emsp;Subscribed Successfully : '.$subscribed .'
-                        <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
+                        <img src="./img/icons/green_v.png" height="20" width="20" alt="green_v"/>
                       </p>';
 
                 $showForm = true;
@@ -130,8 +130,8 @@ function print_subscriptions_tables() {
                     sendWelcomeMail($email,$firstName,$lastName,$subscribed);
                     $showForm = true;
                 
-                    echo '<p class="form_granted">&emsp;Update Subscribtion Successfully : '.$subscribed .'
-                        <img src="/costaRicaIsrael/img/icons/green_v.png" height="20" width="20" alt="green_v"/>
+                    echo '<p class="form_granted">&emsp;Update Subscription Successfully : '.$subscribed .'
+                        <img src="./img/icons/green_v.png" height="20" width="20" alt="green_v"/>
                       </p>';
 
                 } catch (PDOException $e) {

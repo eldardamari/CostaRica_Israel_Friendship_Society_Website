@@ -7,8 +7,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Control panel</title>
-    <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/form.css">
 
     <script type="text/JavaScript" src="js/sha512.js"></script>
     <script type="text/JavaScript" src="js/login.js"></script>
@@ -16,6 +16,7 @@
 
 </head>
 <body>
+    <?php include_once("analyticstracking.php") ?>
     <?php include 'templates/navbarpannel.php' ?>
 
     <div id="container_center">

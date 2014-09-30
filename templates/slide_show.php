@@ -1,10 +1,10 @@
-    <link rel="stylesheet" href="/costaRicaIsrael/css/slide_show.css">
-    <script src="/costaRicaIsrael/js/slide_show.js"></script>
+    <link rel="stylesheet" href="./css/slide_show.css">
+    <script src="./js/slide_show.js"></script>
 
     <div id="slideshow">
         <div class="active">
-            <a href="#"><img  src="img/slide_show/first/Tree Frog.jpg"></a>
-            <p class="caption text_center">Tree Frog</p>
+            <a href="#"><img  src="img/slide_show/first/Poas Volcano.jpg"></a>
+            <p class="caption text_center">Poas Volcano</p>
         </div>
 
         <?php

@@ -36,7 +36,7 @@ $(document).ready(function() {
 function get_data_server(userId) { 
 
         $.ajax({
-            url : "utils/get_member_data.php",
+            url : "./utils/get_member_data.php",
             type: "POST",
             data: {user_id: userId},
             dataType: "json",

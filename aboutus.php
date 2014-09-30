@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <title>About us</title>
-    <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/aboutus.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/aboutus.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
@@ -13,8 +13,9 @@
 </head>
 
 <body>
+    <?php include_once("analyticstracking.php") ?>
     <?php require 'templates/navbar.php'?>
-    <script src="/costaRicaIsrael/js/aboutus.js"></script>
+    <script src="./js/aboutus.js"></script>
 
     <div id="container_center">
         <div class="container">
@@ -64,7 +65,7 @@
                                         <td  onmousedown="open_aboutPage('.$new_row["id"]. ');">
                                             ' . $new_row["position"] . ' </td>
                                         <td onmousedown="contact_member('.$new_row["id"].');" align="center">
-                                            <img src="/costaRicaIsrael/img/icons/email.png" height="40" width="40" alt="email"/> </td>
+                                            <img src="./img/icons/email.png" height="40" width="40" alt="email"/> </td>
                                     </tr>';
                         }
                     ?>

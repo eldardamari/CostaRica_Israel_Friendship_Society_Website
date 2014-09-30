@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Subscribe</title>
-    <link rel="stylesheet" href="/costaRicaIsrael/css/main.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/form.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/events.css">
-    <link rel="stylesheet" href="/costaRicaIsrael/css/subscribe.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/events.css">
+    <link rel="stylesheet" href="./css/subscribe.css">
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="/costaRicaIsrael/js/subscribe/subscribe.js"></script>
+    <script src="./js/subscribe/subscribe.js"></script>
 
     <?php require 'utils/db_connection.php' ?>
     <?php require 'utils/general_utils.php' ?>
@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    <?php include_once("analyticstracking.php") ?>
     <?php require 'templates/navbar.php'?>
 
     <div id="container_center">

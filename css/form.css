@@ -96,31 +96,31 @@
 }
 
 .icon_accept {
-    content: url(/costaRicaIsrael/img/icons/accept.png);
+    content: url(/img/icons/accept.png);
 }
 
 .icon_refresh {
-    content:  url(/costaRicaIsrael/img/icons/refresh.png);
+    content:  url(/img/icons/refresh.png);
 }
 
 .icon_add {
-    content:  url(/costaRicaIsrael/img/icons/add.png);
+    content:  url(/img/icons/add.png);
 }
 
 .icon_order {
-    content:  url(/costaRicaIsrael/img/icons/order.png);
+    content:  url(/img/icons/order.png);
 }
 
 .icon_login {
-    content:  url(/costaRicaIsrael/img/icons/login.png);
+    content:  url(/img/icons/login.png);
 }
 
 .icon_delete {
-    content:  url(/costaRicaIsrael/img/icons/delete.png);
+    content:  url(/img/icons/delete.png);
 }
 
 .icon_email {
-    content:  url(/costaRicaIsrael/img/icons/email.png);
+    content:  url(/img/icons/email.png);
 }
 
 .form_error {
@@ -144,7 +144,7 @@
 }
 
 label.btn_profile {
-    content: url(/costaRicaIsrael/img/icons/profile.png);
+    content: url(/img/icons/profile.png);
     width:40px;
     height:40px;
     overflow:hidden;
@@ -153,7 +153,7 @@ label.btn_profile {
 }
 
 label.btn_pictures {
-    content: url(/costaRicaIsrael/img/icons/pictures.png);
+    content: url(/img/icons/pictures.png);
     width:50px;
     height:50px;
     overflow:hidden;
