@@ -97,7 +97,8 @@ $edit_mode  = (isset($_REQUEST['edit_member_request'])
 $profile_pic_exist  = false;
 
 $old_pic_name = $name = $email = $position = $tel_number = $title = $about_me = ""; 
-$pic_path   = "/home/israelcrhost/webapps/php/img/members/";
+/*$pic_path   = "/home/israelcrhost/webapps/php/img/members/";*/
+$pic_path   = "./img/members/";
 
 
     if(isset($_POST['deleteMember'])) {
@@ -219,9 +220,15 @@ $pic_path   = "/home/israelcrhost/webapps/php/img/members/";
                     unlink($pic_path.$old_pic_name);
 
                 try {
+
                     if (!move_uploaded_file($_FILES["profile_pic"]["tmp_name"],$pic_path.$pic_name)) {
                         throw new Exception('Could not move file');
                     }
+                    $image = $pic_path.$pic_name;
+                    $resizeObj = new resize($image);
+                    $resizeObj -> resizeImage(200, 200, 'crop');
+                    $resizeObj -> saveImage($image, 100);
+
                 } catch (Exception $e) {
                     echo "<p class='text form_error'>&emsp;
                     Error moving profile pic file.. please try again</p>";

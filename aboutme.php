@@ -50,7 +50,7 @@
 
                             } else {
                                 echo   '<span class="myPic"><img id="profilePic" src="./img/members/' . $pic_path .'"
-                                        alt="Stuff Pfofile Picture" width="150" height="200">
+                                        alt="Stuff Pfofile Picture" width="200" height="200">
                                         </span>
                                         <span class="myHeaderInfo">
                                             <h2 class="myName"> ' . $name . ' </h2>

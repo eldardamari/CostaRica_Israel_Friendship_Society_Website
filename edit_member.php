@@ -15,12 +15,12 @@
     <script src="js/tabs.js"></script>
     <script src="js/members/edit_member.js"></script>
     <script src="js/members/add_member.js"></script>
-    <?php require 'utils/files.php' ?>
 </head>
 
 <body>
     <?php include_once("analyticstracking.php") ?>
     <?php require 'templates/navbarpannel.php'?>
+    <?php include 'utils/resize-class.php';?>
 
     <div id="container_center">
         <div class="container">
