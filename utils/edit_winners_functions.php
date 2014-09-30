@@ -95,6 +95,11 @@ function uploading_profile_pic( &$profile_pic_exist, &$place, &$pic_path,
         if (!move_uploaded_file($_FILES["profile_pic"]["tmp_name"],$pic_full_path)) {
             throw new Exception('Could not move file');
         }
+        $image = $pic_full_path;
+        $resizeObj = new resize($image);
+        $resizeObj -> resizeImage(200, 200, 'crop');
+        $resizeObj -> saveImage($image, 100);
+
     }
 }
 function uploading_pictures(&$pictures_exist, &$count, &$uploaded_pictures,
@@ -233,7 +238,8 @@ $tel_number = $err_msg = $pic_full_path = "";
         $num_of_pictures_in_db = 0;
 
         $pic_name = (($place == "1") ? "first" : "second") . getFileExtension($_FILES["profile_pic"]["name"]);
-	$pic_path   = "/home/israelcrhost/webapps/php/img/winners/";
+	/*$pic_path   = "/home/israelcrhost/webapps/php/img/winners/";*/
+        $pic_path   = "./img/winners/";
 
         try {
         if($add_mode) {

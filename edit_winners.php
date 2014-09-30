@@ -17,7 +17,7 @@
     <script src="js/tabs.js"></script>
     <script src="js/winners/edit_winner.js"></script>
     <script src="js/winners/add_winner.js"></script>
-    <?php require 'utils/files.php' ?>
+    <?php require 'utils/resize-class.php';?>
 </head>
 
 <body>
