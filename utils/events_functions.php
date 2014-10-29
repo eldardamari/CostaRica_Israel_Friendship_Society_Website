@@ -6,7 +6,8 @@ function print_table_rows($table) {
         $func = ($table == "events_en" ? "event" : "meeting");
         $con = makeConnection();
 
-        $query = "SELECT * FROM ".$table;
+        $query = "SELECT * FROM ".$table."
+		  ORDER BY date DESC";
 
         if(!$result = prepareAndExecuteQuery($con,$query))
             return;
