@@ -18,10 +18,23 @@
 
                 <div id="text_box" lang="en">
                     <div id="text_box_header"> <strong>Israel - Costa Rica Friendship Association</strong></div>
-                <div id="text_box_body">
+                <!--<div id="text_box_body">
 		Israel - Costa Rica Friendship Assoc. a non-profit organization, established at july 30,1984 
 		by a group of pioneers from Costa-Rica & south america countries.Believing in the state of Israel and the maintaining relationship with both countries. Both communities living in Costa-Rica and Israel can keep a close relations with each other. The association conduct a unique yearly program:"Know Costa-Rica Contest" an opportunity for students in Israel to explorer Costa-Rica in a unique way.
-                </div>
+                </div>-->
+                
+
+		<div id="text_box_body">
+			The "Israel - Costa Rica Friendship Association" is a non-profit
+			organization established in July 30, 1984 by a group of pioneers from
+			Costa-Rica and South American countries with the purpose of
+			cultivating warm and close relations between both countries at a
+			person to person level.
+			<br><br>
+			The Association conducts with great success a
+			yearly Quiz Program: "Know Costa-Rica Contest", an opportunity for
+			Israeli students to explore Costa-Rica in a unique way.
+		</div>
             </div>
 
 
@@ -88,7 +101,8 @@ function add_events_meetings_home_page($table)
 
     $table = ($table == "event" ? "event" : "meeting");
 
-    $query = "SELECT * FROM ".$table."s_en";
+    $query = "SELECT * FROM ".$table."s_en 
+	      ORDER BY date DESC";
 
     $result = prepareAndExecuteQuery($con,$query);
 
