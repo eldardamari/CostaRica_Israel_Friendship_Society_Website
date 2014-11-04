@@ -3,7 +3,7 @@
 function print_table_head($new_row)
 {
     echo '<br><h2 align="center">' . (2005 + $new_row["contest_num"]) .'
-        Contest Winneres - #' . $new_row["contest_num"].'</h3>'.
+        Contest Winners - #' . $new_row["contest_num"].'</h3>'.
         '<table class="winnersTable" id="winners_'.$new_row["contest_num"].'">'.
         '<script> eventsHeader(); </script>';
 }
