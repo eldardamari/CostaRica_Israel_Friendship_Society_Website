@@ -121,7 +121,7 @@ function add_events_meetings_home_page($table)
             "name"          => $row[2]);
 
         if (strlen($new_row["name"]) >= 22) {
-            $new_row["name"] = substr($new_row["name"],0,19).'..';
+            $new_row["name"] = substr(ucwords($new_row["name"]),0,19).'..';
         }
             
         echo   '<tr onmousedown="open_'.$table.'Page(event,'.$new_row["id"]. ');"> 

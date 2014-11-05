@@ -190,7 +190,7 @@
 
         $date = $_POST['date'];
 
-        $eventName = htmlspecialchars($_POST['eventName']);
+        $eventName = htmlspecialchars(ucfirst($_POST['eventName']));
 
         $description = htmlspecialchars($_POST['description']);
         $description = filter_var($description,FILTER_SANITIZE_STRING);
