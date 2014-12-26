@@ -20,8 +20,15 @@
 
     <div id="container_center">
         <div class="container text">
+            
+	<?php //include 'templates/slide_show.php' ?>
 
-            <?php include 'templates/slide_show.php' ?>
+	    <div class="auto-resizable-iframe">
+		<div>
+		    <div id="player"> </div>
+		</div>
+	    </div>
+
 
             <?php include 'utils/home_page.php' ?>
 
