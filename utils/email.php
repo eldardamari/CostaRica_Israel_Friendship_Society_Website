@@ -80,12 +80,15 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         $mail = set_connection();
         $mail->setFrom(getAssociationMail(), getAssociationMail());
         $mail->addAddress($email, '');
-        $mail->Subject = "Welcome To Israel - Costa Rica Friendship Association";
+        $mail->Subject = "Welcome to the Israel-Costa Rica Friendship Association - NEW Website!";
 
 
         $content =  '<html><body>'.
-                    '<div style="text-align: center; font-size: 300%; font-weight: 900; color: rgba(65,110,225,0.9);">
-                        '.'Welcome To Israel - Costa Rica Friendship Association'.' </div> <br> <hr>
+                    '<div style="text-align: center; font-size: 280%; font-weight: 900; color: rgba(65,110,225,0.9);">
+                        '.'Welcome to the Israel - Costa Rica Friendship Association'.' </div> <br> <hr>
+                    <div style="text-align: center; font-size: 222%; font-weight: 555; color: rgba(65,110,225,0.9);">
+				Visit Our New Website: <a style="color:rgb(124,9,18);" href="http://www.israel-cr.org">www.israel-cr.org</a>
+</div> <hr> <br>
                         <div style="text-align: center; font-size: 200%; font-weight: 550; color: #348017;">
                              You have been subscribed successfully!</div>
                              <div>
@@ -171,12 +174,14 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         preg_match_all("/\_.*?\_/", get_file_name($file_path), $matches);
         $month = (trim(array_pop($matches[0]),"__"));
 
-        $subject = $month . " '14 (#" .$catalog.") ". $type ." available now! - Costa-Rica Israel Friendship Association";
+        $subject = $month . " '15 (#" .$catalog.") ". $type ." available now! - Costa-Rica Israel Friendship Association";
         $mail->Subject = $subject;
+
+	// <a href="'.realpath(dirname(__FILE__).'/../').'/'.$file_path.'" target="_top"> download file</a> </p></li><br>'.
 
         $content =  '<html><body>'.
                 '   <div style="text-align: left; font-size: 200%; font-weight: 550; color: #348017;">
-                Hi '.$first_name.', a new <u>'.$type.'</u> is now available, check it out now!</div><br>
+                Hi '.ucwords($first_name).', a new <u>'.$type.'</u> is now available, check it out now!</div><br>
                              <div>
                     <table width=80% align="center" style="border-style:solid; border-width:medium; border-color:#E8E8E8;"> <tr> <td>
                         <div style="text-align: left; font-size: 100%; font-weight: 225;">
@@ -186,7 +191,7 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
                         '<li><p><b>Month:</b> '.$month.'</p></li>'.
                         '<li><p><b>Catalog #:</b> '.$catalog.'</p></li>'.
                         '<li><p><b>File:</b> See attachment below or  
-                        <a href="'.realpath(dirname(__FILE__).'/../').'/'.$file_path.'" target="_top"> download file</a> </p></li><br>'.
+                        <a href="www.israel-cr.org/'.$file_path.'" target="_top"> download file</a> </p></li><br>'.
                         '</ul></td></tr>
                         <tr> <td> '.printUnsubscribeMsg().'  </td> </tr>
                         </table></div></body></html>';
@@ -208,3 +213,67 @@ function get_file_name($full_path) {
     $file_name = end($temp);
     return substr($file_name,11);
 }
+    
+function sendWelcomeToOurWebsite($email, $firstName, $lastName) {
+
+        $mail = set_connection();
+        $mail->setFrom(getAssociationMail(), getAssociationMail());
+        $mail->addAddress($email, '');
+        $mail->Subject = "Welcome To Israel - Costa Rica Friendship Association NEW Website!";
+
+
+        $content =  '
+<html>
+<head>
+    <meta charset="utf-8" />
+
+</head>
+
+<body style="
+">
+
+<div id="main_header">
+    <div id="container_upper">
+        <div id="left_box_logo">
+            <a href="./"><img id="logo" src="img/logo.png" alt="CR_IL_logo" width="60" height="25"></a>
+        </div>
+        <a href="./">
+            <div id="right_box_text">
+                <div id="company_he" dir="rtl"> אגודת ידידות ישראל - קוסטה ריקה </div>
+                <div id="company_en"> Israel - Costa Rica Friendship Association </div>
+                <div id="company_esp" dir="ltr"> Israel - Costa Rica Asociación d Amistad</div>
+            </div>
+        </a>
+    </div>
+
+<br><br>
+             	<div style="text-align: right; font-size: 200%; font-weight: 900; color:rgba(80, 120, 230, 1);">
+		!בקרו באתר החדש שלנו!
+		<div> <br>
+
+             	<div style="text-align: center; font-size: 100%; font-weight: 900; color:rgba(80, 120, 230, 1);">
+Visit Our New Website!
+		</div> <br> 
+                    
+             	<div style="text-align: left; font-size: 100%; font-weight: 900; color:rgba(80, 120, 230, 1);">
+Visite Nuestro Nuevo Sitio Web!
+		</div> <br> 
+
+
+
+                        <div style="text-align: center; font-size: 150%; font-weight: 550; color: #348017;">
+                             <a href="http://www.israel-cr.org">www.israel-cr.org</a></div>
+
+</body>
+</html> ';
+
+        $mail->msgHTML($content);
+
+        //send the message, check for errors
+        if (!$mail->send()) {
+            sendErrorToAdmin("sendMailToMember","Mailer Error: " . $mail->ErrorInfo);
+            return false;
+        } else {
+            return true;
+        }
+    }
