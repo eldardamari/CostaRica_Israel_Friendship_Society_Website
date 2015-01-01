@@ -328,6 +328,8 @@ nav ul li {
     height: 180px;
     float:left;
     display:inline-block;
+    position: relative;
+    z-index: 2;
 }
 
 #middle {
@@ -400,6 +402,8 @@ width: 30%;
     max-width: 853px;
     max-height: 480px;
     margin: 0px auto;
+    position: relative;
+    z-index: 1;
 }
 
 .auto-resizable-iframe > div {
