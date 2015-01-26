@@ -50,7 +50,7 @@
     </div>
 
     <div id="main_footer_copyNres">
-        <span id="Copyright"> &copy; Copyright 2014, 
+        <span id="Copyright"> &copy; Copyright 2015, 
             <a href="http://www.eldardamari.com" target="_blank">Eldar Damari</a>,
             <a href="http://www.drorventura.com" target="_blank">Dror Ventura</a></span>
             <span id="resolution"> 1024x768</span>
