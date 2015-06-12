@@ -6,8 +6,10 @@
 <input type="hidden" name="hosted_button_id" value="UVK24TG5UFRWG">
 
 	 <div id="formbuttons">
-		<span id="cost">"Know Costa Rica Contest #10 Registration is Now OPEN!</span><br>
-		<span id="">(available until August 11, 2015 12:00pm)</span>
+		<span id="cost">"Know Costa Rica Contest #10 Registration is Now OPEN!</span><br><br>
+		<span id="">(available until August 11, 2015 12:00pm)</span><br>
+		<span id="" onmousedown="contact_member('0');" onmouseover="" style="cursor: pointer;">
+					click <u>here</u> to contact us!</span>
 	</div>
 
     <fieldset><legend>Personal data:</legend>

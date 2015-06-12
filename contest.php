@@ -11,6 +11,7 @@
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="./js/contest.js"></script>
+    <script src="./js/aboutus.js"></script>
     <script src="./js/modal.js"></script>
 
     <?php require 'utils/db_connection.php' ?>
