@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
-$("#paypal_form input").prop("disabled", true);
-$("#paypal_form :input").prop("disabled", true);
+$("#paypal_form input").prop("disabled", false);
+$("#paypal_form :input").prop("disabled", false);
 
     $("#paypal_form").submit(function() {
 
@@ -9,7 +9,7 @@ $("#paypal_form :input").prop("disabled", true);
 
 
         $("#paypal_form input[name=active_pay]").val("true");
-        if($("#paypal_form input[name=hosted_button_id]").val() == "A9TGAAGBZ5WEU") {
+        if($("#paypal_form input[name=hosted_button_id]").val() == "UVK24TG5UFRWG") {
         }
         else {
             alert("Problem with payment.. please try again");
