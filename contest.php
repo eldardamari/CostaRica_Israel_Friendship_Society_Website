@@ -26,8 +26,8 @@
 
     <div id="container_center">
         <div class="container">
-            <img src="./img/contest_poster.jpg" height="10%" width="100%">
-            <div class="topics" id="registration_tag"> Registration </div>
+            <!--<img src="./img/contest_poster.jpg" height="10%" width="100%"> -->
+            <div class="topics" id="registration_tag">Know Costa Rica Contest #10</div>
 
          <?php include 'templates/contest_form.php' ?>
             <br><hr><br>
