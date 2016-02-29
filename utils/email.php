@@ -175,7 +175,7 @@ require_once 'PHPMailer/PHPMailerAutoload.php';
         preg_match_all("/\_.*?\_/", get_file_name($file_path), $matches);
         $month = (trim(array_pop($matches[0]),"__"));
 
-        $subject = $month . " '15 (#" .$catalog.") ". $type ." available now! - Costa-Rica Israel Friendship Association";
+        $subject = $month . " '16 (#" .$catalog.") ". $type ." available now! - Costa-Rica Israel Friendship Association";
         $mail->Subject = $subject;
 
 	// <a href="'.realpath(dirname(__FILE__).'/../').'/'.$file_path.'" target="_top"> download file</a> </p></li><br>'.
