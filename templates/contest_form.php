@@ -7,7 +7,7 @@
 
 	 <div id="formbuttons">
 		<span id="cost">"Know Costa Rica Contest #11 Registration is Now OPEN!</span><br><br>
-		<span id="">(available until August 18, 2015 12:00pm)</span><br>
+		<span id="">(available until August 18, 2016 12:00pm)</span><br>
 		<span id="" onmousedown="contact_member('0');" onmouseover="" style="cursor: pointer;">
 					click <u>here</u> to contact us!</span>
 	</div>
