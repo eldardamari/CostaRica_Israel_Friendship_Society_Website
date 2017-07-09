@@ -58,3 +58,7 @@
 #cost {
     font-weight: bold;
 }
+
+.righttoleft {
+    float: right
+}
