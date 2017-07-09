@@ -13,6 +13,10 @@
 		<!-- <span id="" onmousedown="contact_member('0');" onmouseover="" style="cursor: pointer;">
 					or <u>email us!</u> (we prefer facebook)</span> -->
 	</div>
+	<div>
+		<span><h2>המטרה:</h2></span>
+		<span><h3>לאפשר לצעירים הלומדים באוניברסיטאות ומכללות אקדמאיות בישראל להכיר את מדינת קוסטה ריקה ועמה.</h3></span>
+	</div>
 
     <fieldset><legend>Personal data:</legend>
 
