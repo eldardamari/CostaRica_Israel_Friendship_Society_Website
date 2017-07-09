@@ -8,8 +8,10 @@
 	 <div id="formbuttons">
 		<span id="cost">"Know Costa Rica Contest #12 Registration is Now OPEN!</span><br><br>
 		<span id="">(available until August 10, 2017 12:00pm)</span><br>
-		<span id="" onmousedown="contact_member('0');" onmouseover="" style="cursor: pointer;">
-					click <u>here</u> to contact us!</span>
+		<span id="">Feel free to contact us via our <a href="https://www.facebook.com/israelcostaricafriendship" 
+						  style="color:rgb(59,89,152);">Facebook page!</a></span><br>
+		<!-- <span id="" onmousedown="contact_member('0');" onmouseover="" style="cursor: pointer;">
+					or <u>email us!</u> (we prefer facebook)</span> -->
 	</div>
 
     <fieldset><legend>Personal data:</legend>
